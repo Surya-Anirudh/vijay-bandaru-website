@@ -1,0 +1,502 @@
+import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion"
+import { Link } from "react-router-dom"
+import { ArrowRight, Mail, Phone, MapPin, CheckCircle } from "lucide-react"
+import { useRef, useEffect, useState } from "react"
+
+type JourneyItem = { year: string; period: string; company: string; role: string; story: string; color: string }
+
+/* ─── Journey card (needs own component for hooks) ─── */
+function JourneyCard({ j, i }: { j: JourneyItem; i: number }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: "-60px" })
+  return (
+    <motion.div ref={ref} key={j.year}
+      initial={{ opacity: 0, x: -50 }} animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.55, delay: i * 0.08 }}
+      className="group grid sm:grid-cols-12 gap-4 sm:gap-8 p-6 sm:p-8 rounded-3xl border border-slate-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition-all duration-300 cursor-default bg-white">
+      <div className="sm:col-span-1 flex sm:flex-col items-center sm:items-start gap-3 sm:gap-0">
+        <div className="font-black text-2xl sm:text-3xl leading-none group-hover:text-blue-600 transition-colors" style={{ color: j.color }}>{j.year}</div>
+        <div className="sm:mt-3 w-px sm:w-1 h-1 sm:h-full rounded-full" style={{ background: j.color, opacity: 0.3 }} />
+      </div>
+      <div className="sm:col-span-3">
+        <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-slate-400 mb-1">{j.period}</div>
+        <div className="font-black text-slate-900 text-lg leading-tight">{j.company}</div>
+        <div className="font-semibold text-xs mt-1" style={{ color: j.color }}>{j.role}</div>
+      </div>
+      <div className="sm:col-span-7 flex items-center">
+        <p className="text-slate-500 text-sm leading-relaxed">{j.story}</p>
+      </div>
+      <div className="hidden sm:col-span-1 sm:flex items-center justify-end">
+        <ArrowRight size={16} className="text-slate-200 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+      </div>
+    </motion.div>
+  )
+}
+
+/* ─── Animated counter ─── */
+function Counter({ to, suffix = "", decimal = false }: { to: number; suffix?: string; decimal?: boolean }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true })
+  const [val, setVal] = useState(0)
+  useEffect(() => {
+    if (!inView) return
+    const start = performance.now()
+    const dur = 2000
+    let raf: number
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / dur, 1)
+      const eased = 1 - Math.pow(1 - p, 4)
+      setVal(Math.round(to * eased))
+      if (p < 1) raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [inView, to])
+  const display = decimal ? (val / 10).toFixed(1) : val.toLocaleString()
+  return <span ref={ref}>{display}{suffix}</span>
+}
+
+/* ─── Data ─── */
+const journey = [
+  {
+    year: "1998", period: "1998 – 2012", company: "ValueLabs",
+    role: "Programmer → Technology & Leadership",
+    story: "I began as a programmer and spent 14 formative years growing through technology and leadership roles — learning firsthand how teams succeed and fail under pressure.",
+    color: "#059669",
+  },
+  {
+    year: "2012", period: "2012 – 2016", company: "IVY Comptech",
+    role: "Enterprise Agile Coach",
+    story: "I led my first full-scale Agile transformation — embedding Scrum and Kanban across engineering teams, improving sprint predictability from under 60% to over 90%.",
+    color: "#0891b2",
+  },
+  {
+    year: "2016", period: "2016 – 2018", company: "Pega Systems",
+    role: "Sr. Product Manager & Agile Trainer",
+    story: "I balanced two roles simultaneously — driving product strategy while coaching Agile practices across engineering teams at one of the world's leading enterprise software firms.",
+    color: "#4f46e5",
+  },
+  {
+    year: "2018", period: "2018 – Present", company: "Learnovative",
+    role: "Founder & CEO · Principal Trainer",
+    story: "I founded Learnovative to dedicate 100% of my focus to training. Zero PowerPoint. Real stories. 25,000+ professionals trained. 4.9★ rated. NPS consistently above 90.",
+    color: "#2563eb",
+  },
+]
+
+const certifications = [
+  { code: "CST", full: "Certified Scrum Trainer", body: "Scrum Alliance", bg: "#1e3a8a" },
+  { code: "CTC", full: "Certified Team Coach", body: "Scrum Alliance", bg: "#1e40af" },
+  { code: "A-CSM", full: "Advanced Certified Scrum Master", body: "Scrum Alliance", bg: "#1d4ed8" },
+  { code: "A-CSPO", full: "Advanced Certified Product Owner", body: "Scrum Alliance", bg: "#2563eb" },
+  { code: "ICP-ACC", full: "Agile Coaching Certification", body: "ICAgile", bg: "#0e7490" },
+  { code: "SPC", full: "SAFe Program Consultant", body: "Scaled Agile", bg: "#0f766e" },
+]
+
+const education = [
+  { year: "2021", degree: "Product Strategy", inst: "IIM Kozhikode", type: "Executive Program" },
+  { year: "2006", degree: "PG Diploma in IT", inst: "Symbiosis University", type: "Post Graduate" },
+  { year: "1998", degree: "MCA", inst: "Andhra University", type: "Masters" },
+  { year: "1994", degree: "BCS", inst: "Andhra University", type: "Bachelor's" },
+]
+
+const marqueeItems = [
+  "Scrum Alliance CST", "25,000+ Professionals", "4.9★ Google Rated", "NPS Score 90+",
+  "Zero PowerPoint", "25 Years Experience", "500+ Organisations", "Enterprise Agile Coach",
+  "IIM Kozhikode Alumni", "Hyderabad · India · Global", "800+ Workshops",
+]
+
+export default function About() {
+  const heroRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] })
+  const imgScale = useSpring(useTransform(scrollYProgress, [0, 1], [1, 1.08]), { stiffness: 60, damping: 20 })
+  const imgOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4])
+  const textY = useSpring(useTransform(scrollYProgress, [0, 1], ["0%", "30%"]), { stiffness: 60, damping: 20 })
+
+  return (
+    <div className="overflow-x-hidden" style={{ background: "#030d1e" }}>
+
+      {/* ══════════════ HERO ══════════════ */}
+      <section ref={heroRef} className="relative min-h-screen flex flex-col overflow-hidden">
+
+        {/* BG grid */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: "linear-gradient(rgba(59,130,246,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.04) 1px,transparent 1px)",
+          backgroundSize: "72px 72px",
+        }} />
+
+        {/* Orbs */}
+        <div className="absolute -top-32 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle,rgba(37,99,235,0.2) 0%,transparent 65%)", filter: "blur(80px)" }} />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle,rgba(99,102,241,0.15) 0%,transparent 70%)", filter: "blur(60px)" }} />
+
+        {/* Content */}
+        <div className="relative flex-1 max-w-7xl mx-auto px-6 sm:px-10 w-full grid lg:grid-cols-2 gap-8 pt-28">
+
+          {/* LEFT — Photo */}
+          <motion.div className="relative flex items-end pb-0 lg:pb-0" style={{ minHeight: "70vh" }}>
+            <motion.div style={{ scale: imgScale, opacity: imgOpacity }}
+              className="absolute inset-0 rounded-3xl overflow-hidden"
+              initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: [0.215, 0.61, 0.355, 1] }}>
+              <img src="/vijay-profile.png" alt="Vijay Bandaru"
+                className="w-full h-full object-cover object-top" />
+              {/* Photo overlays */}
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(3,13,30,0.9) 0%, rgba(3,13,30,0.3) 40%, transparent 70%)" }} />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to right, transparent 60%, rgba(3,13,30,0.8) 100%)" }} />
+            </motion.div>
+
+            {/* Name overlay on photo */}
+            <motion.div style={{ y: textY }} className="relative z-10 p-8 lg:p-12">
+              <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 text-blue-300 text-[10px] font-bold tracking-[0.2em] uppercase mb-7">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                  Certified Scrum Trainer · CST
+                </div>
+                <h1 className="font-black text-white leading-[0.88] mb-6 select-none"
+                  style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)", letterSpacing: "-0.04em" }}>
+                  VIJAY<br />
+                  <span style={{
+                    background: "linear-gradient(90deg, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%)",
+                    WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"
+                  }}>BANDARU</span>
+                </h1>
+                <p className="text-slate-400 font-medium text-sm max-w-xs leading-loose tracking-wide">
+                  Agile Coach · Scrum Trainer · Lifelong Learner · Story Collector
+                </p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+
+          {/* RIGHT — Identity */}
+          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+            className="flex flex-col justify-center py-20 px-0 lg:px-14">
+
+            {/* Big quote */}
+            <div className="mb-14">
+              <div className="text-blue-400/25 font-serif leading-none mb-3 select-none" style={{ fontSize: "5rem" }}>"</div>
+              <p className="font-black text-white leading-snug" style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)" }}>
+                I help teams not just adopt Agile, but <span style={{ color: "#60a5fa" }}>actually live it.</span>
+              </p>
+            </div>
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-4 mb-14">
+              {[
+                { val: 25000, suffix: "+", label: "Professionals Trained" },
+                { val: 49, suffix: "★", label: "Google Rating", decimal: true },
+                { val: 800, suffix: "+", label: "Workshops Delivered" },
+                { val: 25, suffix: "+", label: "Years Experience" },
+              ].map((s, i) => (
+                <motion.div key={s.label} initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + i * 0.1, duration: 0.5 }}
+                  className="rounded-2xl p-6 group cursor-default transition-all duration-300"
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(59,130,246,0.1)"; e.currentTarget.style.borderColor = "rgba(59,130,246,0.3)" }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)" }}>
+                  <div className="font-black text-white leading-none mb-2" style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)" }}>
+                    <Counter to={s.val} suffix={s.suffix} decimal={s.decimal} />
+                  </div>
+                  <div className="text-slate-500 text-[11px] font-semibold tracking-widest uppercase">{s.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Contact & CTA */}
+            <div className="space-y-4">
+              <div className="flex flex-wrap gap-2.5">
+                {[
+                  { icon: Mail, label: "vijaybandaru@learnovative.com", href: "mailto:vijaybandaru@learnovative.com" },
+                  { icon: Phone, label: "+91-98480-32144", href: "tel:+919848032144" },
+                  { icon: MapPin, label: "Hyderabad, India", href: "#" },
+                ].map(({ icon: Icon, label, href }) => (
+                  <a key={label} href={href}
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-slate-400 hover:text-white text-xs font-medium transition-colors"
+                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                    <Icon size={12} className="text-blue-400 shrink-0" /> {label}
+                  </a>
+                ))}
+              </div>
+              <div className="flex gap-3 pt-2">
+                <Link to="/contact">
+                  <button className="px-7 py-3 rounded-2xl bg-blue-600 text-white font-black text-sm flex items-center gap-2 transition-all hover:scale-105"
+                    onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 35px rgba(59,130,246,0.55)")}
+                    onMouseLeave={e => (e.currentTarget.style.boxShadow = "")}>
+                    Work With Me <ArrowRight size={14} />
+                  </button>
+                </Link>
+                <a href="https://linkedin.com/in/vijaybandaru" target="_blank" rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://twitter.com/vkbandaru" target="_blank" rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bottom gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, transparent, #030d1e)" }} />
+      </section>
+
+      {/* ══════════════ MARQUEE ══════════════ */}
+      <div className="overflow-hidden py-4 border-y" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.015)" }}>
+        <div className="flex" style={{ animation: "marquee-scroll 35s linear infinite" }}>
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={i} className="text-blue-400/40 text-[10px] font-mono font-bold whitespace-nowrap flex items-center gap-6 px-6 tracking-[0.2em] uppercase">
+              {item} <span className="text-blue-800/60">✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* ══════════════ MY STORY ══════════════ */}
+      <section className="py-24 px-4" style={{ background: "#030d1e" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            {/* Label col */}
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              className="lg:col-span-3">
+              <div className="font-mono text-blue-500/50 text-xs tracking-[0.3em] uppercase mb-3 lg:pt-3">My Story</div>
+              <div className="hidden lg:block w-12 h-px bg-blue-500/30 mt-4" />
+            </motion.div>
+            {/* Content col */}
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              transition={{ duration: 0.7 }} className="lg:col-span-9">
+              <h2 className="font-black text-white leading-tight mb-8" style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", letterSpacing: "-0.03em" }}>
+                From programmer<br />to India's <span style={{
+                  background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
+                  WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"
+                }}>top Scrum Trainer.</span>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6 text-slate-400 leading-relaxed text-base">
+                <div className="space-y-4">
+                  <p>I started my career as a programmer at ValueLabs in 1998. Over 14 years, I grew through technology and leadership roles — watching teams struggle not because of a lack of talent, but because of <strong className="text-slate-200">how they worked together</strong>.</p>
+                  <p>That insight drove me toward Agile. I became an Enterprise Agile Coach, led transformations at IVY Comptech and Pega Systems, and in 2018 I founded <strong className="text-slate-200">Learnovative</strong> — to dedicate my entire focus to training people, not managing processes.</p>
+                </div>
+                <div className="space-y-4">
+                  <p>My approach has always been the same: <strong className="text-slate-200">zero slides, 100% real</strong>. I use physical objects, whiteboards, and authentic war stories from my 25 years in the field. No theory for theory's sake.</p>
+                  <p>The results speak: an NPS consistently above 90, a 4.9★ Google rating across 8,591+ verified reviews, and 25,000+ professionals trained across 500+ organisations — from Hyderabad to Singapore to Dubai.</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ PHILOSOPHY SECTION ══════════════ */}
+      <section className="py-0 px-4" style={{ background: "#020810" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="border-t border-b py-16" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+            <motion.p initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="font-black text-white text-center leading-tight select-none"
+              style={{ fontSize: "clamp(2rem, 6vw, 5rem)", letterSpacing: "-0.03em" }}>
+              "Every team has the capacity to be{" "}
+              <span style={{ color: "#3b82f6" }}>extraordinary.</span>"<br />
+              <span className="text-slate-500" style={{ fontSize: "0.55em", fontWeight: 700, letterSpacing: "-0.01em" }}>
+                They just need the right environment to discover it.
+              </span>
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ WHAT I DO DIFFERENTLY ══════════════ */}
+      <section className="relative overflow-hidden py-24 px-4">
+        {/* YouTube background — starts at 7:40 (460s) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/-tqYUYK6VQE?autoplay=1&mute=1&loop=1&playlist=-tqYUYK6VQE&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&start=460&end=470"
+            allow="autoplay; encrypted-media"
+            style={{
+              position: "absolute", top: "50%", left: "50%",
+              transform: "translate(-50%,-50%)",
+              width: "177.78vh", height: "56.25vw",
+              minWidth: "100%", minHeight: "100%",
+              border: "none", pointerEvents: "none",
+            }}
+          />
+          {/* Lighter overlay — video person visible, text still readable */}
+          <div style={{ position: "absolute", inset: 0, background: "rgba(2,8,16,0.52)" }} />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto">
+          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+            className="flex items-end justify-between mb-14 flex-wrap gap-4">
+            <div>
+              <div className="font-mono text-blue-500/50 text-xs tracking-[0.3em] uppercase mb-3">My Approach</div>
+              <h2 className="font-black text-white leading-none" style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.03em" }}>
+                What makes me<br /><span className="text-blue-400">different.</span>
+              </h2>
+            </div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                num: "01", title: "Zero PowerPoint", icon: "🖊️",
+                body: "Every session uses physical props, live whiteboards, and group collaboration. You learn by doing — retention is 3× higher than passive slide watching.",
+              },
+              {
+                num: "02", title: "Real War Stories", icon: "⚡",
+                body: "Every concept I teach is anchored in a real enterprise transformation I've lived through — messy, honest, and immediately applicable on Monday morning.",
+              },
+              {
+                num: "03", title: "Post-Training Support", icon: "🎯",
+                body: "I personally review your resume, coach your LinkedIn profile, and prepare you for interviews — months after the workshop ends. The certification is just the beginning.",
+              },
+            ].map((d, i) => (
+              <motion.div key={d.num} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.12 }}
+                className="p-10 group cursor-default transition-all duration-400"
+                style={{ background: "rgba(255,255,255,0.72)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.4)" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.85)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.72)")}>
+                <div className="font-mono text-xs tracking-[0.3em] mb-6" style={{ color: "rgba(0,0,0,0.5)" }}>{d.num}</div>
+                <div className="text-4xl mb-5">{d.icon}</div>
+                <h3 className="font-black text-2xl mb-4" style={{ color: "#0f172a" }}>{d.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#1e293b" }}>{d.body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ CAREER JOURNEY ══════════════ */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="mb-16">
+            <div className="font-mono text-blue-500 text-xs tracking-[0.3em] uppercase mb-3">25 Years</div>
+            <h2 className="font-black text-slate-900 leading-none" style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", letterSpacing: "-0.04em" }}>
+              My career<br /><span className="text-blue-600">journey.</span>
+            </h2>
+          </motion.div>
+
+          <div className="space-y-4">
+            {journey.map((j, i) => <JourneyCard key={j.year} j={j} i={i} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ CERTIFICATIONS ══════════════ */}
+      <section className="py-24 px-4" style={{ background: "#030d1e" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12">
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              className="lg:col-span-4 flex flex-col justify-center">
+              <div className="font-mono text-blue-500/50 text-xs tracking-[0.3em] uppercase mb-4">Credentials</div>
+              <h2 className="font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.5rem)", letterSpacing: "-0.03em" }}>
+                My<br /><span className="text-blue-400">certifications.</span>
+              </h2>
+              <p className="text-slate-500 text-sm leading-relaxed mb-8">
+                Every certification I hold, I teach. I don't just train for the exam — I train for the transformation that happens after.
+              </p>
+              <img src="/certifications.png" alt="Certifications" className="rounded-2xl opacity-80 hover:opacity-100 transition-opacity" />
+            </motion.div>
+
+            <div className="lg:col-span-8">
+              <div className="grid sm:grid-cols-2 gap-3">
+                {certifications.map((c, i) => (
+                  <motion.div key={c.code} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.07 }}
+                    className="group flex items-center gap-4 p-5 rounded-2xl cursor-default transition-all duration-300"
+                    style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
+                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(37,99,235,0.1)"; e.currentTarget.style.borderColor = "rgba(59,130,246,0.3)" }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.03)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)" }}>
+                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 font-black text-white text-[11px] text-center leading-tight"
+                      style={{ background: `linear-gradient(135deg, ${c.bg}, ${c.bg}cc)`, boxShadow: `0 8px 24px ${c.bg}40` }}>
+                      {c.code}
+                    </div>
+                    <div>
+                      <div className="font-bold text-white text-sm leading-snug">{c.full}</div>
+                      <div className="flex items-center gap-1.5 mt-1">
+                        <CheckCircle size={10} className="text-blue-400" />
+                        <span className="text-blue-400/70 text-[10px] font-semibold tracking-wide">{c.body}</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ EDUCATION ══════════════ */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="mb-12">
+            <div className="font-mono text-blue-500 text-xs tracking-[0.3em] uppercase mb-3">Academic</div>
+            <h2 className="font-black text-slate-900 leading-none" style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)", letterSpacing: "-0.04em" }}>
+              Education.
+            </h2>
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {education.map((e, i) => (
+              <motion.div key={e.year} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="relative overflow-hidden rounded-3xl p-8 border border-slate-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition-all duration-300 cursor-default group bg-white">
+                {/* Large year bg */}
+                <div className="absolute right-3 top-3 font-black text-slate-50 leading-none select-none pointer-events-none group-hover:text-blue-50 transition-colors"
+                  style={{ fontSize: "5rem" }}>{e.year}</div>
+                <div className="relative">
+                  <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full mb-6 group-hover:bg-blue-100 transition-colors">{e.type}</span>
+                  <h3 className="font-black text-slate-900 text-xl mb-2 leading-tight">{e.degree}</h3>
+                  <p className="text-slate-400 text-xs font-medium">{e.inst}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════ CTA ══════════════ */}
+      <section className="relative py-28 px-4 overflow-hidden" style={{ background: "#030d1e" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: "linear-gradient(rgba(59,130,246,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.05) 1px,transparent 1px)",
+          backgroundSize: "72px 72px",
+        }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle,rgba(37,99,235,0.15) 0%,transparent 65%)", filter: "blur(80px)" }} />
+
+        <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+          className="relative max-w-4xl mx-auto text-center">
+          <div className="font-mono text-blue-500/50 text-xs tracking-[0.3em] uppercase mb-6">Let's Connect</div>
+          <h2 className="font-black text-white leading-tight mb-6 select-none"
+            style={{ fontSize: "clamp(3rem, 9vw, 7rem)", letterSpacing: "-0.04em" }}>
+            READY TO<br /><span style={{
+              background: "linear-gradient(90deg, #2563eb, #60a5fa)",
+              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"
+            }}>TRANSFORM?</span>
+          </h2>
+          <p className="text-slate-400 text-lg mb-12 max-w-xl mx-auto">
+            Whether it's a public workshop, corporate training, coaching, or a speaking engagement — I'd love to connect.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact">
+              <button className="px-10 py-4 rounded-2xl bg-blue-600 text-white font-black text-sm flex items-center gap-2 transition-all hover:scale-105"
+                onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 50px rgba(59,130,246,0.55)")}
+                onMouseLeave={e => (e.currentTarget.style.boxShadow = "")}>
+                Get in Touch <ArrowRight size={15} />
+              </button>
+            </Link>
+            <Link to="/training">
+              <button className="px-10 py-4 rounded-2xl border border-white/15 text-white font-black text-sm hover:border-blue-400/40 hover:bg-white/5 transition-all">
+                View My Programs
+              </button>
+            </Link>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  )
+}
