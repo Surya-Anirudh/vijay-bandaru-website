@@ -1152,45 +1152,44 @@ export default function Home() {
             </h2>
           </ScrubReveal>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-0">
             {vijayDifference.map((d, i) => (
-              <motion.div key={d.num} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.55, delay: i * 0.15 }}>
-                <Tilt3D className="h-full">
-                <div className="relative h-full rounded-3xl overflow-hidden group cursor-default"
-                  style={{ border: `1px solid ${d.color}30`, background: `linear-gradient(135deg, ${d.color}18 0%, rgba(3,13,30,0.95) 60%)` }}
-                  onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 0 60px ${d.color}30, inset 0 1px 0 ${d.color}25` }}
-                  onMouseLeave={e => { e.currentTarget.style.boxShadow = "none" }}>
+              <motion.div key={d.num}
+                initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="group relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 py-10 cursor-default"
+                style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = `${d.color}08` }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent" }}>
 
-                  {/* Glow blob top-right */}
-                  <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full pointer-events-none"
-                    style={{ background: `radial-gradient(circle, ${d.color}35 0%, transparent 70%)`, filter: "blur(20px)" }} />
+                {/* Left: big number */}
+                <div className="shrink-0 w-24 text-right hidden md:block">
+                  <span className="font-black leading-none select-none"
+                    style={{ fontSize: "5rem", color: `${d.color}25`, transition: "color 0.3s" }}>
+                    {d.num}
+                  </span>
+                </div>
 
-                  {/* Top accent bar */}
-                  <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${d.color}, ${d.color}00)` }} />
-
-                  <div className="p-8">
-                    {/* Icon + number row */}
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center relative"
-                        style={{ background: `${d.color}22`, border: `1px solid ${d.color}45`, boxShadow: `0 0 30px ${d.color}25` }}>
-                        <d.icon size={28} style={{ color: d.color }} />
-                        <div className="absolute inset-0 rounded-2xl pointer-events-none"
-                          style={{ border: `1px solid ${d.color}`, animation: "pulse-ring 2.5s ease-out infinite", animationDelay: `${i * 0.8}s` }} />
-                      </div>
-                      <span className="font-black text-[4.5rem] leading-none select-none pointer-events-none"
-                        style={{ color: `${d.color}20`, lineHeight: 1 }}>{d.num}</span>
-                    </div>
-
-                    <div className="text-[10px] font-black tracking-[0.25em] uppercase mb-2" style={{ color: d.color }}>{d.tagline}</div>
-                    <h3 className="text-white font-black text-2xl mb-3 leading-tight">{d.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{d.desc}</p>
-
-                    {/* Bottom accent line */}
-                    <div className="mt-6 h-px w-16 rounded-full" style={{ background: `linear-gradient(90deg, ${d.color}, transparent)` }} />
+                {/* Center: icon + title */}
+                <div className="flex items-center gap-5 md:w-72 shrink-0">
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
+                    style={{ background: `${d.color}18`, border: `1px solid ${d.color}40`, boxShadow: `0 0 24px ${d.color}20` }}>
+                    <d.icon size={24} style={{ color: d.color }} />
+                  </div>
+                  <div>
+                    <div className="text-[9px] font-black tracking-[0.28em] uppercase mb-1" style={{ color: d.color }}>{d.tagline}</div>
+                    <h3 className="text-white font-black text-xl leading-tight">{d.title}</h3>
                   </div>
                 </div>
-                </Tilt3D>
+
+                {/* Right: description */}
+                <div className="flex-1">
+                  <p className="text-slate-400 text-sm leading-relaxed">{d.desc}</p>
+                </div>
+
+                {/* Hover left accent */}
+                <div className="absolute left-0 top-0 bottom-0 w-0.5 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top rounded-full"
+                  style={{ background: d.color }} />
               </motion.div>
             ))}
           </div>
