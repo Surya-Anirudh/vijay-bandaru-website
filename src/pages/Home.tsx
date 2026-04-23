@@ -791,8 +791,8 @@ export default function Home() {
 
           {/* Info strip */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+            initial={{ clipPath: "inset(0 100% 0 0)" }} animate={{ clipPath: "inset(0 0% 0 0)" }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
             className="flex items-center justify-between px-4 sm:px-8 py-2"
             style={{ borderTop: "1px solid rgba(255,255,255,0.1)", background: "rgba(3,13,30,0.75)", backdropFilter: "blur(10px)" }}>
             <span className="font-mono text-[9px] text-white/30 tracking-[0.28em] uppercase hidden sm:block">Scrum Alliance · Since 2013</span>
@@ -806,9 +806,9 @@ export default function Home() {
           {/* HUGE NAME */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "rgba(3,13,30,0.92)", backdropFilter: "blur(16px)", overflow: "hidden" }}>
             <motion.div
-              initial={{ opacity: 0, x: -80 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.85, delay: 0.15, ease: [0.215, 0.61, 0.355, 1] }}
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
               className="flex items-baseline justify-between select-none px-4 sm:px-8"
               style={{ letterSpacing: "-0.045em", lineHeight: 0.88 }}>
               <span className="font-black" style={{ fontSize: "clamp(2.8rem, 10.5vw, 14rem)",
@@ -830,9 +830,9 @@ export default function Home() {
             </motion.div>
             {/* Subtitle row */}
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{ duration: 0.8, delay: 0.45, ease: [0.215, 0.61, 0.355, 1] }}
               className="flex items-center justify-between px-4 sm:px-8 pb-2">
               <span className="font-mono text-[9px] text-white/25 tracking-[0.3em] uppercase">Certified Scrum Trainer</span>
               <span className="font-mono text-[9px] text-white/25 tracking-[0.3em] uppercase hidden sm:block">Enterprise Agile Coach · Since 2013</span>
@@ -841,8 +841,8 @@ export default function Home() {
 
           {/* CTA strip */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.55, ease: [0.215, 0.61, 0.355, 1] }}
+            initial={{ clipPath: "inset(0 100% 0 0)" }} animate={{ clipPath: "inset(0 0% 0 0)" }}
+            transition={{ duration: 0.8, delay: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
             className="flex flex-wrap items-center gap-3 px-4 sm:px-8 py-3"
             style={{ borderTop: "1px solid rgba(255,255,255,0.1)", background: "rgba(3,13,30,0.92)", backdropFilter: "blur(16px)" }}>
             <MagneticWrapper>
@@ -870,8 +870,8 @@ export default function Home() {
 
           {/* Marquee strip */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
+            initial={{ clipPath: "inset(0 100% 0 0)" }} animate={{ clipPath: "inset(0 0% 0 0)" }}
+            transition={{ duration: 0.8, delay: 0.75, ease: [0.215, 0.61, 0.355, 1] }}
             className="overflow-hidden" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.015)" }}>
             <div className="py-3 overflow-hidden">
               <div className="flex" style={{ animation: "marquee-scroll 40s linear infinite" }}>
