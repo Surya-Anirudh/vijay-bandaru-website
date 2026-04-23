@@ -808,7 +808,7 @@ export default function Home() {
           {/* HUGE NAME */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "rgba(3,13,30,0.92)", backdropFilter: "blur(16px)", overflow: "hidden" }}>
             <motion.div
-              initial={{ x: "100%" }}
+              initial={{ x: "-100%" }}
               animate={{ x: "0%" }}
               transition={{ duration: 0.85, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
               className="flex items-baseline justify-between select-none px-4 sm:px-8"
@@ -875,7 +875,7 @@ export default function Home() {
           {/* Marquee strip */}
           <div style={{ overflow: "hidden" }}>
           <motion.div
-            initial={{ x: "100%" }} animate={{ x: "0%" }}
+            initial={{ x: "-100%" }} animate={{ x: "0%" }}
             transition={{ duration: 0.75, delay: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
             className="overflow-hidden" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.015)" }}>
             <div className="py-3 overflow-hidden">
