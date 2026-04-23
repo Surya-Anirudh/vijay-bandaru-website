@@ -345,7 +345,7 @@ const marqueeItems = [
 const programs = [
   { id: "csm", title: "Certified Scrum Master", short: "CSM", level: "Foundation", accent: "#2563eb", href: "/training#csm", tag: "Most Popular", badge: "/badge-csm.png" },
   { id: "acsm", title: "Advanced Certified Scrum Master", short: "A-CSM", level: "Advanced", accent: "#4f46e5", href: "/training#acsm", tag: null, badge: "/badge-acsm.png" },
-  { id: "cspo", title: "Certified Scrum Product Owner", short: "CSPO", level: "Foundation", accent: "#0891b2", href: "/training#cspo", tag: null, badge: "/badge-acspo.png" },
+  { id: "cspo", title: "Certified Scrum Product Owner", short: "CSPO", level: "Foundation", accent: "#0891b2", href: "/training#cspo", tag: null, badge: "/badge-cspo.png" },
   { id: "ai-sm", title: "AI for Scrum Masters", short: "AI-SM", level: "Emerging", accent: "#059669", href: "/training#ai-sm", tag: "New", badge: "/badge-aism.png" },
 ]
 
