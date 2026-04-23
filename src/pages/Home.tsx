@@ -847,18 +847,27 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Passion tagline */}
+          {/* Philosophy strip */}
           <div style={{ overflow: "hidden" }}>
           <motion.div
             initial={{ x: "100%" }} animate={{ x: "0%" }}
             transition={{ duration: 0.75, delay: 0.55, ease: [0.215, 0.61, 0.355, 1] }}
-            className="px-4 sm:px-8 py-3 flex items-center justify-center"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.1)", background: "rgba(3,13,30,0.92)", backdropFilter: "blur(16px)" }}>
-            <p className="font-semibold text-sm sm:text-base tracking-wide text-center"
-              style={{ color: "rgba(255,255,255,0.75)" }}>
+            className="px-4 sm:px-8 py-4 flex items-center justify-center gap-4"
+            style={{ borderTop: "1px solid rgba(59,130,246,0.3)", background: "linear-gradient(90deg, rgba(37,99,235,0.12) 0%, rgba(3,13,30,0.95) 40%, rgba(3,13,30,0.95) 60%, rgba(37,99,235,0.12) 100%)", backdropFilter: "blur(16px)" }}>
+            <span className="text-blue-500/50 text-2xl font-black leading-none select-none">"</span>
+            <p className="font-semibold text-sm sm:text-base tracking-wide text-center italic"
+              style={{ color: "rgba(255,255,255,0.85)" }}>
               Training and coaching is not just my profession,{" "}
-              <span className="text-blue-400 font-black">it is my passion</span>
+              <span style={{
+                background: "linear-gradient(90deg, #60a5fa, #93c5fd)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                fontStyle: "normal",
+                fontWeight: 900,
+              }}>it is my passion</span>
             </p>
+            <span className="text-blue-500/50 text-2xl font-black leading-none select-none">"</span>
           </motion.div>
           </div>
 
