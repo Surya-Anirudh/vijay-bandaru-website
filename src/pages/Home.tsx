@@ -817,7 +817,7 @@ export default function Home() {
               initial={{ x: "-100%" }}
               animate={{ x: "0%" }}
               transition={{ duration: 0.85, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-              className="flex items-baseline justify-between select-none px-4 sm:px-8"
+              className="flex items-baseline justify-center select-none px-4 sm:px-8 gap-[3vw]"
               style={{ letterSpacing: "-0.045em", lineHeight: 0.88 }}>
               <span className="font-black" style={{ fontSize: "clamp(2.8rem, 10.5vw, 14rem)",
                 background: "linear-gradient(90deg, #ffffff 0%, #93c5fd 30%, #60a5fa 50%, #ffffff 70%, #93c5fd 100%)",
