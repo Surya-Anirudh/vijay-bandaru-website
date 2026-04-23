@@ -46,7 +46,7 @@ export default function Navbar() {
 
           {/* Logo — wordmark */}
           <Link to="/" className="flex items-center gap-0 group shrink-0 select-none">
-            <img src="/logo.svg" alt="VB Logo" className="w-10 h-10 mr-2.5 transition-transform duration-300 group-hover:scale-110" />
+            <img src="/logo.png" alt="VB Logo" className="w-10 h-10 mr-2.5 transition-transform duration-300 group-hover:scale-110" />
             <div className="leading-none">
               <div className={cn("font-black text-base tracking-tight transition-colors duration-500", scrolled ? "text-slate-900" : "text-white")}>
                 VIJAY <span className="text-blue-500">BANDARU</span>
