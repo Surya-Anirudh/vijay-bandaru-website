@@ -421,9 +421,15 @@ const vijayDifference = [
   },
   {
     num: "03", icon: Rocket, color: "#0891b2",
-    tagline: "Beyond the Certification",
-    title: "Post-Training Support",
-    desc: "I personally review your resume, coach your LinkedIn, and prep you for interviews — months after the workshop ends. Your career growth is my goal.",
+    tagline: "TBR Certified",
+    title: "Training from the Back of the Room",
+    desc: "Certified in Training from the Back of the Room — enhancing adult learning through 4C concepts for deeper understanding and real retention.",
+  },
+  {
+    num: "04", icon: BookOpen, color: "#10b981",
+    tagline: "High Quality Materials",
+    title: "Curiosity-Driven Learning",
+    desc: "My materials create curiosity and lead to an interactive and engaging learning experience that inspires participants long after the session ends.",
   },
 ]
 
@@ -1134,17 +1140,17 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto">
           <ScrubReveal className="text-center mb-16">
-            <div className="font-mono text-blue-500/40 text-xs tracking-[0.3em] uppercase mb-4">03 / METHODOLOGY</div>
+            <div className="font-mono text-blue-500/40 text-xs tracking-[0.3em] uppercase mb-4">03 / MY TEACHING APPROACH</div>
             <LineDivider className="max-w-xs mx-auto mb-6" />
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-semibold mb-5">
-              What Makes It Different
+              How Do I Create Impact
             </div>
             <h2 className="font-black text-white leading-tight" style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}>
-              <ScrambleText text="Not Your Average" className="block" /><span className="text-blue-400">Training</span>
+              <ScrambleText text="Training is not just my profession," className="block" /><span className="text-blue-400">it is my passion</span>
             </h2>
           </ScrubReveal>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 gap-5">
             {vijayDifference.map((d, i) => (
               <motion.div key={d.num} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.55, delay: i * 0.15 }}>
