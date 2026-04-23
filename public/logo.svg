@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110">
+  <!-- Outer diamond -->
+  <polygon points="55,6 104,55 55,104 6,55" fill="rgba(255,255,255,0.08)" stroke="#1e3a8a" stroke-width="5" stroke-linejoin="round"/>
+
+  <!-- Left V/chevron inside diamond -->
+  <polyline points="6,55 34,27 55,55 34,83 6,55" fill="none" stroke="#1e3a8a" stroke-width="5" stroke-linejoin="miter" stroke-linecap="round"/>
+
+  <!-- B letter (right side, blue) -->
+  <line x1="55" y1="30" x2="55" y2="80" stroke="#2563eb" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Upper bump -->
+  <path d="M55,30 Q76,30 76,43 Q76,55 55,55" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+  <!-- Lower bump (slightly wider) -->
+  <path d="M55,55 Q80,55 80,67.5 Q80,80 55,80" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Gold arrow through center -->
+  <line x1="2" y1="55" x2="98" y2="55" stroke="#c9922a" stroke-width="3" stroke-linecap="round"/>
+  <!-- Arrowhead -->
+  <polygon points="108,55 94,48 94,62" fill="#c9922a"/>
+  <!-- Tail feathers -->
+  <line x1="2" y1="55" x2="14" y2="47" stroke="#c9922a" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="2" y1="55" x2="14" y2="63" stroke="#c9922a" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
