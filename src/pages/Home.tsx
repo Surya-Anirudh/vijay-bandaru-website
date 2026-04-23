@@ -847,34 +847,18 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* CTA strip */}
+          {/* Passion tagline */}
           <div style={{ overflow: "hidden" }}>
           <motion.div
             initial={{ x: "100%" }} animate={{ x: "0%" }}
             transition={{ duration: 0.75, delay: 0.55, ease: [0.215, 0.61, 0.355, 1] }}
-            className="flex flex-wrap items-center gap-3 px-4 sm:px-8 py-3"
+            className="px-4 sm:px-8 py-3 flex items-center justify-center"
             style={{ borderTop: "1px solid rgba(255,255,255,0.1)", background: "rgba(3,13,30,0.92)", backdropFilter: "blur(16px)" }}>
-            <MagneticWrapper>
-              <Link to="/training">
-                <button className="group px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-xl text-sm transition-all hover:scale-105 inline-flex items-center gap-2"
-                  onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 40px rgba(59,130,246,0.6)")}
-                  onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}>
-                  View Programs <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </Link>
-            </MagneticWrapper>
-            <MagneticWrapper>
-              <a href="https://www.learnovative.com/training-calendar/" target="_blank" rel="noopener noreferrer">
-                <button className="px-6 py-2.5 border border-white/20 hover:border-blue-400/50 text-white font-black rounded-xl text-sm transition-all hover:bg-white/5">
-                  Training Calendar
-                </button>
-              </a>
-            </MagneticWrapper>
-            <div className="ml-auto hidden md:flex items-center gap-4">
-              <a href="tel:+919848032144" className="font-mono text-xs text-white/30 hover:text-white/60 transition-colors">+91-98480-32144</a>
-              <span className="text-white/15">|</span>
-              <Link to="/contact" className="font-mono text-xs text-blue-400/60 hover:text-blue-400 transition-colors font-semibold">Book a Session →</Link>
-            </div>
+            <p className="font-semibold text-sm sm:text-base tracking-wide text-center"
+              style={{ color: "rgba(255,255,255,0.75)" }}>
+              Training and coaching is not just my profession,{" "}
+              <span className="text-blue-400 font-black">it is my passion</span>
+            </p>
           </motion.div>
           </div>
 
