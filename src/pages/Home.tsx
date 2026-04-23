@@ -792,7 +792,7 @@ export default function Home() {
           {/* Info strip */}
           <div style={{ overflow: "hidden" }}>
           <motion.div
-            initial={{ x: "-100%" }} animate={{ x: "0%" }}
+            initial={{ x: "100%" }} animate={{ x: "0%" }}
             transition={{ duration: 0.75, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
             className="flex items-center justify-between px-4 sm:px-8 py-2"
             style={{ borderTop: "1px solid rgba(255,255,255,0.1)", background: "rgba(3,13,30,0.75)", backdropFilter: "blur(10px)" }}>
@@ -808,7 +808,7 @@ export default function Home() {
           {/* HUGE NAME */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "rgba(3,13,30,0.92)", backdropFilter: "blur(16px)", overflow: "hidden" }}>
             <motion.div
-              initial={{ x: "-100%" }}
+              initial={{ x: "100%" }}
               animate={{ x: "0%" }}
               transition={{ duration: 0.85, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
               className="flex items-baseline justify-between select-none px-4 sm:px-8"
@@ -832,7 +832,7 @@ export default function Home() {
             </motion.div>
             {/* Subtitle row */}
             <motion.div
-              initial={{ x: "-100%" }}
+              initial={{ x: "100%" }}
               animate={{ x: "0%" }}
               transition={{ duration: 0.75, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
               className="flex items-center justify-between px-4 sm:px-8 pb-2">
@@ -844,7 +844,7 @@ export default function Home() {
           {/* CTA strip */}
           <div style={{ overflow: "hidden" }}>
           <motion.div
-            initial={{ x: "-100%" }} animate={{ x: "0%" }}
+            initial={{ x: "100%" }} animate={{ x: "0%" }}
             transition={{ duration: 0.75, delay: 0.55, ease: [0.215, 0.61, 0.355, 1] }}
             className="flex flex-wrap items-center gap-3 px-4 sm:px-8 py-3"
             style={{ borderTop: "1px solid rgba(255,255,255,0.1)", background: "rgba(3,13,30,0.92)", backdropFilter: "blur(16px)" }}>
@@ -875,7 +875,7 @@ export default function Home() {
           {/* Marquee strip */}
           <div style={{ overflow: "hidden" }}>
           <motion.div
-            initial={{ x: "-100%" }} animate={{ x: "0%" }}
+            initial={{ x: "100%" }} animate={{ x: "0%" }}
             transition={{ duration: 0.75, delay: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
             className="overflow-hidden" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.015)" }}>
             <div className="py-3 overflow-hidden">
