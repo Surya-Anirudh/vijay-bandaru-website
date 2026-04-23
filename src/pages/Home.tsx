@@ -843,7 +843,7 @@ export default function Home() {
               transition={{ duration: 0.75, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
               className="flex items-center justify-center px-4 sm:px-8 pb-3">
               <span className="text-blue-300/70 text-lg mr-2 select-none">"</span>
-              <span style={{ color: "rgba(147,197,253,0.8)", fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: "clamp(0.8rem, 1.4vw, 1.05rem)", fontWeight: 600, letterSpacing: "0.05em" }}>
+              <span className="font-mono font-semibold tracking-[0.22em] uppercase text-[10px] sm:text-xs" style={{ color: "rgba(147,197,253,0.7)" }}>
                 Organisational Transformation Coach
               </span>
               <span className="text-blue-300/70 text-lg ml-2 select-none">"</span>
