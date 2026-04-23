@@ -200,6 +200,66 @@ function WordReveal({ text, className = "", style = {}, delay = 0 }: { text: str
   )
 }
 
+/* ── Floating particles background ── */
+function ParticleCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext("2d")!
+    let W = 0, H = 0
+    const resize = () => { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight }
+    resize()
+    const ro = new ResizeObserver(resize)
+    ro.observe(canvas)
+
+    const COUNT = 55
+    const particles = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * 1000,
+      y: Math.random() * 800,
+      r: Math.random() * 1.8 + 0.4,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      alpha: Math.random() * 0.5 + 0.15,
+      color: Math.random() > 0.5 ? "59,130,246" : "99,102,241",
+    }))
+
+    let raf: number
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H)
+      particles.forEach(p => {
+        p.x += p.vx; p.y += p.vy
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0
+        ctx.beginPath()
+        ctx.arc(p.x % W, p.y % H, p.r, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(${p.color},${p.alpha})`
+        ctx.fill()
+      })
+      // draw faint lines between nearby particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x
+          const dy = particles[i].y - particles[j].y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          if (dist < 120) {
+            ctx.beginPath()
+            ctx.moveTo(particles[i].x, particles[i].y)
+            ctx.lineTo(particles[j].x, particles[j].y)
+            ctx.strokeStyle = `rgba(59,130,246,${0.07 * (1 - dist / 120)})`
+            ctx.lineWidth = 0.6
+            ctx.stroke()
+          }
+        }
+      }
+      raf = requestAnimationFrame(draw)
+    }
+    draw()
+    return () => { cancelAnimationFrame(raf); ro.disconnect() }
+  }, [])
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+}
+
 /* ── Wavy interactive line grid (wodniack.dev-style) ── */
 function WavyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -1130,20 +1190,9 @@ export default function Home() {
       <PortfolioCarousel />
 
       {/* ═══════════════════ THE VIJAY DIFFERENCE ═══════════════════ */}
-      <section className="py-16 px-4 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #0a0f2e 0%, #020810 40%, #0d0a1f 100%)" }}>
+      <section className="py-16 px-4 relative overflow-hidden" style={{ background: "#020810" }}>
         <LineDivider className="absolute top-0 left-0 right-0" />
-        {/* Diagonal light beams */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-40 -left-20 w-[500px] h-[700px] opacity-10 pointer-events-none"
-            style={{ background: "linear-gradient(135deg, #3b82f6, transparent)", transform: "rotate(-20deg)", filter: "blur(60px)" }} />
-          <div className="absolute -bottom-40 -right-20 w-[500px] h-[700px] opacity-10 pointer-events-none"
-            style={{ background: "linear-gradient(135deg, #6366f1, transparent)", transform: "rotate(-20deg)", filter: "blur(60px)" }} />
-        </div>
-        {/* Floating orbs */}
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)", filter: "blur(40px)" }} />
-        <div className="absolute bottom-1/4 left-1/4 w-48 h-48 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%)", filter: "blur(30px)" }} />
+        <ParticleCanvas />
 
         <div className="relative max-w-7xl mx-auto">
           <ScrubReveal className="text-center mb-16">
