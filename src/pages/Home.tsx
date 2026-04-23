@@ -983,19 +983,39 @@ export default function Home() {
           style={{ background: "radial-gradient(circle,rgba(37,99,235,0.13) 0%,transparent 70%)", filter: "blur(70px)" }} />
 
         <div className="relative max-w-6xl mx-auto">
-          <div className="font-mono text-blue-500/30 text-xs tracking-[0.3em] uppercase mb-10 text-center">01 / IMPACT</div>
+          <div className="font-mono text-blue-500/30 text-xs tracking-[0.3em] uppercase mb-4 text-center">01 / IMPACT</div>
+          <div className="text-center mb-3">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-semibold">
+              My Track Record
+            </span>
+          </div>
           <LineDivider className="max-w-xs mx-auto mb-12" />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+
+          {/* World's First badge — full width highlight */}
+          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+            className="mb-10 text-center px-4 py-5 rounded-2xl mx-auto max-w-2xl"
+            style={{ background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.2)" }}>
+            <div className="text-blue-400 text-xs font-mono tracking-[0.3em] uppercase mb-1">World's First</div>
+            <div className="text-white font-black text-xl md:text-2xl">Certified Team Coach</div>
+          </motion.div>
+
+          {/* Stats grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-4">
             {[
-              { to: 25000, suffix: "+", label: "Professionals Trained", delay: 0 },
-              { to: 500, suffix: "+", label: "Organizations", delay: 100 },
-              { to: 25, suffix: "+", label: "Years Experience", delay: 200 },
-              { to: 49, suffix: "★", label: "Google Rating", decimal: true, delay: 300 },
+              { to: 28, suffix: "+", label: "Years of Experience", delay: 0 },
+              { to: 13, suffix: "+", label: "Years Agile / Scrum Coaching", delay: 80 },
+              { to: 16, suffix: "+", label: "Certifications", delay: 160 },
+              { to: 850, suffix: "+", label: "Workshops Conducted", delay: 240 },
+              { to: 25000, suffix: "+", label: "People Trained", delay: 0 },
+              { to: 9000, suffix: "+", label: "Google Reviews", delay: 80 },
+              { to: 90, suffix: "+", label: "Net Promoter Score", delay: 160 },
+              { to: 49, suffix: "/5.0", label: "Avg Feedback", decimal: true, delay: 240 },
             ].map(({ to, suffix, label, decimal, delay }, i) => (
               <div key={label} className="relative">
                 <AnimatedCounter to={to} suffix={suffix} label={label} decimal={decimal} delay={delay} />
-                {i < 3 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-px h-16 -translate-y-1/2" style={{ background: "linear-gradient(transparent, rgba(59,130,246,0.3), transparent)" }} />
+                {(i + 1) % 4 !== 0 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-px h-16 -translate-y-1/2"
+                    style={{ background: "linear-gradient(transparent, rgba(59,130,246,0.3), transparent)" }} />
                 )}
               </div>
             ))}
