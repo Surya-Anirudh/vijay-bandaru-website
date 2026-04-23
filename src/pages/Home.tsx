@@ -790,7 +790,10 @@ export default function Home() {
         <div className="relative shrink-0" style={{ zIndex: 10 }}>
 
           {/* Info strip */}
-          <div className="flex items-center justify-between px-4 sm:px-8 py-2"
+          <motion.div
+            initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+            className="flex items-center justify-between px-4 sm:px-8 py-2"
             style={{ borderTop: "1px solid rgba(255,255,255,0.1)", background: "rgba(3,13,30,0.75)", backdropFilter: "blur(10px)" }}>
             <span className="font-mono text-[9px] text-white/30 tracking-[0.28em] uppercase hidden sm:block">Scrum Alliance · Since 2013</span>
             <div className="flex items-center gap-2">
@@ -798,7 +801,7 @@ export default function Home() {
               <span className="font-mono text-[9px] text-green-400/60 tracking-[0.22em] uppercase">CERTIFIED SCRUM TRAINER</span>
             </div>
             <span className="font-mono text-[9px] text-white/30 tracking-[0.28em] uppercase hidden sm:block">Hyderabad · India · Global</span>
-          </div>
+          </motion.div>
 
           {/* HUGE NAME */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "rgba(3,13,30,0.92)", backdropFilter: "blur(16px)", overflow: "hidden" }}>
@@ -827,9 +830,9 @@ export default function Home() {
             </motion.div>
             {/* Subtitle row */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
               className="flex items-center justify-between px-4 sm:px-8 pb-2">
               <span className="font-mono text-[9px] text-white/25 tracking-[0.3em] uppercase">Certified Scrum Trainer</span>
               <span className="font-mono text-[9px] text-white/25 tracking-[0.3em] uppercase hidden sm:block">Enterprise Agile Coach · Since 2013</span>
@@ -837,7 +840,10 @@ export default function Home() {
           </div>
 
           {/* CTA strip */}
-          <div className="flex flex-wrap items-center gap-3 px-4 sm:px-8 py-3"
+          <motion.div
+            initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.55, ease: [0.215, 0.61, 0.355, 1] }}
+            className="flex flex-wrap items-center gap-3 px-4 sm:px-8 py-3"
             style={{ borderTop: "1px solid rgba(255,255,255,0.1)", background: "rgba(3,13,30,0.92)", backdropFilter: "blur(16px)" }}>
             <MagneticWrapper>
               <Link to="/training">
@@ -860,10 +866,13 @@ export default function Home() {
               <span className="text-white/15">|</span>
               <Link to="/contact" className="font-mono text-xs text-blue-400/60 hover:text-blue-400 transition-colors font-semibold">Book a Session →</Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Marquee strip */}
-          <div className="overflow-hidden" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.015)" }}>
+          <motion.div
+            initial={{ opacity: 0, x: -60 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
+            className="overflow-hidden" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.015)" }}>
             <div className="py-3 overflow-hidden">
               <div className="flex" style={{ animation: "marquee-scroll 40s linear infinite" }}>
                 {[...marqueeItems, ...marqueeItems].map((item, i) => (
@@ -873,7 +882,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
