@@ -1130,14 +1130,20 @@ export default function Home() {
       <PortfolioCarousel />
 
       {/* ═══════════════════ THE VIJAY DIFFERENCE ═══════════════════ */}
-      <section className="py-16 px-4 relative overflow-hidden" style={{ background: "#020810" }}>
+      <section className="py-16 px-4 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #0a0f2e 0%, #020810 40%, #0d0a1f 100%)" }}>
         <LineDivider className="absolute top-0 left-0 right-0" />
-        <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: "linear-gradient(rgba(59,130,246,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.05) 1px,transparent 1px)",
-          backgroundSize: "70px 70px",
-        }} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-64 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse,rgba(37,99,235,0.15) 0%,transparent 70%)", filter: "blur(60px)" }} />
+        {/* Diagonal light beams */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-40 -left-20 w-[500px] h-[700px] opacity-10 pointer-events-none"
+            style={{ background: "linear-gradient(135deg, #3b82f6, transparent)", transform: "rotate(-20deg)", filter: "blur(60px)" }} />
+          <div className="absolute -bottom-40 -right-20 w-[500px] h-[700px] opacity-10 pointer-events-none"
+            style={{ background: "linear-gradient(135deg, #6366f1, transparent)", transform: "rotate(-20deg)", filter: "blur(60px)" }} />
+        </div>
+        {/* Floating orbs */}
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)", filter: "blur(40px)" }} />
+        <div className="absolute bottom-1/4 left-1/4 w-48 h-48 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%)", filter: "blur(30px)" }} />
 
         <div className="relative max-w-7xl mx-auto">
           <ScrubReveal className="text-center mb-16">
