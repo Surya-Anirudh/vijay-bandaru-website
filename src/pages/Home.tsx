@@ -983,9 +983,8 @@ export default function Home() {
           style={{ background: "radial-gradient(circle,rgba(37,99,235,0.13) 0%,transparent 70%)", filter: "blur(70px)" }} />
 
         <div className="relative max-w-6xl mx-auto">
-          <div className="font-mono text-blue-500/30 text-xs tracking-[0.3em] uppercase mb-4 text-center">01 / IMPACT</div>
-          <div className="text-center mb-3">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-semibold">
+          <div className="text-center mb-4">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-semibold tracking-[0.2em] uppercase">
               My Track Record
             </span>
           </div>
