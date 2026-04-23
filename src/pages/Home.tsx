@@ -1081,7 +1081,9 @@ export default function Home() {
                           style={{ fontSize: "3rem", color: `${p.accent}60` }}>
                           {p.short}
                         </div>
-                        <img src={p.badge} alt={p.short} className="w-14 h-14 object-contain" style={{ mixBlendMode: "screen" }} />
+                        <div className="w-16 h-16 rounded-xl flex items-center justify-center p-1" style={{ background: "rgba(255,255,255,0.92)" }}>
+                          <img src={p.badge} alt={p.short} className="w-full h-full object-contain" />
+                        </div>
                       </div>
 
                       <div className="flex flex-wrap gap-2 mb-3">
