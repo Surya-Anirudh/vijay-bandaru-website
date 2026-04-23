@@ -1152,37 +1152,43 @@ export default function Home() {
             </h2>
           </ScrubReveal>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-6">
             {vijayDifference.map((d, i) => (
               <motion.div key={d.num} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.55, delay: i * 0.15 }}>
                 <Tilt3D className="h-full">
-                <div className="relative h-full rounded-3xl p-8 overflow-hidden transition-all duration-300 group cursor-default"
-                  style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.background = `${d.color}14`
-                    e.currentTarget.style.borderColor = `${d.color}40`
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.03)"
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"
-                  }}>
-                  {/* Large bg number */}
-                  <div className="absolute right-5 top-4 font-black text-[5rem] leading-none select-none pointer-events-none"
-                    style={{ color: "rgba(255,255,255,0.04)" }}>{d.num}</div>
+                <div className="relative h-full rounded-3xl overflow-hidden group cursor-default"
+                  style={{ border: `1px solid ${d.color}30`, background: `linear-gradient(135deg, ${d.color}18 0%, rgba(3,13,30,0.95) 60%)` }}
+                  onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 0 60px ${d.color}30, inset 0 1px 0 ${d.color}25` }}
+                  onMouseLeave={e => { e.currentTarget.style.boxShadow = "none" }}>
 
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 relative"
-                    style={{ background: `${d.color}20`, border: `1px solid ${d.color}35` }}>
-                    <d.icon size={24} style={{ color: d.color }} />
-                    {/* Pulse ring */}
-                    <div className="absolute inset-0 rounded-2xl pointer-events-none"
-                      style={{ border: `1px solid ${d.color}`, animation: "pulse-ring 2.5s ease-out infinite", animationDelay: `${i * 0.8}s` }} />
+                  {/* Glow blob top-right */}
+                  <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full pointer-events-none"
+                    style={{ background: `radial-gradient(circle, ${d.color}35 0%, transparent 70%)`, filter: "blur(20px)" }} />
+
+                  {/* Top accent bar */}
+                  <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${d.color}, ${d.color}00)` }} />
+
+                  <div className="p-8">
+                    {/* Icon + number row */}
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center relative"
+                        style={{ background: `${d.color}22`, border: `1px solid ${d.color}45`, boxShadow: `0 0 30px ${d.color}25` }}>
+                        <d.icon size={28} style={{ color: d.color }} />
+                        <div className="absolute inset-0 rounded-2xl pointer-events-none"
+                          style={{ border: `1px solid ${d.color}`, animation: "pulse-ring 2.5s ease-out infinite", animationDelay: `${i * 0.8}s` }} />
+                      </div>
+                      <span className="font-black text-[4.5rem] leading-none select-none pointer-events-none"
+                        style={{ color: `${d.color}20`, lineHeight: 1 }}>{d.num}</span>
+                    </div>
+
+                    <div className="text-[10px] font-black tracking-[0.25em] uppercase mb-2" style={{ color: d.color }}>{d.tagline}</div>
+                    <h3 className="text-white font-black text-2xl mb-3 leading-tight">{d.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">{d.desc}</p>
+
+                    {/* Bottom accent line */}
+                    <div className="mt-6 h-px w-16 rounded-full" style={{ background: `linear-gradient(90deg, ${d.color}, transparent)` }} />
                   </div>
-
-                  <div className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: d.color }}>{d.tagline}</div>
-                  <h3 className="text-white font-black text-2xl mb-4 leading-tight">{d.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{d.desc}</p>
                 </div>
                 </Tilt3D>
               </motion.div>
