@@ -343,10 +343,10 @@ const marqueeItems = [
 ]
 
 const programs = [
-  { id: "csm", title: "Certified Scrum Master", short: "CSM", level: "Foundation", accent: "#2563eb", href: "/training#csm", tag: "Most Popular" },
-  { id: "acsm", title: "Advanced Certified Scrum Master", short: "A-CSM", level: "Advanced", accent: "#4f46e5", href: "/training#acsm", tag: null },
-  { id: "cspo", title: "Certified Scrum Product Owner", short: "CSPO", level: "Foundation", accent: "#0891b2", href: "/training#cspo", tag: null },
-  { id: "ai-sm", title: "AI for Scrum Masters", short: "AI-SM", level: "Emerging", accent: "#059669", href: "/training#ai-sm", tag: "New" },
+  { id: "csm", title: "Certified Scrum Master", short: "CSM", level: "Foundation", accent: "#2563eb", href: "/training#csm", tag: "Most Popular", badge: "/badge-csm.png" },
+  { id: "acsm", title: "Advanced Certified Scrum Master", short: "A-CSM", level: "Advanced", accent: "#4f46e5", href: "/training#acsm", tag: null, badge: "/badge-acsm.png" },
+  { id: "cspo", title: "Certified Scrum Product Owner", short: "CSPO", level: "Foundation", accent: "#0891b2", href: "/training#cspo", tag: null, badge: "/badge-acspo.png" },
+  { id: "ai-sm", title: "AI for Scrum Masters", short: "AI-SM", level: "Emerging", accent: "#059669", href: "/training#ai-sm", tag: "New", badge: "/badge-aism.png" },
 ]
 
 const testimonials = [
@@ -1076,9 +1076,12 @@ export default function Home() {
                     <div className="h-0.5" style={{ background: `linear-gradient(90deg, ${p.accent}, transparent)` }} />
 
                     <div className="p-7">
-                      <div className="font-black leading-none mb-6 transition-all duration-300"
-                        style={{ fontSize: "3.5rem", color: `${p.accent}60` }}>
-                        {p.short}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="font-black leading-none transition-all duration-300"
+                          style={{ fontSize: "3rem", color: `${p.accent}60` }}>
+                          {p.short}
+                        </div>
+                        <img src={p.badge} alt={p.short} className="w-14 h-14 object-contain" style={{ mixBlendMode: "screen" }} />
                       </div>
 
                       <div className="flex flex-wrap gap-2 mb-3">
