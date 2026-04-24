@@ -1216,8 +1216,8 @@ export default function Home() {
               How Do I Create Impact
             </div>
             <h2 className="font-black text-white leading-tight" style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}>
-              <WordReveal text="Training is not just my profession," className="block" delay={0.1} />
-              <WordReveal text="it is my passion" className="text-blue-400 block" delay={0.4} />
+              <WordReveal text='"Learning is precious,' className="block" delay={0.1} />
+              <WordReveal text='I create it responsibly and impactfully"' className="text-blue-400 block" delay={0.4} />
             </h2>
           </ScrubReveal>
 
