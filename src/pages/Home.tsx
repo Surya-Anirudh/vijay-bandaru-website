@@ -403,10 +403,15 @@ const marqueeItems = [
 ]
 
 const programs = [
-  { id: "csm", title: "Certified Scrum Master", short: "CSM", level: "Foundation", accent: "#2563eb", href: "/training#csm", tag: "Most Popular", badge: "/badge-csm.png" },
-  { id: "acsm", title: "Advanced Certified Scrum Master", short: "A-CSM", level: "Advanced", accent: "#4f46e5", href: "/training#acsm", tag: null, badge: "/badge-acsm.png" },
-  { id: "cspo", title: "Certified Scrum Product Owner", short: "CSPO", level: "Foundation", accent: "#0891b2", href: "/training#cspo", tag: null, badge: "/badge-cspo.png" },
-  { id: "ai-sm", title: "AI for Scrum Masters", short: "AI-SM", level: "Emerging", accent: "#059669", href: "/training#ai-sm", tag: "New", badge: "/badge-aism.png" },
+  { id: "csm",       title: "Certified Scrum Master",         short: "CSM",         level: "Foundation", accent: "#2563eb", href: "/training#csm",   tag: "Most Popular", badge: "/badge-csm.png" },
+  { id: "acsm",      title: "Advanced Certified Scrum Master",short: "A-CSM",        level: "Advanced",   accent: "#4f46e5", href: "/training#acsm",  tag: null,           badge: "/badge-acsm.png" },
+  { id: "cspo",      title: "Certified Scrum Product Owner",  short: "CSPO",         level: "Foundation", accent: "#0891b2", href: "/training#cspo",  tag: null,           badge: "/badge-cspo.png" },
+  { id: "acspo",     title: "Advanced Certified Scrum Product Owner", short: "A-CSPO", level: "Advanced", accent: "#0e7490", href: "/training#acspo", tag: null,           badge: "/badge-acspo.png" },
+  { id: "ai-sm",     title: "AI for Scrum Masters",           short: "AI-SM",        level: "Emerging",   accent: "#059669", href: "/training#ai-sm", tag: "New",          badge: "/badge-aism.png" },
+  { id: "ai-po",     title: "AI for Product Owners",          short: "AI-PO",        level: "Emerging",   accent: "#0d9488", href: "/training#ai-po", tag: "New",          badge: "/badge-aipo.png" },
+  { id: "safe-sa",   title: "SAFe Agilist",                   short: "SA",           level: "SAFe",       accent: "#7c3aed", href: "/training#safe",  tag: null,           badge: "/badge-saFeaglist.png" },
+  { id: "safe-popm", title: "SAFe Product Owner / Product Manager", short: "POPM",   level: "SAFe",       accent: "#9333ea", href: "/training#safe",  tag: null,           badge: "/badge-saFeproductowner.png" },
+  { id: "safe-ssm",  title: "SAFe Scrum Master",              short: "SSM",          level: "SAFe",       accent: "#a855f7", href: "/training#safe",  tag: null,           badge: "/badge-saFesrcummaster.png" },
 ]
 
 const testimonials = [
@@ -463,8 +468,34 @@ const faqItems = [
   },
 ]
 
-const companiesRow1 = ["TCS", "Wipro", "Infosys", "Cognizant", "HCL", "Tech Mahindra", "Amazon", "Microsoft", "Deloitte", "Capgemini", "Accenture", "IBM"]
-const companiesRow2 = ["Oracle", "SAP", "Salesforce", "Adobe", "Cisco", "Intel", "HSBC", "JP Morgan", "Goldman Sachs", "Mindtree", "Mphasis", "Hexaware"]
+const companiesRow1 = [
+  { name: "TCS", logo: "/logos/tcs.svg" },
+  { name: "Wipro", logo: "/logos/wipro.svg" },
+  { name: "Infosys", logo: "/logos/infosys.svg" },
+  { name: "Cognizant", logo: "/logos/cognizant.svg" },
+  { name: "HCL", logo: "/logos/hcl.svg" },
+  { name: "Tech Mahindra", logo: "/logos/techmahindra.svg" },
+  { name: "Amazon", logo: "/logos/amazon.svg" },
+  { name: "Microsoft", logo: "/logos/microsoft.svg" },
+  { name: "Deloitte", logo: "/logos/deloitte.svg" },
+  { name: "Capgemini", logo: "/logos/capgemini.svg" },
+  { name: "Accenture", logo: "/logos/accenture.svg" },
+  { name: "IBM", logo: "/logos/ibm.svg" },
+]
+const companiesRow2 = [
+  { name: "Oracle", logo: "/logos/oracle.svg" },
+  { name: "SAP", logo: "/logos/sap.svg" },
+  { name: "Salesforce", logo: "/logos/salesforce.svg" },
+  { name: "Adobe", logo: "/logos/adobe.svg" },
+  { name: "Cisco", logo: "/logos/cisco.svg" },
+  { name: "Intel", logo: "/logos/intel.svg" },
+  { name: "HSBC", logo: "/logos/hsbc.svg" },
+  { name: "JP Morgan", logo: "/logos/jpmorgan.svg" },
+  { name: "Goldman Sachs", logo: "/logos/goldmansachs.svg" },
+  { name: "Mindtree", logo: "/logos/mindtree.svg" },
+  { name: "Mphasis", logo: "/logos/mphasis.svg" },
+  { name: "Hexaware", logo: "/logos/hexaware.svg" },
+]
 
 const vijayDifference = [
   {
@@ -783,13 +814,13 @@ function PortfolioCarousel() {
         </div>
 
         {/* Scroll hint */}
-        <motion.div style={{ opacity: hintOpacity, position: "absolute", bottom: 90, left: "50%", transform: "translateX(-50%)", zIndex: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-          <span style={{ fontFamily: "monospace", color: "#fff", fontSize: 9, letterSpacing: "0.5em", textTransform: "uppercase", fontWeight: 700 }}>Scroll</span>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+        <motion.div style={{ opacity: hintOpacity, position: "absolute", bottom: 90, left: "50%", transform: "translateX(-50%)", zIndex: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+          <span style={{ fontFamily: "monospace", color: "#ffffff", fontSize: 13, letterSpacing: "0.45em", textTransform: "uppercase", fontWeight: 800 }}>Scroll</span>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
             {[0, 1, 2].map(i => (
               <motion.div key={i}
-                style={{ width: 9, height: 9, borderRight: "2px solid rgba(255,255,255,0.65)", borderBottom: "2px solid rgba(255,255,255,0.65)", rotate: "45deg" }}
-                animate={{ opacity: [0.2, 1, 0.2], y: [0, 5, 0] }}
+                style={{ width: 14, height: 14, borderRight: "3px solid #ffffff", borderBottom: "3px solid #ffffff", rotate: "45deg" }}
+                animate={{ opacity: [0.25, 1, 0.25], y: [0, 7, 0] }}
                 transition={{ duration: 1.3, delay: i * 0.2, repeat: Infinity, ease: "easeInOut" }} />
             ))}
           </div>
@@ -941,7 +972,7 @@ export default function Home() {
             transition={{ duration: 0.75, delay: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
             className="overflow-hidden" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.015)" }}>
             <div className="py-3 overflow-hidden">
-              <div className="flex" style={{ animation: "marquee-scroll 40s linear infinite" }}>
+              <div className="flex" style={{ animation: "marquee-reverse 40s linear infinite" }}>
                 {[...marqueeItems, ...marqueeItems].map((item, i) => (
                   <span key={i} className="text-blue-300/40 text-[10px] font-mono font-semibold whitespace-nowrap flex items-center px-7 gap-7 tracking-widest">
                     {item} <span className="text-blue-800">·</span>
@@ -954,22 +985,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════ FEATURED IN ═══════════════════ */}
-      <section className="py-10 px-4 bg-white border-b border-slate-100">
-        <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <p className="text-center text-slate-400 text-[10px] font-bold tracking-[0.35em] uppercase mb-8">Certified & Recognised By</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 max-w-4xl mx-auto">
+      {/* ═══════════════════ AUTHORIZED TRAINER ═══════════════════ */}
+      <section className="py-12 px-4 bg-white border-b border-slate-100">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <p className="text-center text-slate-400 text-[10px] font-bold tracking-[0.35em] uppercase mb-10">Authorized Trainer For</p>
+          <div className="flex flex-wrap items-center justify-center gap-8 max-w-4xl mx-auto">
             {[
-              { name: "Scrum Alliance", sub: "Certified Scrum Trainer" },
-              { name: "ICAgile", sub: "ICP-ACC Certified" },
-              { name: "SAFe", sub: "SPC Practitioner" },
-              { name: "Agile India", sub: "Conference Speaker" },
-              { name: "PMI", sub: "Chapter Contributor" },
-              { name: "Learnovative", sub: "Founder & Lead Trainer" },
-            ].map(({ name, sub }) => (
-              <div key={name} className="flex flex-col items-center gap-1 group cursor-default px-4 py-3 rounded-xl hover:bg-blue-50 transition-colors">
-                <span className="font-black text-slate-800 group-hover:text-blue-600 transition-colors text-base tracking-tight leading-none">{name}</span>
-                <span className="text-[10px] text-slate-500 group-hover:text-blue-500 transition-colors font-semibold tracking-widest uppercase">{sub}</span>
+              { logo: "/logo-scrumalliance.svg", sub: "Certified Scrum Trainer" },
+              { logo: "/logo-safeagile.png",     sub: "SAFe Practice Consultant" },
+              { logo: "/logo-learnovative.png",  sub: "Founder & CEO" },
+            ].map(({ logo, sub }) => (
+              <div key={sub} className="flex flex-col items-center gap-3 group cursor-default px-6 py-5 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all">
+                <img src={logo} alt={sub} className="h-10 object-contain" />
+                <span className="text-[10px] text-slate-400 group-hover:text-blue-500 transition-colors font-semibold tracking-widest uppercase text-center max-w-[180px]">{sub}</span>
               </div>
             ))}
           </div>
@@ -978,23 +1006,23 @@ export default function Home() {
 
       {/* ═══════════════════ PHILOSOPHY ═══════════════════ */}
       <section className="relative py-28 px-4 overflow-hidden">
-        {/* ── YouTube background video ── */}
+        {/* ── Background video ── */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <iframe
-            src="https://www.youtube.com/embed/_7BLccEYxuc?autoplay=1&mute=1&loop=1&playlist=_7BLccEYxuc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&start=0&end=10"
-            allow="autoplay; encrypted-media"
+          <video
+            autoPlay muted loop playsInline
             className="absolute"
             style={{
               top: "50%", left: "50%",
               transform: "translate(-50%, -50%)",
-              width: "177.78vh",   /* 16/9 aspect fill */
-              height: "56.25vw",
               minWidth: "100%",
               minHeight: "100%",
-              border: "none",
-              pointerEvents: "none",
+              width: "auto",
+              height: "auto",
+              objectFit: "cover",
             }}
-          />
+          >
+            <source src="/philosophy-bg.mp4" type="video/mp4" />
+          </video>
           {/* Gradient overlay — dark at edges for text legibility, lighter in center so the person shows through */}
           <div className="absolute inset-0" style={{
             background: "linear-gradient(to bottom, rgba(5,10,25,0.82) 0%, rgba(5,10,25,0.38) 45%, rgba(5,10,25,0.52) 100%)"
@@ -1010,25 +1038,18 @@ export default function Home() {
         {/* Content */}
         <div className="relative max-w-5xl mx-auto text-center">
           <ScrubReveal>
-            <div className="leading-none mb-[-1.5rem] text-center select-none"
-              style={{ fontSize: "9rem", fontFamily: "Georgia, serif", lineHeight: 1, color: "rgba(96,165,250,0.6)" }}>"</div>
-
             <p className="font-black text-white leading-tight mb-8" style={{ fontSize: "clamp(2.2rem, 5.5vw, 4.5rem)" }}>
-              <WordReveal text="I help to improve your" delay={0} /><br />
+              <WordReveal text="I help improve your" delay={0} /><br />
               <WordReveal text="ability to improve." delay={0.3} style={{ color: "#60a5fa" }} />
             </p>
 
             <p className="text-white/60 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-              I dedicate myself to enhancing your organization's potential through Transparency, periodic Inspection, and Adaptation — building lasting agility that compounds over time.
+              My passion is to help individuals, teams and organizations to relentlessly improve the way they think, work, behave, communicate through training, consulting and coaching, so that they will become better in what they are doing for their customers.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-3">
-              {["Scrum Alliance CST", "25+ Years", "NPS 90+", "Zero PowerPoint", "Post-Training Support", "4.9★ Rated"].map(pill => (
-                <span key={pill} className="px-4 py-2 rounded-full border text-sm font-semibold transition-all cursor-default"
-                  style={{ background: "rgba(59,130,246,0.12)", borderColor: "rgba(96,165,250,0.3)", color: "rgba(147,197,253,0.9)" }}>
-                  {pill}
-                </span>
-              ))}
+            <div className="mt-10 max-w-4xl mx-auto">
+              <p className="text-white/30 text-[10px] font-bold tracking-[0.3em] uppercase mb-6">Certifications &amp; Credentials</p>
+              <img src="/certifications.png" alt="Certifications" className="w-full object-contain rounded-xl" style={{ filter: "drop-shadow(0 4px 24px rgba(0,0,0,0.4))" }} />
             </div>
           </ScrubReveal>
         </div>
@@ -1095,11 +1116,8 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto">
           <ScrubReveal className="mb-16">
-            <div className="font-mono text-blue-500/40 text-xs tracking-[0.3em] uppercase mb-4">02 / PROGRAMS</div>
+            <div className="font-mono text-blue-500/40 text-xs tracking-[0.3em] uppercase mb-4">02 / MY PORTFOLIO</div>
             <LineDivider className="max-w-xs mb-6" />
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-semibold mb-5">
-              Scrum Alliance Certified Programs
-            </div>
             <h2 className="font-black text-white leading-tight" style={{ fontSize: "clamp(2.2rem, 5.5vw, 4rem)" }}>
               <ScrambleText text="Programs That" className="block" /><span style={{
                 background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
@@ -1113,7 +1131,7 @@ export default function Home() {
             </p>
           </ScrubReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {programs.map((p, i) => (
               <motion.div key={p.id} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
@@ -1141,8 +1159,11 @@ export default function Home() {
                           style={{ fontSize: "3rem", color: `${p.accent}60` }}>
                           {p.short}
                         </div>
-                        <div className="w-16 h-16 rounded-xl flex items-center justify-center p-1" style={{ background: "rgba(255,255,255,0.92)" }}>
-                          <img src={p.badge} alt={p.short} className="w-full h-full object-contain" />
+                        <div className="w-16 h-16 rounded-xl flex items-center justify-center p-1" style={{ background: p.badge ? "rgba(255,255,255,0.92)" : `${p.accent}20`, border: p.badge ? "none" : `1px solid ${p.accent}50` }}>
+                          {p.badge
+                            ? <img src={p.badge} alt={p.short} className="w-full h-full object-contain" />
+                            : <span className="font-black text-sm text-center leading-tight" style={{ color: p.accent }}>{p.short}</span>
+                          }
                         </div>
                       </div>
 
@@ -1170,13 +1191,6 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link to="/training">
-              <button className="group px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-2xl text-sm transition-all hover:scale-105 inline-flex items-center gap-2"
-                onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 40px rgba(59,130,246,0.5)")}
-                onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}>
-                All 6 Programs <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            </Link>
             <a href="https://www.learnovative.com/training-calendar/" target="_blank" rel="noopener noreferrer">
               <button className="px-8 py-4 border border-white/15 hover:border-blue-400/40 text-white font-black rounded-2xl text-sm transition-all hover:bg-white/5">
                 Training Calendar
@@ -1207,44 +1221,38 @@ export default function Home() {
             </h2>
           </ScrubReveal>
 
-          <div className="space-y-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {vijayDifference.map((d, i) => (
               <motion.div key={d.num}
-                initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 py-10 cursor-default"
-                style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = `${d.color}08` }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "transparent" }}>
+                initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative rounded-2xl p-7 cursor-default overflow-hidden"
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", transition: "border-color 0.3s, background 0.3s" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${d.color}50`; (e.currentTarget as HTMLElement).style.background = `${d.color}0a` }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.07)"; (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.03)" }}>
 
-                {/* Left: big number */}
-                <div className="shrink-0 w-24 text-right hidden md:block">
-                  <span className="font-black leading-none select-none"
-                    style={{ fontSize: "5rem", color: `${d.color}25`, transition: "color 0.3s" }}>
-                    {d.num}
-                  </span>
+                {/* Big background number */}
+                <span className="absolute top-3 right-4 font-black leading-none select-none pointer-events-none"
+                  style={{ fontSize: "5.5rem", color: `${d.color}12` }}>
+                  {d.num}
+                </span>
+
+                {/* Icon */}
+                <div className="w-13 h-13 w-[52px] h-[52px] rounded-2xl flex items-center justify-center mb-5"
+                  style={{ background: `${d.color}18`, border: `1px solid ${d.color}40`, boxShadow: `0 0 20px ${d.color}20` }}>
+                  <d.icon size={22} style={{ color: d.color }} />
                 </div>
 
-                {/* Center: icon + title */}
-                <div className="flex items-center gap-5 md:w-72 shrink-0">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
-                    style={{ background: `${d.color}18`, border: `1px solid ${d.color}40`, boxShadow: `0 0 24px ${d.color}20` }}>
-                    <d.icon size={24} style={{ color: d.color }} />
-                  </div>
-                  <div>
-                    <div className="text-[9px] font-black tracking-[0.28em] uppercase mb-1" style={{ color: d.color }}>{d.tagline}</div>
-                    <h3 className="text-white font-black text-xl leading-tight">{d.title}</h3>
-                  </div>
-                </div>
+                {/* Tagline + Title */}
+                <div className="text-[9px] font-black tracking-[0.28em] uppercase mb-2" style={{ color: d.color }}>{d.tagline}</div>
+                <h3 className="text-white font-black text-xl leading-tight mb-3">{d.title}</h3>
 
-                {/* Right: description */}
-                <div className="flex-1">
-                  <p className="text-slate-400 text-sm leading-relaxed">{d.desc}</p>
-                </div>
+                {/* Description */}
+                <p className="text-slate-400 text-sm leading-relaxed">{d.desc}</p>
 
-                {/* Hover left accent */}
-                <div className="absolute left-0 top-0 bottom-0 w-0.5 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top rounded-full"
-                  style={{ background: d.color }} />
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left rounded-full"
+                  style={{ background: `linear-gradient(90deg, ${d.color}, transparent)` }} />
               </motion.div>
             ))}
           </div>
@@ -1272,7 +1280,7 @@ export default function Home() {
             <p className="text-slate-500 text-sm mb-4">Still have questions?</p>
             <Link to="/contact">
               <button className="px-7 py-3 rounded-2xl border border-white/15 text-white text-sm font-bold hover:border-blue-400/40 hover:bg-white/5 transition-all">
-                Ask Us Directly →
+                Get in touch with me →
               </button>
             </Link>
           </motion.div>
@@ -1298,7 +1306,7 @@ export default function Home() {
             </h2>
             <div className="flex justify-center items-center gap-1.5">
               {[1,2,3,4,5].map(s => <Star key={s} size={18} className="fill-yellow-400 text-yellow-400" />)}
-              <span className="text-slate-400 text-sm ml-2">4.9 / 5.0 &nbsp;·&nbsp; 8,591+ Google Reviews</span>
+              <span className="text-slate-400 text-sm ml-2">4.9 / 5.0 &nbsp;·&nbsp; 9,000+ Google Reviews</span>
             </div>
           </ScrubReveal>
 
@@ -1352,38 +1360,36 @@ export default function Home() {
 
         {/* Row 1 — scroll left */}
         <div className="relative overflow-hidden mb-3">
-          <div className="flex" style={{ animation: "marquee-scroll 28s linear infinite" }}>
+          <div className="flex items-center" style={{ animation: "marquee-scroll 28s linear infinite" }}>
             {[...companiesRow1, ...companiesRow1].map((c, i) => (
-              <span key={i} className="mx-2.5 whitespace-nowrap px-6 py-2.5 rounded-xl text-sm font-bold text-slate-500 transition-all cursor-default hover:text-white"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(59,130,246,0.3)"; e.currentTarget.style.color = "white" }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.color = "" }}>
-                {c}
-              </span>
+              <div key={i} className="mx-2.5 flex-shrink-0 flex items-center justify-center px-5 py-3 rounded-xl transition-all cursor-default"
+                style={{ background: "rgba(255,255,255,0.93)", border: "1px solid rgba(255,255,255,0.15)", minWidth: "130px", height: "56px", transition: "all 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#ffffff"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.25)" }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.93)"; e.currentTarget.style.boxShadow = "" }}>
+                <img src={c.logo} alt={c.name} className="max-h-8 max-w-[110px] object-contain" style={{ opacity: 1 }} />
+              </div>
             ))}
           </div>
         </div>
 
         {/* Row 2 — scroll right */}
         <div className="relative overflow-hidden">
-          <div className="flex" style={{ animation: "marquee-reverse 34s linear infinite" }}>
+          <div className="flex items-center" style={{ animation: "marquee-reverse 34s linear infinite" }}>
             {[...companiesRow2, ...companiesRow2].map((c, i) => (
-              <span key={i} className="mx-2.5 whitespace-nowrap px-6 py-2.5 rounded-xl text-sm font-bold text-slate-600 transition-all cursor-default"
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.05)" }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(59,130,246,0.25)"; e.currentTarget.style.color = "#94a3b8" }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.color = "" }}>
-                {c}
-              </span>
+              <div key={i} className="mx-2.5 flex-shrink-0 flex items-center justify-center px-5 py-3 rounded-xl transition-all cursor-default"
+                style={{ background: "rgba(255,255,255,0.93)", border: "1px solid rgba(255,255,255,0.15)", minWidth: "130px", height: "56px", transition: "all 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#ffffff"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.25)" }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.93)"; e.currentTarget.style.boxShadow = "" }}>
+                <img src={c.logo} alt={c.name} className="max-h-8 max-w-[110px] object-contain" style={{ opacity: 1 }} />
+              </div>
             ))}
           </div>
         </div>
 
         {/* Mini stats row */}
         <div className="max-w-4xl mx-auto px-4 mt-14">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: Users, val: "25,000+", label: "Professionals" },
-              { icon: BookOpen, val: "800+", label: "Workshops" },
               { icon: Globe, val: "4 Countries", label: "Global Reach" },
               { icon: CheckCircle, val: "NPS 90+", label: "Satisfaction" },
             ].map(({ icon: Icon, val, label }) => (
@@ -1424,7 +1430,7 @@ export default function Home() {
               Now Taking Bookings
             </div>
             <h2 className="font-black text-white mb-6 leading-tight" style={{ fontSize: "clamp(2.8rem, 8vw, 5.5rem)" }}>
-              Ready to Lead<br />with Agile?
+              Decided to Improve<br />Your Career?
             </h2>
             <p className="text-blue-100 text-xl mb-12 max-w-xl mx-auto leading-relaxed">
               Join 25,000+ professionals I've trained. Book your seat in my next CSM, A-CSM, CSPO, or AI for Scrum Masters workshop.

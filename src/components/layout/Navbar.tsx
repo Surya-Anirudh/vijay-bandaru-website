@@ -72,21 +72,6 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:+919848032144"
-              className={cn("text-sm font-medium hidden xl:block transition-colors duration-500", scrolled ? "text-slate-500 hover:text-blue-600" : "text-white/55 hover:text-white")}>
-              +91-98480-32144
-            </a>
-            <Link to="/contact">
-              <button
-                className="px-5 py-2 rounded-xl bg-blue-600 text-white text-sm font-semibold transition-all hover:scale-105 active:scale-100 relative overflow-hidden"
-                onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 30px rgba(59,130,246,0.6), 0 0 0 1px rgba(96,165,250,0.4)")}
-                onMouseLeave={e => (e.currentTarget.style.boxShadow = "")}>
-                Book a Session
-              </button>
-            </Link>
-          </div>
 
           {/* Mobile toggle */}
           <button

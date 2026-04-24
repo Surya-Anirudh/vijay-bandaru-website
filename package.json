@@ -13,6 +13,7 @@
     "start": "node server/index.js"
   },
   "dependencies": {
+    "@iconify/json": "^2.2.465",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-progress": "^1.1.8",
@@ -32,6 +33,7 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.14.1",
+    "simple-icons": "^16.17.0",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.2"
   },

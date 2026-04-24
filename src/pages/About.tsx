@@ -284,7 +284,7 @@ export default function About() {
                 </div>
                 <div className="space-y-4">
                   <p>My approach has always been the same: <strong className="text-slate-200">zero slides, 100% real</strong>. I use physical objects, whiteboards, and authentic war stories from my 25 years in the field. No theory for theory's sake.</p>
-                  <p>The results speak: an NPS consistently above 90, a 4.9★ Google rating across 8,591+ verified reviews, and 25,000+ professionals trained across 500+ organisations — from Hyderabad to Singapore to Dubai.</p>
+                  <p>The results speak: an NPS consistently above 90, a 4.9★ Google rating across 9,000+ verified reviews, and 25,000+ professionals trained across 500+ organisations — from Hyderabad to Singapore to Dubai.</p>
                 </div>
               </div>
             </motion.div>
@@ -312,19 +312,20 @@ export default function About() {
 
       {/* ══════════════ WHAT I DO DIFFERENTLY ══════════════ */}
       <section className="relative overflow-hidden py-24 px-4">
-        {/* YouTube background — starts at 7:40 (460s) */}
+        {/* Background video */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <iframe
-            src="https://www.youtube.com/embed/-tqYUYK6VQE?autoplay=1&mute=1&loop=1&playlist=-tqYUYK6VQE&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&start=460&end=470"
-            allow="autoplay; encrypted-media"
+          <video
+            autoPlay muted loop playsInline
             style={{
               position: "absolute", top: "50%", left: "50%",
               transform: "translate(-50%,-50%)",
-              width: "177.78vh", height: "56.25vw",
               minWidth: "100%", minHeight: "100%",
-              border: "none", pointerEvents: "none",
+              width: "auto", height: "auto",
+              objectFit: "cover",
             }}
-          />
+          >
+            <source src="/about-bg.mp4" type="video/mp4" />
+          </video>
           {/* Lighter overlay — video person visible, text still readable */}
           <div style={{ position: "absolute", inset: 0, background: "rgba(2,8,16,0.52)" }} />
         </div>
