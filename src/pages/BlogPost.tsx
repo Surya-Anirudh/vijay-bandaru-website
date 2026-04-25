@@ -234,9 +234,9 @@ const posts: Post[] = [
 export const blogPosts = posts
 
 const categoryGradient: Record<string, string> = {
-  Scrum:  "from-blue-600 to-indigo-700",
-  Agile:  "from-violet-600 to-purple-700",
-  Career: "from-emerald-500 to-teal-700",
+  Scrum:  "from-blue-600 to-blue-800",
+  Agile:  "from-blue-500 to-indigo-700",
+  Career: "from-indigo-600 to-blue-900",
 }
 
 function renderBlock(block: Block, i: number) {
