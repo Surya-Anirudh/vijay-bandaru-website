@@ -23,7 +23,7 @@ export default function Blog() {
                       <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full">{post.category}</span>
                       <span className="flex items-center gap-1 text-xs text-slate-400"><Clock size={11} />{post.readTime}</span>
                     </div>
-                    <h2 className="text-slate-900 font-bold text-lg leading-snug mb-2 group-hover:text-blue-600 transition-colors">{post.title}</h2>
+                    <h2 className="text-slate-900 font-extrabold text-2xl leading-[1.2] mb-2 group-hover:text-blue-600 transition-colors">{post.title}</h2>
                     <p className="text-slate-500 text-sm leading-relaxed line-clamp-2">{post.excerpt}</p>
                   </div>
                   <ArrowRight size={18} className="shrink-0 text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all mt-1" />
