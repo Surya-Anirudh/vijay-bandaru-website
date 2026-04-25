@@ -314,8 +314,7 @@ export default function BlogPost() {
             <span className="flex items-center gap-1 text-slate-400 text-xs"><Calendar size={11} />{post.date}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-[1.2] mb-5 tracking-tight">{post.title}</h1>
-          <p className="text-slate-400 text-base leading-relaxed max-w-2xl">{post.excerpt}</p>
-          <div className="mt-8 h-px bg-white/10" />
+          <div className="mt-6 h-px bg-white/10" />
         </div>
       </div>
 
