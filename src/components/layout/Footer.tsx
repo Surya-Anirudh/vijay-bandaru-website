@@ -33,7 +33,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-sm">VB</div>
+              <img src="/logo.png" alt="VB Logo" className="w-10 h-10 object-contain" />
               <div>
                 <div className="text-white font-bold">Vijay Bandaru</div>
                 <div className="text-blue-400 text-xs font-medium">Certified Scrum Trainer & Enterprise Agile Coach</div>
