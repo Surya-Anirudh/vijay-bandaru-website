@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { ArrowRight, Mail, Phone, MapPin, CheckCircle } from "lucide-react"
 import { useRef, useEffect, useState } from "react"
 
-type JourneyItem = { year: string; period: string; company: string; role: string; story: string; color: string }
+type JourneyItem = { year: string; period: string; company: string; logo: string; role: string; story: string; color: string }
 
 /* ─── Journey card (needs own component for hooks) ─── */
 function JourneyCard({ j, i }: { j: JourneyItem; i: number }) {
@@ -19,9 +19,9 @@ function JourneyCard({ j, i }: { j: JourneyItem; i: number }) {
         <div className="sm:mt-3 w-px sm:w-1 h-1 sm:h-full rounded-full" style={{ background: j.color, opacity: 0.3 }} />
       </div>
       <div className="sm:col-span-3">
-        <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-slate-400 mb-1">{j.period}</div>
-        <div className="font-black text-slate-900 text-lg leading-tight">{j.company}</div>
-        <div className="font-semibold text-xs mt-1" style={{ color: j.color }}>{j.role}</div>
+        <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-slate-400 mb-2">{j.period}</div>
+        <img src={j.logo} alt={j.company} className="h-8 object-contain object-left mb-2" />
+        <div className="font-semibold text-xs" style={{ color: j.color }}>{j.role}</div>
       </div>
       <div className="sm:col-span-7 flex items-center">
         <p className="text-slate-500 text-sm leading-relaxed">{j.story}</p>
@@ -59,28 +59,28 @@ function Counter({ to, suffix = "", decimal = false }: { to: number; suffix?: st
 /* ─── Data ─── */
 const journey = [
   {
-    year: "1998", period: "1998 – 2012", company: "ValueLabs",
-    role: "Programmer → Technology & Leadership",
-    story: "I began as a programmer and spent 14 formative years growing through technology and leadership roles — learning firsthand how teams succeed and fail under pressure.",
-    color: "#059669",
+    year: "2018", period: "2018 – Present", company: "Learnovative", logo: "/logo-learnovative.png",
+    role: "Founder & CEO · Principal Trainer",
+    story: "I founded Learnovative to dedicate 100% of my focus to training. Zero PowerPoint. Real stories. 25,000+ professionals trained. 4.9★ rated. NPS consistently above 90.",
+    color: "#2563eb",
   },
   {
-    year: "2012", period: "2012 – 2016", company: "IVY Comptech",
-    role: "Enterprise Agile Coach",
-    story: "I led my first full-scale Agile transformation — embedding Scrum and Kanban across engineering teams, improving sprint predictability from under 60% to over 90%.",
-    color: "#0891b2",
-  },
-  {
-    year: "2016", period: "2016 – 2018", company: "Pega Systems",
+    year: "2016", period: "2016 – 2018", company: "Pega Systems", logo: "/logo-pega.png",
     role: "Sr. Product Manager & Agile Trainer",
     story: "I balanced two roles simultaneously — driving product strategy while coaching Agile practices across engineering teams at one of the world's leading enterprise software firms.",
     color: "#4f46e5",
   },
   {
-    year: "2018", period: "2018 – Present", company: "Learnovative",
-    role: "Founder & CEO · Principal Trainer",
-    story: "I founded Learnovative to dedicate 100% of my focus to training. Zero PowerPoint. Real stories. 25,000+ professionals trained. 4.9★ rated. NPS consistently above 90.",
-    color: "#2563eb",
+    year: "2012", period: "2012 – 2016", company: "IVY Comptech", logo: "/logo-ivy.png",
+    role: "Enterprise Agile Coach",
+    story: "I led my first full-scale Agile transformation — embedding Scrum and Kanban across engineering teams, improving sprint predictability from under 60% to over 90%.",
+    color: "#0891b2",
+  },
+  {
+    year: "1998", period: "1998 – 2012", company: "ValueLabs", logo: "/logo-valuelabs.png",
+    role: "Programmer → Technology & Leadership",
+    story: "I began as a programmer and spent 14 formative years growing through technology and leadership roles — learning firsthand how teams succeed and fail under pressure.",
+    color: "#059669",
   },
 ]
 
@@ -94,16 +94,17 @@ const certifications = [
 ]
 
 const education = [
-  { year: "2021", degree: "Product Strategy", inst: "IIM Kozhikode", type: "Executive Program" },
-  { year: "2006", degree: "PG Diploma in IT", inst: "Symbiosis University", type: "Post Graduate" },
-  { year: "1998", degree: "MCA", inst: "Andhra University", type: "Masters" },
-  { year: "1994", degree: "BCS", inst: "Andhra University", type: "Bachelor's" },
+  { year: "2021", degree: "Product Strategy", inst: "IIM Kozhikode",    type: "Executive Program", logo: "/logo-iim.png" },
+  { year: "2006", degree: "PG Diploma in IT", inst: "Symbiosis University", type: "Post Graduate", logo: "/logo-symbosis.png" },
+  { year: "1998", degree: "MCA",              inst: "Andhra University", type: "Masters",           logo: "/logo-AU.png" },
+  { year: "1994", degree: "BSC",              inst: "Andhra University", type: "Bachelor's",        logo: "/logo-AU.png" },
 ]
 
 const marqueeItems = [
-  "Scrum Alliance CST", "25,000+ Professionals", "4.9★ Google Rated", "NPS Score 90+",
-  "Zero PowerPoint", "25 Years Experience", "500+ Organisations", "Enterprise Agile Coach",
-  "IIM Kozhikode Alumni", "Hyderabad · India · Global", "800+ Workshops",
+  "World's First Certified Team Coach", "Certified Scrum Trainer", "Certified Enterprise Coach",
+  "SAFe Practice Consultant", "Certified Agile Leader (CAL1)", "Marshall Goldsmith Executive & Team Coach",
+  "Global Coach Group Leadership Coach", "ICF - ACC", "28+ Years of Experience",
+  "25,000+ People Trained", "850+ Workshops", ">90 NPS", "4.9/5.0 Average Feedback",
 ]
 
 export default function About() {
@@ -152,7 +153,7 @@ export default function About() {
               <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 text-blue-300 text-[10px] font-bold tracking-[0.2em] uppercase mb-7">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                  Certified Scrum Trainer · CST
+                  Organizational Transformation Coach
                 </div>
                 <h1 className="font-black text-white leading-[0.88] mb-6 select-none"
                   style={{ fontSize: "clamp(3.5rem, 9vw, 8rem)", letterSpacing: "-0.04em" }}>
@@ -163,7 +164,7 @@ export default function About() {
                   }}>BANDARU</span>
                 </h1>
                 <p className="text-slate-400 font-medium text-sm max-w-xs leading-loose tracking-wide">
-                  Agile Coach · Scrum Trainer · Lifelong Learner · Story Collector
+                  Agile Coach · Scrum Trainer · Lifelong Learner · Story Teller
                 </p>
               </motion.div>
             </motion.div>
@@ -172,36 +173,40 @@ export default function About() {
           {/* RIGHT — Identity */}
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
-            className="flex flex-col justify-center py-20 px-0 lg:px-14">
+            className="flex flex-col justify-start py-20 px-0 lg:px-14">
 
             {/* Big quote */}
             <div className="mb-14">
-              <div className="text-blue-400/25 font-serif leading-none mb-3 select-none" style={{ fontSize: "5rem" }}>"</div>
               <p className="font-black text-white leading-snug" style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)" }}>
-                I help teams not just adopt Agile, but <span style={{ color: "#60a5fa" }}>actually live it.</span>
+                I turn Agile, Scrum, and AI from concepts into <span style={{ color: "#60a5fa" }}>culture.</span>
               </p>
             </div>
 
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-4 mb-14">
-              {[
-                { val: 25000, suffix: "+", label: "Professionals Trained" },
-                { val: 49, suffix: "★", label: "Google Rating", decimal: true },
-                { val: 800, suffix: "+", label: "Workshops Delivered" },
-                { val: 25, suffix: "+", label: "Years Experience" },
-              ].map((s, i) => (
-                <motion.div key={s.label} initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 + i * 0.1, duration: 0.5 }}
-                  className="rounded-2xl p-6 group cursor-default transition-all duration-300"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(59,130,246,0.1)"; e.currentTarget.style.borderColor = "rgba(59,130,246,0.3)" }}
-                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)" }}>
-                  <div className="font-black text-white leading-none mb-2" style={{ fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)" }}>
-                    <Counter to={s.val} suffix={s.suffix} decimal={s.decimal} />
-                  </div>
-                  <div className="text-slate-500 text-[11px] font-semibold tracking-widest uppercase">{s.label}</div>
-                </motion.div>
-              ))}
+            {/* Core Skills */}
+            <div className="mb-14">
+              <p className="text-white/30 text-[10px] font-bold tracking-[0.3em] uppercase mb-4">My Core Skills</p>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Agile, Scrum, AI Training",
+                  "Organizational Transformation",
+                  "Leadership Coaching",
+                  "Change Management",
+                  "AI Adoption",
+                  "Business Strategy",
+                  "Product Management",
+                  "Technology",
+                ].map((skill, i) => (
+                  <motion.span key={skill}
+                    initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 + i * 0.07, duration: 0.4 }}
+                    className="px-4 py-2 rounded-full text-sm font-semibold text-blue-300 cursor-default transition-all duration-300"
+                    style={{ background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.25)" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.2)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,130,246,0.5)" }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.1)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,130,246,0.25)" }}>
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
             </div>
 
             {/* Contact & CTA */}
@@ -224,7 +229,7 @@ export default function About() {
                   <button className="px-7 py-3 rounded-2xl bg-blue-600 text-white font-black text-sm flex items-center gap-2 transition-all hover:scale-105"
                     onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 35px rgba(59,130,246,0.55)")}
                     onMouseLeave={e => (e.currentTarget.style.boxShadow = "")}>
-                    Work With Me <ArrowRight size={14} />
+                    Let's Connect <ArrowRight size={14} />
                   </button>
                 </Link>
                 <a href="https://linkedin.com/in/vijaybandaru" target="_blank" rel="noopener noreferrer"
@@ -232,10 +237,15 @@ export default function About() {
                   style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
-                <a href="https://twitter.com/vkbandaru" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/vijaybandaru74" target="_blank" rel="noopener noreferrer"
                   className="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
                   style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" strokeWidth="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" strokeWidth="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                </a>
+                <a href="https://www.facebook.com/vijay.bandaru.75" target="_blank" rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </a>
               </div>
             </div>
@@ -334,38 +344,32 @@ export default function About() {
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className="flex items-end justify-between mb-14 flex-wrap gap-4">
             <div>
-              <div className="font-mono text-blue-500/50 text-xs tracking-[0.3em] uppercase mb-3">My Approach</div>
+              <div className="font-mono text-blue-500/50 text-xs tracking-[0.3em] uppercase mb-3">My Vision</div>
               <h2 className="font-black text-white leading-none" style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)", letterSpacing: "-0.03em" }}>
-                What makes me<br /><span className="text-blue-400">different.</span>
+                Make Learning<br /><span className="text-blue-400">SPECIAL.</span>
               </h2>
             </div>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
             {[
-              {
-                num: "01", title: "Zero PowerPoint", icon: "🖊️",
-                body: "Every session uses physical props, live whiteboards, and group collaboration. You learn by doing — retention is 3× higher than passive slide watching.",
-              },
-              {
-                num: "02", title: "Real War Stories", icon: "⚡",
-                body: "Every concept I teach is anchored in a real enterprise transformation I've lived through — messy, honest, and immediately applicable on Monday morning.",
-              },
-              {
-                num: "03", title: "Post-Training Support", icon: "🎯",
-                body: "I personally review your resume, coach your LinkedIn profile, and prepare you for interviews — months after the workshop ends. The certification is just the beginning.",
-              },
+              { letter: "S", word: "Simple",       body: "" },
+              { letter: "P", word: "Practical",    body: "" },
+              { letter: "E", word: "Effective",    body: "" },
+              { letter: "C", word: "Collaborative",body: "" },
+              { letter: "I", word: "Innovative",   body: "" },
+              { letter: "A", word: "Adaptive",     body: "" },
+              { letter: "L", word: "Long-lasting", body: "" },
             ].map((d, i) => (
-              <motion.div key={d.num} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="p-10 group cursor-default transition-all duration-400"
-                style={{ background: "rgba(255,255,255,0.72)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.4)" }}
-                onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,0.85)")}
-                onMouseLeave={e => (e.currentTarget.style.background = "rgba(255,255,255,0.72)")}>
-                <div className="font-mono text-xs tracking-[0.3em] mb-6" style={{ color: "rgba(0,0,0,0.5)" }}>{d.num}</div>
-                <div className="text-4xl mb-5">{d.icon}</div>
-                <h3 className="font-black text-2xl mb-4" style={{ color: "#0f172a" }}>{d.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#1e293b" }}>{d.body}</p>
+              <motion.div key={d.letter} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="flex flex-col items-center text-center p-6 cursor-default transition-all duration-300"
+                style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 16 }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.2)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,130,246,0.5)" }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)" }}>
+                <div className="font-black text-white leading-none mb-3" style={{ fontSize: "clamp(3rem, 5vw, 4rem)", color: "#60a5fa" }}>{d.letter}</div>
+                <div className="font-bold text-white text-sm mb-2">{d.word}</div>
+                {d.body && <p className="text-white/50 text-xs leading-relaxed">{d.body}</p>}
               </motion.div>
             ))}
           </div>
@@ -376,7 +380,7 @@ export default function About() {
       <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="mb-16">
-            <div className="font-mono text-blue-500 text-xs tracking-[0.3em] uppercase mb-3">25 Years</div>
+            <div className="font-mono text-blue-500 text-xs tracking-[0.3em] uppercase mb-3">28+ Years</div>
             <h2 className="font-black text-slate-900 leading-none" style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", letterSpacing: "-0.04em" }}>
               My career<br /><span className="text-blue-600">journey.</span>
             </h2>
@@ -404,26 +408,26 @@ export default function About() {
               <img src="/certifications.png" alt="Certifications" className="rounded-2xl opacity-80 hover:opacity-100 transition-opacity" />
             </motion.div>
 
-            <div className="lg:col-span-8">
-              <div className="grid sm:grid-cols-2 gap-3">
-                {certifications.map((c, i) => (
-                  <motion.div key={c.code} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
+            <div className="lg:col-span-8 flex items-center">
+              <div className="grid sm:grid-cols-2 gap-4 w-full">
+                {[
+                  { val: "25,000+", label: "People Trained" },
+                  { val: "9,000+",  label: "Google Reviews" },
+                  { val: "4.9/5.0", label: "Average Feedback" },
+                  { val: "850+",    label: "Workshops Conducted" },
+                  { val: "NPS 90+", label: "Net Promoter Score" },
+                  { val: "8",       label: "Countries Reached" },
+                  { val: "28+",     label: "Years of Experience" },
+                  { val: "16+",     label: "Certifications Held" },
+                ].map((s, i) => (
+                  <motion.div key={s.label} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.07 }}
-                    className="group flex items-center gap-4 p-5 rounded-2xl cursor-default transition-all duration-300"
-                    style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
-                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(37,99,235,0.1)"; e.currentTarget.style.borderColor = "rgba(59,130,246,0.3)" }}
-                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.03)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)" }}>
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 font-black text-white text-[11px] text-center leading-tight"
-                      style={{ background: `linear-gradient(135deg, ${c.bg}, ${c.bg}cc)`, boxShadow: `0 8px 24px ${c.bg}40` }}>
-                      {c.code}
-                    </div>
-                    <div>
-                      <div className="font-bold text-white text-sm leading-snug">{c.full}</div>
-                      <div className="flex items-center gap-1.5 mt-1">
-                        <CheckCircle size={10} className="text-blue-400" />
-                        <span className="text-blue-400/70 text-[10px] font-semibold tracking-wide">{c.body}</span>
-                      </div>
-                    </div>
+                    className="group p-6 rounded-2xl cursor-default transition-all duration-300 text-center"
+                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(37,99,235,0.12)"; e.currentTarget.style.borderColor = "rgba(59,130,246,0.35)" }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)" }}>
+                    <div className="font-black text-white text-2xl mb-1">{s.val}</div>
+                    <div className="text-slate-500 text-xs font-semibold tracking-widest uppercase">{s.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -450,8 +454,9 @@ export default function About() {
                 <div className="absolute right-3 top-3 font-black text-slate-50 leading-none select-none pointer-events-none group-hover:text-blue-50 transition-colors"
                   style={{ fontSize: "5rem" }}>{e.year}</div>
                 <div className="relative">
-                  <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full mb-6 group-hover:bg-blue-100 transition-colors">{e.type}</span>
-                  <h3 className="font-black text-slate-900 text-xl mb-2 leading-tight">{e.degree}</h3>
+                  <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full mb-4 group-hover:bg-blue-100 transition-colors">{e.type}</span>
+                  <img src={e.logo} alt={e.inst} className="h-10 object-contain object-left mb-4" />
+                  <h3 className="font-black text-slate-900 text-xl mb-1 leading-tight">{e.degree}</h3>
                   <p className="text-slate-400 text-xs font-medium">{e.inst}</p>
                 </div>
               </motion.div>

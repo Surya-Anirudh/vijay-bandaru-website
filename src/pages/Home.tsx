@@ -403,15 +403,15 @@ const marqueeItems = [
 ]
 
 const programs = [
-  { id: "csm",       title: "Certified Scrum Master",         short: "CSM",         level: "Foundation", accent: "#2563eb", href: "/training#csm",   tag: "Most Popular", badge: "/badge-csm.png" },
-  { id: "acsm",      title: "Advanced Certified Scrum Master",short: "A-CSM",        level: "Advanced",   accent: "#4f46e5", href: "/training#acsm",  tag: null,           badge: "/badge-acsm.png" },
-  { id: "cspo",      title: "Certified Scrum Product Owner",  short: "CSPO",         level: "Foundation", accent: "#0891b2", href: "/training#cspo",  tag: null,           badge: "/badge-cspo.png" },
-  { id: "acspo",     title: "Advanced Certified Scrum Product Owner", short: "A-CSPO", level: "Advanced", accent: "#0e7490", href: "/training#acspo", tag: null,           badge: "/badge-acspo.png" },
-  { id: "ai-sm",     title: "AI for Scrum Masters",           short: "AI-SM",        level: "Emerging",   accent: "#059669", href: "/training#ai-sm", tag: "New",          badge: "/badge-aism.png" },
-  { id: "ai-po",     title: "AI for Product Owners",          short: "AI-PO",        level: "Emerging",   accent: "#0d9488", href: "/training#ai-po", tag: "New",          badge: "/badge-aipo.png" },
-  { id: "safe-sa",   title: "SAFe Agilist",                   short: "SA",           level: "SAFe",       accent: "#7c3aed", href: "/training#safe",  tag: null,           badge: "/badge-saFeaglist.png" },
-  { id: "safe-popm", title: "SAFe Product Owner / Product Manager", short: "POPM",   level: "SAFe",       accent: "#9333ea", href: "/training#safe",  tag: null,           badge: "/badge-saFeproductowner.png" },
-  { id: "safe-ssm",  title: "SAFe Scrum Master",              short: "SSM",          level: "SAFe",       accent: "#a855f7", href: "/training#safe",  tag: null,           badge: "/badge-saFesrcummaster.png" },
+  { id: "csm",       title: "Certified Scrum Master",                short: "CSM",   level: "Foundation", accent: "#2563eb", href: "/training#csm",   tag: "Most Popular", badge: "/badge-csm.png" },
+  { id: "acsm",      title: "Advanced Certified Scrum Master",       short: "A-CSM", level: "Advanced",   accent: "#4f46e5", href: "/training#acsm",  tag: null,           badge: "/badge-acsm.png" },
+  { id: "ai-sm",     title: "AI for Scrum Masters",                  short: "AI-SM", level: "Emerging",   accent: "#059669", href: "/training#ai-sm", tag: "New",          badge: "/badge-aism.png" },
+  { id: "cspo",      title: "Certified Scrum Product Owner",         short: "CSPO",  level: "Foundation", accent: "#0891b2", href: "/training#cspo",  tag: null,           badge: "/badge-cspo.png" },
+  { id: "acspo",     title: "Advanced Certified Scrum Product Owner",short: "A-CSPO",level: "Advanced",   accent: "#0e7490", href: "/training#acspo", tag: null,           badge: "/badge-acspo.png" },
+  { id: "ai-po",     title: "AI for Product Owners",                 short: "AI-PO", level: "Emerging",   accent: "#0d9488", href: "/training#ai-po", tag: "New",          badge: "/badge-aipo.png" },
+  { id: "safe-sa",   title: "SAFe Agilist",                         short: "SA",     level: "SAFe",       accent: "#7c3aed", href: "/training#safe",  tag: null,           badge: "/badge-saFeaglist.png" },
+  { id: "safe-ssm",  title: "SAFe Scrum Master",                    short: "SSM",    level: "SAFe",       accent: "#a855f7", href: "/training#safe",  tag: null,           badge: "/badge-saFesrcummaster.png" },
+  { id: "safe-popm", title: "SAFe Product Owner / Product Manager",  short: "POPM",  level: "SAFe",       accent: "#9333ea", href: "/training#safe",  tag: null,           badge: "/badge-saFeproductowner.png" },
 ]
 
 const testimonials = [
@@ -443,28 +443,32 @@ const testimonials = [
 
 const faqItems = [
   {
-    q: "Is this training purely exam-focused or practical?",
-    a: "100% practical. My Zero-PowerPoint methodology means every concept is taught through real-world exercises, live drawings, and group activities. The exam prep is built into the practical learning — not bolted on at the end.",
+    q: "Do you provide only Live Virtual Trainings?",
+    a: "I provide both Physical and Live Virtual trainings.",
   },
   {
-    q: "Will you personally deliver every session?",
-    a: "Yes. I personally facilitate all CSM, A-CSM, CSPO, and A-CSPO workshops — both in-person and virtual. There are no associate trainers or substitute facilitators.",
+    q: "Do you conduct only public training programs?",
+    a: "I also conduct private training programs for my clients as and when needed.",
   },
   {
-    q: "What if I don't pass the certification exam?",
-    a: "Scrum Alliance provides two exam attempts within 60 days of completing the course. My pass rate is near 100% — because I teach Scrum deeply, not just for the test.",
+    q: "How can I register for any of your training programs?",
+    a: "You can check my training schedule at my company website: https://www.learnovative.com/training-calendar/ for next 3 months training programs.",
   },
   {
-    q: "Is corporate / group pricing available?",
-    a: "Yes. For teams of 10 or more, I offer dedicated corporate batches on-site or virtually, with customized case studies from your industry. Reach out for a tailored proposal.",
+    q: "How do I know your training and teaching style?",
+    a: "You can go through my video https://www.youtube.com/watch?v=1oLVkWgVupM where I explained how I conduct my live virtual trainings more effective, engaging and interactive.",
   },
   {
-    q: "What's included after the training ends?",
-    a: "I provide resume review, LinkedIn profile coaching, interview preparation, and access to my alumni community — for months after your workshop. Your certification is the start, not the finish.",
+    q: "Do you provide any post training support?",
+    a: "That is my USP — you join my training and that is the relationship building starting point. You can get any support for resume review, mock interview support, and career guidance anytime as and when needed.",
   },
   {
-    q: "How is your Zero-PowerPoint method different from standard training?",
-    a: "Traditional Scrum training uses slides, reading, and passive listening. I use physical objects, live whiteboards, and real enterprise scenarios — experiential learning that produces 3× better retention and immediate on-the-job application.",
+    q: "Do you provide any other services other than trainings?",
+    a: "Yes, I provide organizational Agile and AI transformation, Leadership coaching, and a special program called \"PROPEL\" aimed to help business analysts, product owners, and product managers to get high salary jobs through personal training, mentoring, and coaching.",
+  },
+  {
+    q: "Where can I get more details about the \"PROPEL\" program?",
+    a: "You can check complete details of PROPEL program at my website: https://www.learnovative.com/product-owner-mentoring-propel/",
   },
 ]
 
@@ -635,16 +639,17 @@ function ScrubReveal({ children, className = "" }: { children: React.ReactNode; 
 
 /* ═══════════════════ PORTFOLIO — WODNIACK SCROLL STYLE ═══════════════════ */
 const portfolioItems = [
-  { id: 1,  label: "Workshop", title: "CSM Training — Hyderabad",         sub: "Scrum Alliance Certified",  year: "2024", img: "" },
-  { id: 2,  label: "Speaking", title: "Agile Leadership Conference",       sub: "Keynote Speaker",            year: "2023", img: "" },
-  { id: 3,  label: "Corporate",title: "Enterprise Agile Transformation",   sub: "Pega Systems",               year: "2017", img: "" },
-  { id: 4,  label: "Training", title: "A-CSM Intensive — Virtual",         sub: "Advanced Certification",     year: "2024", img: "" },
-  { id: 5,  label: "Summit",   title: "Lean India Summit",                 sub: "Case Study Presentation",    year: "2014", img: "" },
-  { id: 6,  label: "Media",    title: "Podcast — Agile Conversations",     sub: "Episode Series",             year: "2023", img: "" },
-  { id: 7,  label: "Coaching", title: "Executive Agile Coaching",          sub: "C-Suite Engagement",         year: "2022", img: "" },
-  { id: 8,  label: "Gathering",title: "Regional Scrum Gathering India",    sub: "Conference Session",         year: "2014", img: "" },
-  { id: 9,  label: "CSPO",     title: "Certified Scrum Product Owner",     sub: "Bangalore Cohort",           year: "2023", img: "" },
-  { id: 10, label: "Kanban",   title: "Kanban System Design Workshop",     sub: "Enterprise Training",        year: "2021", img: "" },
+  { id: 1,  label: "CSM",      title: "CSM Training — Hyderabad",          sub: "Scrum Alliance Certified",   year: "2023", img: "/work/csm-hyderabad.jpg" },
+  { id: 2,  label: "CSM",      title: "CSM Training — Kuala Lumpur",       sub: "Scrum Alliance Certified",   year: "2023", img: "/work/csm-kualalumpur.jpg" },
+  { id: 3,  label: "Coaching", title: "Coaching Workshop — Chennai",        sub: "Enterprise Coaching",        year: "2023", img: "/work/coaching-chennai.jpg" },
+  { id: 4,  label: "A-CSPO",   title: "A-CSPO — Virtual",                  sub: "Advanced Certification",     year: "2026", img: "/work/acspo-virtual.jpg" },
+  { id: 5,  label: "A-CSM",    title: "A-CSM — Virtual",                   sub: "Advanced Certification",     year: "2025", img: "/work/acsm-virtual.jpg" },
+  { id: 6,  label: "AI-SM",    title: "AI For Scrum Masters — Virtual",     sub: "Emerging Skills",            year: "2025", img: "/work/aism-virtual.jpg" },
+  { id: 7,  label: "CSM",      title: "CSM Training — Bengaluru",          sub: "Scrum Alliance Certified",   year: "2026", img: "/work/csm-bengaluru.jpg" },
+  { id: 8,  label: "AI-PO",    title: "AI For Product Owners — Virtual",   sub: "Emerging Skills",            year: "2025", img: "/work/aipo-virtual.jpg" },
+  { id: 9,  label: "CSM",      title: "CSM Training — Qatar",              sub: "Scrum Alliance Certified",   year: "2025", img: "/work/csm-qatar.jpg" },
+  { id: 10, label: "CSPO",     title: "CSPO — Virtual",                    sub: "Scrum Alliance Certified",   year: "2025", img: "/work/cspo-virtual.jpg" },
+  { id: 11, label: "SAFe",     title: "Leading SAFe — Virtual",            sub: "SAFe Practice Consultant",   year: "2026", img: "/work/safe-virtual.png" },
 ]
 
 /* ── Letter row: hook at top level, no rotation, clean ── */
@@ -753,7 +758,7 @@ function WorkSlide({ item, index, total, progress }: {
 function PortfolioCarousel() {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] })
-  const N = portfolioItems.length                          // 10
+  const N = portfolioItems.length
   const [active, setActive] = useState(0)
   const hintOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0])
 
@@ -893,7 +898,7 @@ export default function Home() {
             transition={{ duration: 0.75, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
             className="flex items-center justify-between px-4 sm:px-8 py-2"
             style={{ borderTop: "1px solid rgba(255,255,255,0.1)", background: "rgba(3,13,30,0.75)", backdropFilter: "blur(10px)" }}>
-            <span className="font-mono text-[9px] text-white/30 tracking-[0.28em] uppercase hidden sm:block">Scrum Alliance · Since 2013</span>
+            <span className="font-mono text-[9px] text-white/30 tracking-[0.28em] uppercase hidden sm:block">Founder &amp; CEO @ Learnovative</span>
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
               <span className="font-mono text-[9px] text-green-400/60 tracking-[0.22em] uppercase">CERTIFIED SCRUM TRAINER</span>
@@ -933,11 +938,9 @@ export default function Home() {
               animate={{ x: "0%" }}
               transition={{ duration: 0.75, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
               className="flex items-center justify-center px-4 sm:px-8 pb-3">
-              <span className="text-blue-300/70 text-lg mr-2 select-none">"</span>
               <span className="font-mono font-semibold tracking-[0.22em] uppercase text-[10px] sm:text-xs" style={{ color: "rgba(147,197,253,0.7)" }}>
-                Organisational Transformation Coach
+                TRAINER · COACH · SPEAKER
               </span>
-              <span className="text-blue-300/70 text-lg ml-2 select-none">"</span>
             </motion.div>
           </div>
 
@@ -991,12 +994,12 @@ export default function Home() {
           <p className="text-center text-slate-400 text-[10px] font-bold tracking-[0.35em] uppercase mb-10">Authorized Trainer For</p>
           <div className="flex flex-wrap items-center justify-center gap-8 max-w-4xl mx-auto">
             {[
-              { logo: "/logo-scrumalliance.svg", sub: "Certified Scrum Trainer" },
-              { logo: "/logo-safeagile.png",     sub: "SAFe Practice Consultant" },
-              { logo: "/logo-learnovative.png",  sub: "Founder & CEO" },
-            ].map(({ logo, sub }) => (
+              { logo: "/logo-scrumalliance.svg", sub: "Certified Scrum Trainer", h: "h-16" },
+              { logo: "/logo-safe.png",           sub: "SAFe Practice Consultant", h: "h-20" },
+              { logo: "/logo-learnovative.png",  sub: "Founder & CEO", h: "h-10" },
+            ].map(({ logo, sub, h }) => (
               <div key={sub} className="flex flex-col items-center gap-3 group cursor-default px-6 py-5 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all">
-                <img src={logo} alt={sub} className="h-10 object-contain" />
+                <img src={logo} alt={sub} className={`${h} object-contain`} />
                 <span className="text-[10px] text-slate-400 group-hover:text-blue-500 transition-colors font-semibold tracking-widest uppercase text-center max-w-[180px]">{sub}</span>
               </div>
             ))}
@@ -1116,15 +1119,15 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto">
           <ScrubReveal className="mb-16">
-            <div className="font-mono text-blue-500/40 text-xs tracking-[0.3em] uppercase mb-4">02 / MY PORTFOLIO</div>
+            <div className="font-mono text-blue-500/40 text-xs tracking-[0.3em] uppercase mb-4">MY PORTFOLIO</div>
             <LineDivider className="max-w-xs mb-6" />
             <h2 className="font-black text-white leading-tight" style={{ fontSize: "clamp(2.2rem, 5.5vw, 4rem)" }}>
-              <ScrambleText text="Programs That" className="block" /><span style={{
+              <ScrambleText text="My Trainings That" className="block" /><span style={{
                 background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-              }}>Transform Teams</span>
+              }}>Transform YOU</span>
             </h2>
             <p className="text-slate-500 mt-4 text-lg max-w-2xl leading-relaxed">
               Globally recognized certifications. Zero PowerPoint. Hands-on workshops delivered physically and virtually across India and globally.
@@ -1210,7 +1213,7 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto">
           <ScrubReveal className="text-center mb-16">
-            <div className="font-mono text-blue-500/40 text-xs tracking-[0.3em] uppercase mb-4">03 / MY TEACHING APPROACH</div>
+            <div className="font-mono text-blue-500/40 text-xs tracking-[0.3em] uppercase mb-4">MY TEACHING APPROACH</div>
             <LineDivider className="max-w-xs mx-auto mb-6" />
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-semibold mb-5">
               How Do I Create Impact
@@ -1273,7 +1276,7 @@ export default function Home() {
             </div>
           </ScrubReveal>
           <div>
-            {faqItems.slice(0, 4).map((item, i) => <FAQItem key={i} q={item.q} a={item.a} index={i} />)}
+            {faqItems.map((item, i) => <FAQItem key={i} q={item.q} a={item.a} index={i} />)}
           </div>
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             className="mt-10 text-center">
@@ -1388,10 +1391,12 @@ export default function Home() {
 
         {/* Mini stats row */}
         <div className="max-w-4xl mx-auto px-4 mt-14">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { icon: Globe, val: "4 Countries", label: "Global Reach" },
+              { icon: Globe, val: "8 Countries", label: "Global Reach" },
               { icon: CheckCircle, val: "NPS 90+", label: "Satisfaction" },
+              { icon: Star, val: "4.9/5.0", label: "Average Feedback" },
+              { icon: Users, val: "9,000+", label: "Reviews" },
             ].map(({ icon: Icon, val, label }) => (
               <div key={label}
                 className="rounded-2xl p-5 text-center transition-all duration-300 cursor-default"
@@ -1430,7 +1435,7 @@ export default function Home() {
               Now Taking Bookings
             </div>
             <h2 className="font-black text-white mb-6 leading-tight" style={{ fontSize: "clamp(2.8rem, 8vw, 5.5rem)" }}>
-              Decided to Improve<br />Your Career?
+              Decided to <span className="text-blue-300">Improve<br />Your Career?</span>
             </h2>
             <p className="text-blue-100 text-xl mb-12 max-w-xl mx-auto leading-relaxed">
               Join 25,000+ professionals I've trained. Book your seat in my next CSM, A-CSM, CSPO, or AI for Scrum Masters workshop.

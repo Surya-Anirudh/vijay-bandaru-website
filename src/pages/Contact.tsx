@@ -19,10 +19,22 @@ const courses = [
 ]
 
 const socials = [
-  { label: "Facebook", short: "FB", href: "https://facebook.com/vijay.bandaru.75", color: "#1877f2" },
-  { label: "Twitter / X", short: "TW", href: "https://twitter.com/vkbandaru", color: "#1da1f2" },
-  { label: "Instagram", short: "IG", href: "https://instagram.com/vijaybandaru74/", color: "#e1306c" },
-  { label: "LinkedIn", short: "LI", href: "https://linkedin.com/in/vijaybandaru", color: "#0077b5" },
+  {
+    label: "Facebook", href: "https://www.facebook.com/vijay.bandaru.75", color: "#1877f2",
+    icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>,
+  },
+  {
+    label: "Instagram", href: "https://www.instagram.com/vijaybandaru74/", color: "#e1306c",
+    icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
+  },
+  {
+    label: "LinkedIn", href: "https://linkedin.com/in/vijaybandaru", color: "#0077b5",
+    icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>,
+  },
+  {
+    label: "Learnovative", href: "https://www.learnovative.com", color: "#2563eb",
+    icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+  },
 ]
 
 export default function Contact() {
@@ -90,10 +102,10 @@ export default function Contact() {
             <div className="bg-white border border-slate-200 rounded-xl p-5">
               <div className="text-slate-700 text-sm font-semibold mb-4">Connect on Social Media</div>
               <div className="grid grid-cols-2 gap-3">
-                {socials.map(({ label, short, href, color }) => (
+                {socials.map(({ label, icon, href, color }) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                     className="flex items-center gap-2 px-3 py-2.5 rounded-xl border border-slate-200 hover:border-blue-200 hover:shadow-md transition-all hover:scale-105">
-                    <span className="w-6 h-6 rounded-lg flex items-center justify-center text-[10px] font-black text-white" style={{ background: color }}>{short}</span>
+                    <span className="w-7 h-7 rounded-lg flex items-center justify-center text-white shrink-0" style={{ background: color }}>{icon}</span>
                     <span className="text-slate-600 text-xs font-medium">{label}</span>
                   </a>
                 ))}

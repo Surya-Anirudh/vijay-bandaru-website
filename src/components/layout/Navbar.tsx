@@ -37,8 +37,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-slate-100"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,11 +47,11 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-0 group shrink-0 select-none">
             <img src="/logo.png" alt="VB Logo" className="w-10 h-10 mr-2.5 transition-transform duration-300 group-hover:scale-110" />
             <div className="leading-none">
-              <div className={cn("font-black text-base tracking-tight transition-colors duration-500", scrolled ? "text-slate-900" : "text-white")}>
+              <div className="font-black text-base tracking-tight text-slate-900">
                 VIJAY <span className="text-blue-500">BANDARU</span>
               </div>
-              <div className={cn("text-[9px] font-semibold tracking-[0.18em] uppercase transition-colors duration-500 mt-0.5", scrolled ? "text-slate-400" : "text-white/45")}>
-                Enterprise Agile Coach
+              <div className="text-[9px] font-semibold tracking-[0.18em] uppercase mt-0.5 text-slate-500">
+                TRAINER · COACH · SPEAKER
               </div>
             </div>
           </Link>
@@ -64,8 +63,8 @@ export default function Navbar() {
                 className={cn(
                   "px-3.5 py-2 text-sm rounded-lg font-medium transition-all duration-300",
                   isActive(link.href)
-                    ? scrolled ? "text-blue-600 bg-blue-50" : "text-white bg-white/15"
-                    : scrolled ? "text-slate-600 hover:text-slate-900 hover:bg-slate-50" : "text-white/70 hover:text-white hover:bg-white/10"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                 )}>
                 {link.label}
               </Link>
@@ -75,7 +74,7 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className={cn("lg:hidden p-2 rounded-lg transition-all duration-300", scrolled ? "text-slate-500 hover:bg-slate-100" : "text-white/80 hover:bg-white/10")}
+            className="lg:hidden p-2 rounded-lg transition-all duration-300 text-slate-500 hover:bg-slate-100"
             onClick={() => setOpen(!open)}>
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
