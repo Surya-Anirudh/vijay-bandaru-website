@@ -6,7 +6,7 @@ import PageHeader from "@/components/PageHeader"
 export default function Podcast() {
   return (
     <div className="bg-white">
-      <PageHeader badge="Podcast" variant="podcast"
+      <PageHeader badge="Podcast"
         title={<>Agile & Scrum <span className="text-pink-400">Jingles</span></>}
         subtitle="I host deep conversations on Agile, Scrum, organizational transformation, and building extraordinary teams — drawing from my 28+ years as a Certified Scrum Trainer & Enterprise Agile Coach." />
 
