@@ -27,7 +27,7 @@ export default function Blog() {
                 <div className="flex gap-6 items-start p-5 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all duration-300 group bg-white">
                   {/* Styled thumbnail */}
                   <div className={`shrink-0 w-32 h-20 rounded-xl bg-gradient-to-br ${categoryGradient[post.category] ?? "from-slate-600 to-slate-800"} flex items-center justify-center p-3 overflow-hidden relative`}>
-                    <span className="text-white font-black text-xs text-center leading-tight relative z-10 drop-shadow">{post.category}</span>
+                    <span className="text-white font-bold text-[10px] text-center leading-tight relative z-10 drop-shadow">{post.title}</span>
                     <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full bg-white/10" />
                     <div className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-white/10" />
                   </div>

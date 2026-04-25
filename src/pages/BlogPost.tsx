@@ -331,7 +331,7 @@ export default function BlogPost() {
           <div className="absolute top-4 left-6 w-20 h-20 rounded-full bg-white/10" />
           <div className="absolute bottom-4 right-8 w-32 h-32 rounded-full bg-white/5" />
           <div className="absolute top-2 right-16 w-10 h-10 rounded-full bg-white/10" />
-          <span className="relative z-10 text-white font-black text-4xl tracking-tight opacity-20 select-none">{post.category.toUpperCase()}</span>
+          <span className="relative z-10 text-white font-black text-2xl text-center px-8 leading-snug drop-shadow-lg">{post.title}</span>
         </div>
       </div>
 
