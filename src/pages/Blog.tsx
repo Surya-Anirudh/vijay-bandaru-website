@@ -17,7 +17,7 @@ export default function Blog() {
             <motion.div key={post.slug} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
               <Link to={`/blog/${post.slug}`}>
-                <div className="group flex items-start gap-5 p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-sm transition-all duration-300 bg-white">
+                <div className="group flex items-start gap-5 p-6 rounded-2xl border-2 border-slate-200 hover:border-blue-500 shadow-md hover:shadow-xl transition-all duration-300 bg-white hover:bg-blue-50/40">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full">{post.category}</span>

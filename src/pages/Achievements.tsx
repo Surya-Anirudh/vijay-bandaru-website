@@ -96,10 +96,10 @@ export default function Achievements() {
         subtitle="I've been recognized by leading industry bodies and invited to speak at premier Agile and Project Management conferences across India and globally." />
 
       {/* Awards Grid */}
-      <section className="py-20 px-4">
+      <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="flex items-center gap-3 mb-10">
+            className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
               <Award size={20} className="text-white" />
             </div>
@@ -141,10 +141,10 @@ export default function Achievements() {
       </section>
 
       {/* Speaking Engagements */}
-      <section className="py-20 px-4 bg-slate-50">
+      <section className="py-12 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="flex items-center gap-3 mb-10">
+            className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
               <Mic size={20} className="text-white" />
             </div>
@@ -173,10 +173,10 @@ export default function Achievements() {
       </section>
 
       {/* Speaker & Volunteer Contributions */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-12 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-            className="flex items-center gap-3 mb-10">
+            className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
               <Users size={20} className="text-white" />
             </div>
@@ -244,7 +244,7 @@ export default function Achievements() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 bg-blue-600">
+      <section className="py-12 px-4 bg-blue-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-black text-white mb-3">Invite Me to Speak</h2>
           <p className="text-blue-100 mb-8 text-lg">I am available for keynotes, workshops, panel discussions, and corporate training events across India and globally.</p>

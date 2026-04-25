@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { Mic } from "lucide-react"
+import { useState } from "react"
 import PageHeader from "@/components/PageHeader"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -16,7 +17,7 @@ const episodes = [
 
 const barHeights = [10, 16, 22, 18, 14, 20, 12]
 
-function Waveform() {
+function Waveform({ playing }: { playing: boolean }) {
   return (
     <div className="flex items-center gap-[3px] shrink-0">
       {barHeights.map((h, i) => (
@@ -25,8 +26,13 @@ function Waveform() {
           className="w-[3px] rounded-full bg-blue-400"
           style={{
             height: `${h}px`,
-            animation: `waveBar ${0.5 + i * 0.12}s ease-in-out infinite alternate`,
+            animation: playing
+              ? `waveBar ${0.5 + i * 0.12}s ease-in-out infinite alternate`
+              : "none",
             animationDelay: `${i * 0.08}s`,
+            transform: playing ? undefined : "scaleY(0.4)",
+            opacity: playing ? 1 : 0.4,
+            transition: "opacity 0.2s, transform 0.2s",
           }}
         />
       ))}
@@ -35,6 +41,8 @@ function Waveform() {
 }
 
 export default function Podcast() {
+  const [playingEp, setPlayingEp] = useState<string | null>(null)
+
   return (
     <div className="min-h-screen relative" style={{
       background: "linear-gradient(160deg, #f0f7ff 0%, #e8f0fe 40%, #f5f0ff 100%)",
@@ -91,9 +99,16 @@ export default function Podcast() {
                       {ep.ep}
                     </Badge>
                     <h3 className="text-slate-900 font-semibold text-sm leading-snug flex-1 min-w-0 truncate">{ep.title}</h3>
-                    <Waveform />
+                    <Waveform playing={playingEp === ep.ep} />
                   </div>
-                  <audio controls className="w-full" style={{ height: "36px", borderRadius: "10px" }}>
+                  <audio
+                    controls
+                    className="w-full"
+                    style={{ height: "36px", borderRadius: "10px" }}
+                    onPlay={() => setPlayingEp(ep.ep)}
+                    onPause={() => setPlayingEp(null)}
+                    onEnded={() => setPlayingEp(null)}
+                  >
                     <source src={ep.src} type="video/mp4" />
                   </audio>
                 </div>
