@@ -34,7 +34,7 @@ export default function Blog() {
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="pt-6 text-center">
             <h3 className="text-xl font-bold text-slate-900 mb-3">Want to read more articles?</h3>
-            <a href="https://vijaybandaru.com/blog" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.learnovative.com/blog/" target="_blank" rel="noopener noreferrer">
               <button className="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-all hover:shadow-lg hover:scale-105 mb-4">
                 Visit Learnovative Blog <ArrowRight className="inline w-4 h-4 ml-1" />
               </button>
