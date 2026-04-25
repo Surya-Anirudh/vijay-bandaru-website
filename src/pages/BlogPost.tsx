@@ -231,11 +231,6 @@ const posts: Post[] = [
 
 export const blogPosts = posts
 
-const categoryGradient: Record<string, string> = {
-  Scrum:  "from-blue-600 to-blue-800",
-  Agile:  "from-blue-500 to-indigo-700",
-  Career: "from-indigo-600 to-blue-900",
-}
 
 function renderBlock(block: Block, i: number) {
   switch (block.type) {
@@ -308,30 +303,22 @@ export default function BlogPost() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero */}
-      <div className="bg-slate-900 pt-24 pb-12 px-4">
+      <div className="bg-slate-900 pt-24 pb-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-blue-400 text-sm mb-6 hover:text-blue-300 transition-colors">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-blue-400 text-sm mb-8 hover:text-blue-300 transition-colors">
             <ArrowLeft size={14} /> Back to Blog
           </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-600 text-white">{post.category}</span>
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-600 text-white">{post.category}</span>
             <span className="flex items-center gap-1 text-slate-400 text-xs"><Clock size={11} />{post.readTime}</span>
             <span className="flex items-center gap-1 text-slate-400 text-xs"><Calendar size={11} />{post.date}</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-[1.2] mb-4">{post.title}</h1>
-          <p className="text-slate-400 text-base leading-relaxed">{post.excerpt}</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white leading-[1.2] mb-5 tracking-tight">{post.title}</h1>
+          <p className="text-slate-400 text-base leading-relaxed max-w-2xl">{post.excerpt}</p>
+          <div className="mt-8 h-px bg-white/10" />
         </div>
       </div>
 
-      {/* Cover banner */}
-      <div className="max-w-3xl mx-auto px-4 mt-8">
-        <div className={`w-full h-40 rounded-2xl bg-gradient-to-br ${categoryGradient[post.category] ?? "from-slate-600 to-slate-800"} flex items-center justify-center relative overflow-hidden shadow-lg`}>
-          <div className="absolute top-4 left-6 w-20 h-20 rounded-full bg-white/10" />
-          <div className="absolute bottom-4 right-8 w-32 h-32 rounded-full bg-white/5" />
-          <div className="absolute top-2 right-16 w-10 h-10 rounded-full bg-white/10" />
-          <span className="relative z-10 text-white font-black text-2xl text-center px-8 leading-snug drop-shadow-lg">{post.title}</span>
-        </div>
-      </div>
 
       {/* Content */}
       <section className="py-12 px-4">
