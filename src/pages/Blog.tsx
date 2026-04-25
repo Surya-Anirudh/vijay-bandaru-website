@@ -31,6 +31,16 @@ export default function Blog() {
               </Link>
             </motion.div>
           ))}
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="pt-6 text-center">
+            <h3 className="text-xl font-bold text-slate-900 mb-3">Want to read more articles?</h3>
+            <a href="https://vijaybandaru.com/blog" target="_blank" rel="noopener noreferrer">
+              <button className="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-all hover:shadow-lg hover:scale-105 mb-4">
+                Visit Learnovative Blog <ArrowRight className="inline w-4 h-4 ml-1" />
+              </button>
+            </a>
+            <p className="text-slate-500 text-sm leading-relaxed max-w-xl mx-auto">Visit my company Learnovative website for more blogs for in-depth understanding on Scrum, Agile, coaching, Product owner, Scrum Master, Scaling Scrum, AI, and career growth.</p>
+          </motion.div>
         </div>
       </section>
     </div>
