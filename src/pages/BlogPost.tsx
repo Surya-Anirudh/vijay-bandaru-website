@@ -2,7 +2,13 @@ import { motion } from "framer-motion"
 import { Link, useParams, Navigate } from "react-router-dom"
 import { ArrowLeft, Clock, Calendar } from "lucide-react"
 
-type Section = { heading?: string; body: string }
+type Block =
+  | { type: "p"; text: string }
+  | { type: "h3"; text: string }
+  | { type: "ul"; items: string[] }
+  | { type: "ol"; items: string[] }
+  | { type: "table"; headers: string[]; rows: string[][] }
+  | { type: "note"; text: string }
 
 type Post = {
   slug: string
@@ -12,7 +18,7 @@ type Post = {
   date: string
   img: string
   excerpt: string
-  sections: Section[]
+  content: Block[]
 }
 
 const posts: Post[] = [
@@ -21,30 +27,115 @@ const posts: Post[] = [
     title: "Velocity and Focus Factor in Scrum",
     category: "Scrum",
     readTime: "5 min read",
-    date: "December 2023",
+    date: "October 14, 2023",
     img: "/blog-velocity.png",
-    excerpt: "Understanding Velocity and Focus Factor is essential for Scrum teams to plan sprints accurately and improve delivery predictability.",
-    sections: [
+    excerpt: "If you are working in a Scrum Project, you must be familiar with the word Velocity. But are you aware of the term Focus Factor and how you can use it? In this article we are going to make it clear about Velocity and Focus Factor and how they both are related.",
+    content: [
+      { type: "h3", text: "What is Velocity?" },
+      { type: "p", text: "It is a measure of the amount of work a Scrum Team can complete in a Sprint. It is a good metric to self-evaluate a Scrum Team on how to improve their practices, processes, tools, collaboration, etc to improve its velocity naturally over a period of time. The Velocity is calculated at the end of the Sprint because by that time the Scrum Team is clearly aware of the amount of work done in the Sprint." },
+      { type: "p", text: "Velocity is the \"Sum of the Story points completed in a Sprint\". Here completed means the items that are meeting the Definition of Done. While the velocity is calculated at the end of the Sprint, the Sprint Progress should be tracked throughout the Sprint by the Developers. This will enhance the transparency to the Scrum Team on how the work is getting executed. Below is a simple way to understand the velocity with a couple of scenarios:" },
+      { type: "p", text: "Let us consider a Sprint of 2 weeks and below table gives the user stories pulled into the Sprint Backlog. The story points and status are also mentioned in the table for the selected user stories." },
       {
-        heading: "What is Velocity?",
-        body: "Velocity measures the amount of work a Scrum Team can complete in a Sprint. It's calculated by summing story points of items meeting the Definition of Done at the sprint's end. Only completed items count toward velocity — partially done or incomplete work gets moved back to the Product Backlog.",
+        type: "table",
+        headers: ["User Story Title", "Story Points (Size)", "Status"],
+        rows: [
+          ["Registration", "5", "DONE"],
+          ["Login", "3", "DONE"],
+          ["Search", "8", "DONE"],
+          ["Payment", "5", "DONE"],
+        ],
       },
+      { type: "p", text: "The velocity of the Sprint is 21 Story points, because all the user stories are \"DONE\" so the sum of the user stories is 21 (5+3+8+5)." },
+      { type: "p", text: "Below is another scenario." },
       {
-        heading: "Key Velocity Guidelines",
-        body: "Avoid comparing velocities across different teams or pressuring teams to artificially increase it. Teams of similar composition won't necessarily have identical velocities. Use velocity primarily for forecasting how much work to pull into sprints and for providing stakeholder projections based on recent sprint data.",
+        type: "table",
+        headers: ["User Story Title", "Story Points (Size)", "Status"],
+        rows: [
+          ["Add to cart", "2", "DONE"],
+          ["Change quantity", "1", "DONE"],
+          ["Empty cart", "3", "NOT DONE"],
+          ["Modify address of delivery", "3", "DONE"],
+          ["List items of the cart", "5", "DONE"],
+          ["Delete items from the cart", "3", "NOT DONE"],
+          ["Clone the cart", "8", "DONE"],
+        ],
       },
+      { type: "p", text: "The velocity of this Sprint is 19 because to calculate the velocity we have to consider only the items that are completed and meeting the Definition of Done. So in the above scenario out of 7 items, only 5 are completed and 2 are not done. So taking the items that are \"DONE\" the velocity is 19 (2+1+3+5+8)." },
+      { type: "p", text: "Below is another scenario." },
       {
-        heading: "Improving Velocity Naturally",
-        body: "Teams can enhance velocity by establishing cross-functional training, minimizing context switching, breaking down items into smaller chunks, clarifying acceptance criteria, and continuously identifying waste sources like unclear requirements or dependencies. Focus on removing impediments — velocity improves as a natural outcome.",
+        type: "table",
+        headers: ["User Story Title", "Story Points (Size)", "Status"],
+        rows: [
+          ["Add patient data", "5", "DONE"],
+          ["Edit patient data", "3", "DONE"],
+          ["List patient data", "2", "DONE"],
+          ["View patient details", "2", "NOT DONE"],
+          ["Delete patient data", "2", "70% DONE"],
+          ["Search for patient data", "8", "DONE"],
+          ["Export patient data into PDF", "5", "80% DONE"],
+        ],
       },
+      { type: "p", text: "The velocity of this Sprint is 18 because to calculate the velocity we have to consider only the items that are completed and meeting the Definition of Done. There are 3 items which are either not done or partially done, so they will not be eligible for velocity calculation. So in the above scenario out of 7 items, only 4 are completed and meeting the definition of Done. So taking the items that are \"DONE\" the velocity is 18 (5+3+2+8)." },
+      { type: "h3", text: "What happens to the items that are NOT DONE or PARTIALLY DONE?" },
+      { type: "p", text: "They will be moved back to the Product Backlog according to the priority decided by the Product Owner. If they are still important, valuable and urgent compared to other items in the Product Backlog, then the Product Owner can place them on the top of the Product Backlog so that they may be taken up in the Next Sprint. The Product Owner may place them in the middle or bottom of the Product Backlog as per the latest priority. This is what is the 4th Agile manifesto value — Responding to Change over Following a plan." },
+      { type: "h3", text: "Be aware of the following points when using Velocity:" },
       {
-        heading: "What is Focus Factor?",
-        body: "Focus Factor uses the formula: Velocity ÷ Capacity. Capacity represents available focused time after removing meetings and non-work activities. Using average velocity from 4–5 recent sprints, teams can calculate how many story points they'll realistically complete given current team size and availability.",
+        type: "ul",
+        items: [
+          "Do not use Velocity to compare different Scrum Teams, it is not meant for that",
+          "Do not push the teams to increase velocity every Sprint, it should naturally improve",
+          "Similar skilled, sized Scrum Teams will not have same velocity",
+          "Velocity is mainly to help for forecast: for Developers to see how much they can pull into the current Sprint using last Sprint velocity and current Sprint capacity; for Product Owner, to provide forecast to the Stakeholders based on most recent 4 to 5 Sprints Best, Worst and Average Velocity",
+        ],
       },
+      { type: "h3", text: "How to improve Velocity of a Scrum Team naturally?" },
       {
-        heading: "First Sprint Forecasting",
-        body: "Without historical data, teams should use judgment guided by creating clear requirements, detailed task breakdowns, and capacity-based planning. A reasonable starting point is assuming a 70% Focus Factor and adjusting from there based on actuals.",
+        type: "ul",
+        items: [
+          "Creating a cross-functional training culture in the Scrum Team",
+          "Let the team focus on the current Sprint items and avoid context switching",
+          "Make the items small enough so that they can be done faster",
+          "Create clear and proper acceptance criteria so that developers can understand well",
+          "Make Product Backlog Refinement effective",
+          "Identify the wastes that will impact the velocity such as delays, waiting, unclear requirements, dependencies etc and find the root causes of those wastes and address them continuously",
+        ],
       },
+      { type: "h3", text: "What is the Focus Factor?" },
+      { type: "p", text: "Focus Factor is a simple mathematical formula that helps Developers to forecast how many product backlog items can be pulled into the Sprint backlog. This number can be derived using the \"Velocity\" and the \"Capacity\" of the Developers in the Scrum Team. Capacity is the \"focused amount of time\" available for the Developers after removing all the non-work related time such as meetings, Scrum events, public holidays, personal time off etc." },
+      { type: "note", text: "Formula: Focus Factor = Velocity / Capacity" },
+      { type: "p", text: "We generally consider the \"Average Velocity\" of the most recent 4 to 5 Sprints in the above formula. Here is an example:" },
+      {
+        type: "ul",
+        items: [
+          "A team's average velocity is: 30 Story Points (Based on most recent 4 to 5 Sprints data)",
+          "Their capacity (per person) is: 7 Days (In a 2 weeks Sprint after removing Scrum events time, and other non work related time)",
+          "Number of Developers in the team: 6",
+          "Therefore, the Focus Factor is: 30 / (6 × 7) = 0.71",
+        ],
+      },
+      { type: "p", text: "This Focus Factor can now be used to forecast the amount of work for the upcoming Sprint. If only 5 members are available in the next Sprint, then the forecast is: 0.71 × 5 × 7 = Approximately 25 Story points." },
+      { type: "h3", text: "How to forecast for the very first Sprint?" },
+      { type: "p", text: "As there will be no historical data for the first Sprint, let the team go with their gut feeling to decide how much work they can pull into the Sprint Backlog. This may lead to two scenarios:" },
+      {
+        type: "ol",
+        items: [
+          "Complete the selected work early: Let the Developers and Product Owner collaborate and take some additional work which will help to improve the Product value.",
+          "Unable to complete all the work selected: Move the incomplete items back to the Product Backlog.",
+        ],
+      },
+      { type: "p", text: "In either case, it should be discussed in the Sprint Retrospective to find the root causes of the scenario and to learn what can be improved. The Developers and Product Owner can take below guidelines for the first Sprint:" },
+      {
+        type: "ul",
+        items: [
+          "Let the top few items be very clear and smaller",
+          "All clarifications need to be addressed",
+          "Create detailed tasks for each of the top few Product Backlog Items",
+          "Let the Developers estimate each task in less than or equal to 6 hours",
+          "Let the Developers calculate the available capacity of the Sprint",
+          "See how many Product Backlog Items can be pulled to fill the available capacity as per the capacity hours and the sum of the total hours estimated for the Product Backlog Items",
+        ],
+      },
+      { type: "p", text: "Even though this approach helps you to forecast the amount of work for a sprint, do not ignore the inspect and adapt approach. Scrum is all about continuous improvement with inspecting and adapting. So use Sprint Retrospective to brainstorm how to improve estimation, selecting the right amount of work into the Sprint, how to optimize the tools, practices and processes to get better." },
     ],
   },
   {
@@ -52,42 +143,52 @@ const posts: Post[] = [
     title: "How to Manage the 7 Wastes of Agile Software Development",
     category: "Agile",
     readTime: "7 min read",
-    date: "October 2023",
+    date: "October 12, 2023",
     img: "/blog-wastes.png",
-    excerpt: "Lean thinking identifies seven types of waste in software development. Discover how to recognize and eliminate these wastes in your Agile teams to maximize value delivery.",
-    sections: [
+    excerpt: "Whether you are new to the role or seeking to enhance your skills as a Product Owner? Here is the right guide for you. As a vital role in the Scrum framework, the Product Owner plays a crucial part in guiding the development team and ensuring the successful delivery of a valuable product.",
+    content: [
+      { type: "h3", text: "Understanding the Scrum Framework" },
+      { type: "p", text: "Scrum is an agile project management framework designed to deliver value to customers through iterative development and frequent feedback. As a Product Owner, it's essential to have a solid understanding of Scrum's core principles, including transparency, inspection, and adaptation. Familiarize yourself with the roles of the Product Owner, Scrum Master, and Development Team, and how they collaborate within the framework to achieve project success." },
+      { type: "h3", text: "Embracing the Product Owner Role" },
       {
-        heading: "Understanding Waste in Agile",
-        body: "Scrum is an agile project management framework designed to deliver value to customers through iterative development and frequent feedback. Core principles include transparency, inspection, and adaptation. Lean thinking — which underpins Agile — identifies categories of waste that erode team efficiency and product value.",
+        type: "ul",
+        items: [
+          "Defining the key responsibilities of a Product Owner",
+          "Establishing a shared understanding of the role within the organization",
+          "Developing the mindset and skills necessary for success",
+        ],
       },
+      { type: "h3", text: "Defining the Product Vision" },
+      { type: "p", text: "Crafting a compelling product vision is the foundation for driving development efforts. The product vision serves as a guiding light that aligns the team's work with business goals and customer needs. Learn how to articulate your product vision statement clearly, making it inspiring and understandable to stakeholders and team members. Effective communication of the vision ensures everyone is aligned and working towards the same objectives." },
+      { type: "h3", text: "Building and Managing the Product Backlog" },
+      { type: "p", text: "The Product Backlog is a dynamic and prioritized list of features, enhancements, and bugs that make up the product roadmap. As a Product Owner, your role is to create and maintain a well-organized backlog. This includes defining user stories, prioritizing them based on value and effort, and continuously refining the backlog as new information emerges. Explore techniques for backlog grooming and refinement, such as user story mapping and backlog prioritization workshops." },
+      { type: "h3", text: "Collaborating with Stakeholders" },
+      { type: "p", text: "Successful collaboration with stakeholders is crucial for understanding their requirements, gathering feedback, and managing expectations. Identify key stakeholders and establish clear channels of communication to engage them throughout the project. Actively involve stakeholders in backlog refinement sessions, sprint reviews, and release planning meetings. Develop strong relationships built on trust, transparency, and effective negotiation skills to ensure their needs are met while maintaining focus on the product vision." },
+      { type: "h3", text: "Effective Release Planning" },
+      { type: "p", text: "Product development involves making strategic decisions about feature prioritization, releases, and timelines. Learn techniques for release planning and roadmap creation to ensure coherent and valuable product delivery. Prioritize features based on customer needs, market demand, and business goals. Regularly review and adapt the release plan as new information becomes available or priorities change. Flexibility is key to responding to evolving market conditions and customer feedback." },
+      { type: "h3", text: "Engaging with the Development Team" },
+      { type: "p", text: "As a Product Owner, you bridge the gap between the stakeholders and the development team. Clear and concise communication is essential to convey product requirements, prioritize user stories, and provide timely feedback. Participate actively in Sprint Planning, where you collaborate with the development team to select user stories for the upcoming sprint. Engage in Daily Scrums to address any questions or concerns from the team and provide clarifications. Finally, actively participate in Sprint Reviews to gather feedback and showcase completed work." },
+      { type: "h3", text: "Scaling Scrum and Continuous Improvement" },
+      { type: "p", text: "As the scope and complexity of projects grow, it becomes essential to scale Scrum to multiple teams and manage multiple products. Explore techniques and frameworks like Scrum of Scrums, Nexus, or LeSS (Large-Scale Scrum) to coordinate efforts across teams and synchronize product development. Learn strategies for managing multiple products simultaneously, including prioritization techniques, effective delegation, and maintaining a clear product roadmap for each product." },
+      { type: "h3", text: "Overcoming Challenges and Pitfalls" },
       {
-        heading: "1. Partially Done Work",
-        body: "Work that is started but not completed creates inventory waste. It sits in the system, consuming resources, blocking flow, and delivering no value to the customer. Scrum's Definition of Done is a powerful tool to combat this — it enforces a shared standard for 'complete.'",
+        type: "ul",
+        items: [
+          "Common challenges faced by Product Owners and how to address them",
+          "Techniques for handling competing priorities and managing expectations",
+          "Strategies for maintaining motivation and resilience in the role",
+        ],
       },
+      { type: "h3", text: "Managing Product Quality and Success" },
       {
-        heading: "2. Extra Features",
-        body: "Building features nobody asked for or needs is pure waste. Product Owners must rigorously prioritize the backlog based on real customer value. The discipline of saying 'no' to low-value features is one of the most impactful things a Product Owner can practice.",
+        type: "ul",
+        items: [
+          "Defining and measuring metrics for product success",
+          "Ensuring product quality through continuous integration and testing",
+          "Techniques for gathering and incorporating user feedback",
+        ],
       },
-      {
-        heading: "3. Relearning",
-        body: "When knowledge is lost between sprints, teams spend time rediscovering decisions already made. Good documentation, Definition of Done, and clear sprint goals reduce relearning. Retrospectives help teams institutionalize learnings rather than repeat mistakes.",
-      },
-      {
-        heading: "4. Handoffs",
-        body: "Every time work passes between people or teams, context is lost. Cross-functional Scrum teams are designed to minimize handoffs by having all the skills needed to deliver a feature within one team. Reduce dependencies and keep delivery ownership within the team.",
-      },
-      {
-        heading: "5. Task Switching",
-        body: "Context switching between tasks kills focus and quality. Sprint goals and WIP limits help teams stay focused on completing work rather than starting new items. A team working on one thing at a time delivers faster than a team juggling five.",
-      },
-      {
-        heading: "6. Delays and Waiting",
-        body: "Waiting for approvals, environments, or decisions from outside the team are major sources of waste. Scrum Masters should actively surface and remove these impediments. Autonomy and self-organization are the antidotes to waiting.",
-      },
-      {
-        heading: "7. Defects",
-        body: "Defects caught late are far more expensive to fix than those caught early. Test-driven development, continuous integration, and clear acceptance criteria reduce defect waste. Building quality in from the start is always cheaper than inspecting it in at the end.",
-      },
+      { type: "p", text: "Being a Scrum Product Owner is a dynamic and challenging role that requires a combination of technical expertise, effective communication, and strong leadership skills. By following the principles and strategies outlined in this comprehensive guide, you'll be well-equipped to guide your team and deliver valuable products that meet customer needs and drive business success. Embrace the Scrum framework, collaborate effectively with stakeholders and the development team, and continuously learn and adapt to excel in your role as a Scrum Product Owner." },
     ],
   },
   {
@@ -97,45 +198,102 @@ const posts: Post[] = [
     readTime: "8 min read",
     date: "November 2023",
     img: "/blog-career.png",
-    excerpt: "The path to becoming an Enterprise Agile Coach requires the right certifications, experience, and mindset. Here's a step-by-step guide from a Certified Scrum Trainer.",
-    sections: [
+    excerpt: "As a Scrum Trainer, Vijay Bandaru addresses a frequently asked question: what does it take to become an Agile Coach? While all Scrum Masters should be coaches, the scope differs significantly at the enterprise level.",
+    content: [
+      { type: "h3", text: "Scrum Master vs. Agile Coach" },
+      { type: "p", text: "While all Scrum Masters should be coaches, the scope differs. Scrum Masters typically coach teams through facilitation, training, mentoring and coaching. Agile Coaches work \"beyond teams\" to coach leadership and focus on enterprise-level transformation across multiple frameworks, cultures, and leadership layers." },
+      { type: "h3", text: "1. Strong Agile Fundamentals" },
+      { type: "p", text: "Understanding the Agile Manifesto deeply — particularly the \"why\" behind its values and principles — is foundational. This clarity enables you to guide others effectively. You cannot coach others on something you haven't fully internalized. Revisit the manifesto regularly — not as theory, but as a lived philosophy." },
+      { type: "h3", text: "2. Scrum Master Experience" },
+      { type: "p", text: "The first step in becoming an Agile Coach is to have worked as a Scrum Master. This provides practical understanding of team dynamics, impediments, and what it actually takes to grow a high-performing team. There are no shortcuts here — put in the time." },
+      { type: "h3", text: "3. Organizational Culture Knowledge" },
+      { type: "p", text: "Understanding different culture types — Competing, Controlling, Collaborative, Creative — and how Structure, Policies, Procedures, People, and Tools function within them is crucial for facilitating Agile transformation without compromising what already works. Agile Coaches must read organizations like a doctor reads a patient — diagnosing before prescribing." },
+      { type: "h3", text: "4. Leadership Types Awareness" },
+      { type: "p", text: "Recognizing different leadership styles — Expert, Achiever, Catalyst Leaders — helps select appropriate coaching models. Study servant leadership, situational leadership, and transformational leadership — and practice all three." },
+      { type: "h3", text: "5. Knowledge Beyond Scrum" },
+      { type: "p", text: "Experience with frameworks like Kanban, SAFe, LeSS, and knowledge of Product Management and Development expands your coaching capabilities. Organizations don't always fit neatly into one framework. Your value increases when you can adapt." },
+      { type: "h3", text: "6. Technical Practices & Tools Awareness" },
+      { type: "p", text: "Familiarity with Test Driven Development, Refactoring, Continuous Integration, and Continuous Delivery provides advantage when coaching engineering teams. Always remember: \"Individuals and Interactions OVER Processes and Tools\" remains essential." },
+      { type: "h3", text: "7. Professional Coaching Skills" },
+      { type: "p", text: "Developing a coaching mindset with competencies in Active Listening, Powerful Questions, and Creating Awareness, plus knowledge of change management models (GROW, ADKAR, SCARF) separates good coaches from great ones." },
+      { type: "h3", text: "Recommended Certifications" },
+      { type: "p", text: "Knowledge and experience is primary and certifications are the byproducts. That said, the following credentials demonstrate your commitment to the craft:" },
       {
-        heading: "Scrum Master vs Agile Coach",
-        body: "While Scrum Masters coach teams through facilitation, training, mentoring, and coaching — Agile Coaches extend their expertise beyond teams to include leadership and organizational transformation. An Agile Coach operates at the enterprise level across multiple frameworks, cultures, and leadership layers.",
-      },
-      {
-        heading: "1. Strong Agile Fundamentals",
-        body: "Deep understanding of the Agile Manifesto values, principles, and Scrum values is non-negotiable. You cannot coach others on something you haven't fully internalized. Revisit the manifesto regularly — not as theory, but as a lived philosophy.",
-      },
-      {
-        heading: "2. Scrum Master Experience",
-        body: "Working as a Scrum Master is mandatory for anyone aspiring to be an Agile Coach. It provides direct, practical insight into team dynamics, impediments, and what it actually takes to grow a high-performing team. There are no shortcuts here — put in the time.",
-      },
-      {
-        heading: "3. Organizational Culture Knowledge",
-        body: "Understanding different culture types and how to facilitate agile transformation without breaking what already works is a critical skill. Agile Coaches must read organizations like a doctor reads a patient — diagnosing before prescribing.",
-      },
-      {
-        heading: "4. Leadership Awareness",
-        body: "Recognizing various leadership styles and knowing which coaching models to apply in each context separates good coaches from great ones. Study servant leadership, situational leadership, and transformational leadership — and practice all three.",
-      },
-      {
-        heading: "5. Broader Framework Knowledge",
-        body: "Experience beyond Scrum — including Kanban, SAFe, LeSS, and product management expertise — makes you a more versatile coach. Organizations don't always fit neatly into one framework. Your value increases when you can adapt.",
-      },
-      {
-        heading: "6. Technical Practices Awareness",
-        body: "Familiarity with continuous integration, test-driven development, DevOps, and relevant tools allows you to credibly coach engineering teams and speak the language of developers. You don't need to code — but you need to understand the craft.",
-      },
-      {
-        heading: "7. Professional Coaching Skills",
-        body: "Active listening, powerful questioning, and change management competencies are the true tools of an Agile Coach. Pursue ICF-ACC, Scrum Alliance CTC/CEC, or ICP-ACC credentials — but remember, knowledge and experience are primary. Certifications are the byproduct.",
+        type: "ul",
+        items: [
+          "ICF – ACC (International Coach Federation – Associate Certified Coach)",
+          "Scrum Alliance CTC (Certified Team Coach)",
+          "Scrum Alliance CEC (Certified Enterprise Coach)",
+          "ICP-ACC (ICAgile Certified Professional – Agile Coaching)",
+        ],
       },
     ],
   },
 ]
 
 export const blogPosts = posts
+
+function renderBlock(block: Block, i: number) {
+  switch (block.type) {
+    case "h3":
+      return <h2 key={i} className="text-xl font-bold text-slate-900 mt-8 mb-3">{block.text}</h2>
+    case "p":
+      return <p key={i} className="text-slate-600 leading-relaxed text-base mb-4">{block.text}</p>
+    case "ul":
+      return (
+        <ul key={i} className="mb-4 space-y-1.5 pl-1">
+          {block.items.map((item, j) => (
+            <li key={j} className="flex items-start gap-2 text-slate-600 text-base">
+              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      )
+    case "ol":
+      return (
+        <ol key={i} className="mb-4 space-y-1.5 pl-1">
+          {block.items.map((item, j) => (
+            <li key={j} className="flex items-start gap-3 text-slate-600 text-base">
+              <span className="shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold mt-0.5">{j + 1}</span>
+              {item}
+            </li>
+          ))}
+        </ol>
+      )
+    case "table":
+      return (
+        <div key={i} className="mb-6 overflow-x-auto rounded-xl border border-slate-200">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-slate-50 border-b border-slate-200">
+                {block.headers.map((h, j) => (
+                  <th key={j} className="px-4 py-3 text-left font-semibold text-slate-700">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row, j) => (
+                <tr key={j} className={j % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                  {row.map((cell, k) => (
+                    <td key={k} className={`px-4 py-2.5 text-slate-600 ${k === 2 ? (cell === "DONE" ? "text-emerald-600 font-semibold" : cell === "NOT DONE" ? "text-red-500 font-semibold" : "text-amber-600 font-semibold") : ""}`}>
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )
+    case "note":
+      return (
+        <div key={i} className="mb-4 px-4 py-3 rounded-xl bg-blue-50 border border-blue-100 text-blue-700 font-semibold text-sm">
+          {block.text}
+        </div>
+      )
+  }
+}
 
 export default function BlogPost() {
   const { slug } = useParams()
@@ -169,16 +327,9 @@ export default function BlogPost() {
       {/* Content */}
       <section className="py-12 px-4">
         <div className="max-w-3xl mx-auto">
-          {post.sections.map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="mb-8">
-              {s.heading && (
-                <h2 className="text-xl font-bold text-slate-900 mb-3">{s.heading}</h2>
-              )}
-              <p className="text-slate-600 leading-relaxed text-base">{s.body}</p>
-            </motion.div>
-          ))}
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+            {post.content.map((block, i) => renderBlock(block, i))}
+          </motion.div>
 
           {/* Author note */}
           <div className="mt-12 p-6 rounded-2xl bg-blue-50 border border-blue-100 flex items-start gap-4">
