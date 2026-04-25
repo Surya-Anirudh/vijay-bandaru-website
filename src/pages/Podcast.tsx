@@ -33,7 +33,7 @@ export default function Podcast() {
   return (
     <div className="bg-white">
       <PageHeader badge="Podcast"
-        title={<>Agile <span className="text-blue-400">Conversations</span></>}
+        title={<>Agile & Scrum <span className="text-blue-400">Jingles</span></>}
         subtitle="I host deep conversations on Agile, Scrum, organizational transformation, and building extraordinary teams — drawing from my 25+ years as a Certified Scrum Trainer & Enterprise Agile Coach." />
 
       <section className="py-20 px-4">
