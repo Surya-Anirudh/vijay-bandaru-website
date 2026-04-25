@@ -233,6 +233,12 @@ const posts: Post[] = [
 
 export const blogPosts = posts
 
+const categoryGradient: Record<string, string> = {
+  Scrum:  "from-blue-600 to-indigo-700",
+  Agile:  "from-violet-600 to-purple-700",
+  Career: "from-emerald-500 to-teal-700",
+}
+
 function renderBlock(block: Block, i: number) {
   switch (block.type) {
     case "h3":
@@ -319,9 +325,14 @@ export default function BlogPost() {
         </div>
       </div>
 
-      {/* Cover image */}
-      <div className="max-w-3xl mx-auto px-4 -mt-1">
-        <img src={post.img} alt={post.title} className="w-full rounded-2xl object-cover max-h-72 shadow-lg" />
+      {/* Cover banner */}
+      <div className="max-w-3xl mx-auto px-4 mt-8">
+        <div className={`w-full h-40 rounded-2xl bg-gradient-to-br ${categoryGradient[post.category] ?? "from-slate-600 to-slate-800"} flex items-center justify-center relative overflow-hidden shadow-lg`}>
+          <div className="absolute top-4 left-6 w-20 h-20 rounded-full bg-white/10" />
+          <div className="absolute bottom-4 right-8 w-32 h-32 rounded-full bg-white/5" />
+          <div className="absolute top-2 right-16 w-10 h-10 rounded-full bg-white/10" />
+          <span className="relative z-10 text-white font-black text-4xl tracking-tight opacity-20 select-none">{post.category.toUpperCase()}</span>
+        </div>
       </div>
 
       {/* Content */}

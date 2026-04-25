@@ -4,6 +4,12 @@ import { Link } from "react-router-dom"
 import PageHeader from "@/components/PageHeader"
 import { blogPosts } from "./BlogPost"
 
+const categoryGradient: Record<string, string> = {
+  Scrum:  "from-blue-600 to-indigo-700",
+  Agile:  "from-violet-600 to-purple-700",
+  Career: "from-emerald-500 to-teal-700",
+}
+
 export default function Blog() {
   return (
     <div className="bg-white">
@@ -19,8 +25,11 @@ export default function Blog() {
               viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
               <Link to={`/blog/${post.slug}`}>
                 <div className="flex gap-6 items-start p-5 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all duration-300 group bg-white">
-                  <div className="shrink-0 w-32 h-20 rounded-xl overflow-hidden bg-slate-100">
-                    <img src={post.img} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  {/* Styled thumbnail */}
+                  <div className={`shrink-0 w-32 h-20 rounded-xl bg-gradient-to-br ${categoryGradient[post.category] ?? "from-slate-600 to-slate-800"} flex items-center justify-center p-3 overflow-hidden relative`}>
+                    <span className="text-white font-black text-xs text-center leading-tight relative z-10 drop-shadow">{post.category}</span>
+                    <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full bg-white/10" />
+                    <div className="absolute -top-2 -left-2 w-8 h-8 rounded-full bg-white/10" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1.5">
