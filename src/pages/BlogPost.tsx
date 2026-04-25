@@ -227,6 +227,76 @@ const posts: Post[] = [
       { type: "p", text: "ICP ACC (ICAgile Certified Professional – Agile Coaching): This certification helps you understand various Agile coaching models, practices and tools." },
     ],
   },
+  {
+    slug: "what-is-cynefin-framework",
+    title: "What is Cynefin Framework?",
+    category: "Agile",
+    readTime: "4 min read",
+    date: "2024",
+    excerpt: "The Cynefin Framework is a sense-making model used to help make decisions and solve problems based on the nature of the situation. Here's an explanation to understand easily.",
+    content: [
+      { type: "p", text: "The Cynefin Framework is a sense-making model used to help make decisions and solve problems based on the nature of the situation. Here's an explanation to understand easily." },
+      { type: "h3", text: "Introduction with Everyday Example" },
+      { type: "p", text: "Think of it as a map that tells you how to approach different types of challenges. For example:" },
+      {
+        type: "ul",
+        items: [
+          "If you're cooking a simple recipe, you follow clear steps.",
+          "If you're trying a new dish for the first time, you experiment a bit.",
+          "If you're organizing a surprise party, unexpected things might happen, and you adapt as you go.",
+          "If you're in a chaotic situation, like a fire alarm going off, you act immediately.",
+        ],
+      },
+      { type: "h3", text: "The Five Domains of the Cynefin Framework" },
+      { type: "h3", text: "Clear (Simple)" },
+      {
+        type: "ul",
+        items: [
+          "What it is: The problem has a clear cause and effect. Best practices or known solutions exist.",
+          "How to act: Identify the problem, follow the steps, and solve it.",
+          "Example: Following a recipe or fixing a light bulb.",
+        ],
+      },
+      { type: "h3", text: "Complicated" },
+      {
+        type: "ul",
+        items: [
+          "What it is: The problem has a cause-and-effect relationship, but it's not immediately obvious. Expertise is needed.",
+          "How to act: Analyze the situation, consult experts, and apply good practices.",
+          "Example: Designing a house or repairing a car engine.",
+        ],
+      },
+      { type: "h3", text: "Complex" },
+      {
+        type: "ul",
+        items: [
+          "What it is: The problem has many unknowns and interconnected parts. There's no single right answer.",
+          "How to act: Experiment, learn from feedback, and adapt.",
+          "Example: Building team collaboration or developing a new product.",
+        ],
+      },
+      { type: "h3", text: "Chaotic" },
+      {
+        type: "ul",
+        items: [
+          "What it is: The situation is unpredictable, and there's no time to figure things out.",
+          "How to act: Take immediate action to stabilize things, then move it to another domain.",
+          "Example: Responding to an emergency or a cybersecurity breach.",
+        ],
+      },
+      { type: "h3", text: "Confused (Apex Domain)" },
+      {
+        type: "ul",
+        items: [
+          "What it is: You're unsure which domain the situation belongs to.",
+          "How to act: Gather more information to understand the problem better.",
+          "Example: Starting with a vague issue and figuring out whether it's clear, complicated, or complex.",
+        ],
+      },
+      { type: "p", text: "Explore such important concepts in our upcoming Scrum Master and Product Owner training through live virtual mode and enhance your knowledge and make your career stronger." },
+      { type: "p", text: "Explore important concepts like the Cynefin Framework in our upcoming CSM certification and CSPO training. Whether you're looking for A CSM course training or CSM certification training, our live virtual sessions will help you deepen your Agile knowledge and enhance your career. Don't miss the chance to master these frameworks and become a certified Scrum Master or Product Owner." },
+    ],
+  },
 ]
 
 export const blogPosts = posts
