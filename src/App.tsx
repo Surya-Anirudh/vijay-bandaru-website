@@ -6,6 +6,7 @@ import Training from "@/pages/Training"
 import Achievements from "@/pages/Achievements"
 import Gallery from "@/pages/Gallery"
 import Blog from "@/pages/Blog"
+import BlogPost from "@/pages/BlogPost"
 import Podcast from "@/pages/Podcast"
 import Contact from "@/pages/Contact"
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="achievements" element={<Achievements />} />
           <Route path="gallery" element={<Gallery />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="podcast" element={<Podcast />} />
           <Route path="contact" element={<Contact />} />
         </Route>
