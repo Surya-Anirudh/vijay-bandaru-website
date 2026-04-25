@@ -1,6 +1,9 @@
 import { motion } from "framer-motion"
 import { Mic } from "lucide-react"
 import PageHeader from "@/components/PageHeader"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Separator } from "@/components/ui/separator"
 
 const episodes = [
   { ep: "EP 01", title: "Learnovative Agile & Scrum Jingles Introduction", src: "/Podcast-episode-1.mp4" },
@@ -14,31 +17,52 @@ const episodes = [
 
 export default function Podcast() {
   return (
-    <div className="bg-white">
+    <div className="bg-slate-50 min-h-screen">
       <PageHeader badge="Podcast"
         title={<>Agile & Scrum <span className="text-pink-400">Jingles</span></>}
-        subtitle="I host deep conversations on Agile, Scrum, organizational transformation, and building extraordinary teams — drawing from my 28+ years as a Certified Scrum Trainer & Enterprise Agile Coach." />
+        subtitle="Deep dives on Agile, Scrum, organizational transformation, and building extraordinary teams — drawn from 28+ years as a Certified Scrum Trainer & Enterprise Agile Coach." />
 
       <section className="py-20 px-4">
-        <div className="max-w-3xl mx-auto space-y-6">
-          {episodes.map((ep, i) => (
-            <motion.div key={ep.ep} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }}>
-              <div className="bg-white border border-slate-100 rounded-2xl p-6 hover:border-blue-200 hover:shadow-md transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-11 h-11 rounded-xl bg-blue-600 flex flex-col items-center justify-center shrink-0">
-                    <Mic size={14} className="text-white mb-0.5" />
-                    <span className="text-[8px] text-white font-bold">{ep.ep}</span>
-                  </div>
-                  <h3 className="text-slate-900 font-bold text-base leading-snug">{ep.title}</h3>
-                </div>
-                <audio controls className="w-full rounded-xl" style={{ height: "40px" }}>
-                  <source src={ep.src} type="video/mp4" />
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
-            </motion.div>
-          ))}
+        <div className="max-w-2xl mx-auto">
+
+          {/* Header row */}
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
+              <Mic size={18} className="text-white" />
+            </div>
+            <div>
+              <p className="text-slate-900 font-bold text-lg leading-none">Agile & Scrum Jingles</p>
+              <p className="text-slate-500 text-sm mt-0.5">7 Episodes · Hosted by Vijay Bandaru</p>
+            </div>
+          </div>
+
+          <Separator className="mb-8" />
+
+          {/* Episodes */}
+          <div className="space-y-4">
+            {episodes.map((ep, i) => (
+              <motion.div key={ep.ep}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: i * 0.06 }}>
+                <Card className="border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 bg-white rounded-2xl">
+                  <CardContent className="p-5">
+                    <div className="flex items-start gap-4 mb-4">
+                      <Badge variant="secondary" className="text-[11px] font-bold px-2.5 py-1 bg-blue-50 text-blue-700 border border-blue-100 shrink-0 mt-0.5 rounded-lg">
+                        {ep.ep}
+                      </Badge>
+                      <h3 className="text-slate-900 font-semibold text-sm leading-snug">{ep.title}</h3>
+                    </div>
+                    <audio controls className="w-full" style={{ height: "36px", borderRadius: "10px" }}>
+                      <source src={ep.src} type="video/mp4" />
+                    </audio>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </section>
     </div>
