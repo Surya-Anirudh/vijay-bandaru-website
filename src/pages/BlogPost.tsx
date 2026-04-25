@@ -16,7 +16,6 @@ type Post = {
   category: string
   readTime: string
   date: string
-  img: string
   excerpt: string
   content: Block[]
 }
@@ -28,12 +27,11 @@ const posts: Post[] = [
     category: "Scrum",
     readTime: "5 min read",
     date: "October 14, 2023",
-    img: "/blog-velocity.png",
-    excerpt: "If you are working in a Scrum Project, you must be familiar with the word Velocity. But are you aware of the term Focus Factor and how you can use it? In this article we are going to make it clear about Velocity and Focus Factor and how they both are related.",
+    excerpt: 'If you are working in a Scrum Project, you must be familiar with the word "Velocity". But are you aware of the term "Focus Factor" and how you can use it? In this article we are going to make it clear about "Velocity" and "Focus Factor" and how they bot are related.',
     content: [
       { type: "h3", text: "What is Velocity?" },
       { type: "p", text: "It is a measure of the amount of work a Scrum Team can complete in a Sprint. It is a good metric to self-evaluate a Scrum Team on how to improve their practices, processes, tools, collaboration, etc to improve its velocity naturally over a period of time. The Velocity is calculated at the end of the Sprint because by that time the Scrum Team is clearly aware of the amount of work done in the Sprint." },
-      { type: "p", text: "Velocity is the \"Sum of the Story points completed in a Sprint\". Here completed means the items that are meeting the Definition of Done. While the velocity is calculated at the end of the Sprint, the Sprint Progress should be tracked throughout the Sprint by the Developers. This will enhance the transparency to the Scrum Team on how the work is getting executed. Below is a simple way to understand the velocity with a couple of scenarios:" },
+      { type: "p", text: 'Velocity is the "Sum of the Story points completed in a Sprint". Here completed means the items that are meeting the Definition of Done. While the velocity is calculated at the end of the Sprint, the Sprint Progress should be tracked throughout the Sprint by the Developers. This will enhance the transparency to the Scrum Team on how the work is getting executed. Below is a simple way to understand the velocity with couple of scenarios:' },
       { type: "p", text: "Let us consider a Sprint of 2 weeks and below table gives the user stories pulled into the Sprint Backlog. The story points and status are also mentioned in the table for the selected user stories." },
       {
         type: "table",
@@ -45,7 +43,7 @@ const posts: Post[] = [
           ["Payment", "5", "DONE"],
         ],
       },
-      { type: "p", text: "The velocity of the Sprint is 21 Story points, because all the user stories are \"DONE\" so the sum of the user stories is 21 (5+3+8+5)." },
+      { type: "p", text: 'The velocity of the Sprint is 21 Story points, because all the user stories are "DONE" so the sum of the user stories is 21 (5+3+8+5).' },
       { type: "p", text: "Below is another scenario." },
       {
         type: "table",
@@ -60,7 +58,7 @@ const posts: Post[] = [
           ["Clone the cart", "8", "DONE"],
         ],
       },
-      { type: "p", text: "The velocity of this Sprint is 19 because to calculate the velocity we have to consider only the items that are completed and meeting the Definition of Done. So in the above scenario out of 7 items, only 5 are completed and 2 are not done. So taking the items that are \"DONE\" the velocity is 19 (2+1+3+5+8)." },
+      { type: "p", text: 'The velocity of this Sprint is 19 because to calculate the velocity we have to consider only the items that are completed and meeting the Definition of Done. So in the above scenario out of 7 items, only 5 are completed and 2 are not done. So taking the items that are "DONE" the velocity is 19 (2+1+3+5+8).' },
       { type: "p", text: "Below is another scenario." },
       {
         type: "table",
@@ -75,17 +73,17 @@ const posts: Post[] = [
           ["Export patient data into PDF", "5", "80% DONE"],
         ],
       },
-      { type: "p", text: "The velocity of this Sprint is 18 because to calculate the velocity we have to consider only the items that are completed and meeting the Definition of Done. There are 3 items which are either not done or partially done, so they will not be eligible for velocity calculation. So in the above scenario out of 7 items, only 4 are completed and meeting the definition of Done. So taking the items that are \"DONE\" the velocity is 18 (5+3+2+8)." },
+      { type: "p", text: "The velocity of this Sprint is 18 because to calculate the velocity we have to consider only the items that are completed and meeting the Definition of Done. There are 3 items which are either not done or partially done, so they will be eligible for velocity calculation. So in the above scenario out of 7 items, only 4 are completed and meeting the definition of Done. So taking the items that are \"DONE\" the velocity is 18 (5+3+2+8)." },
       { type: "h3", text: "What happens to the items that are NOT DONE or PARTIALLY DONE?" },
-      { type: "p", text: "They will be moved back to the Product Backlog according to the priority decided by the Product Owner. If they are still important, valuable and urgent compared to other items in the Product Backlog, then the Product Owner can place them on the top of the Product Backlog so that they may be taken up in the Next Sprint. The Product Owner may place them in the middle or bottom of the Product Backlog as per the latest priority. This is what is the 4th Agile manifesto value — Responding to Change over Following a plan." },
+      { type: "p", text: "They will be moved back to the Product Backlog according to the priority decided by the Product Owner. If they are still important, valuable and urgent compared to other items in the Product Backlog, then the Product Owner can place them on the top of the Product Backlog so that they may be taken up in the Next Sprint. The Product Owner may place them in the middle or bottom of the Product Backlog as per the latest priority. This is what is the 4th Agile manifesto value \"Responding to Change over Following a plan." },
       { type: "h3", text: "Be aware of the following points when using Velocity:" },
       {
         type: "ul",
         items: [
           "Do not use Velocity to compare different Scrum Teams, it is not meant for that",
           "Do not push the teams to increase velocity every Sprint, it should naturally improve",
-          "Similar skilled, sized Scrum Teams will not have same velocity",
-          "Velocity is mainly to help for forecast: for Developers to see how much they can pull into the current Sprint using last Sprint velocity and current Sprint capacity; for Product Owner, to provide forecast to the Stakeholders based on most recent 4 to 5 Sprints Best, Worst and Average Velocity",
+          "Similar skilled, sized Scrum Teams will not have same velocity.",
+          "Velocity is mainly to help for forecast as below:\n– For Developers to see how much they can pull into current Sprint using last Sprint velocity and current Sprint capacity\n– For Product Owner, to provide forecast to the Stakeholders based on most recent few (4 to 5) Sprints Best, Worst and Average Velocity",
         ],
       },
       { type: "h3", text: "How to improve Velocity of a Scrum Team naturally?" },
@@ -101,21 +99,23 @@ const posts: Post[] = [
         ],
       },
       { type: "h3", text: "What is the Focus Factor?" },
-      { type: "p", text: "Focus Factor is a simple mathematical formula that helps Developers to forecast how many product backlog items can be pulled into the Sprint backlog. This number can be derived using the \"Velocity\" and the \"Capacity\" of the Developers in the Scrum Team. Capacity is the \"focused amount of time\" available for the Developers after removing all the non-work related time such as meetings, Scrum events, public holidays, personal time off etc." },
-      { type: "note", text: "Formula: Focus Factor = Velocity / Capacity" },
-      { type: "p", text: "We generally consider the \"Average Velocity\" of the most recent 4 to 5 Sprints in the above formula. Here is an example:" },
+      { type: "p", text: 'Focus Factor is a simple mathematical formula that helps Developers to forecast how many product backlog items can be pulled into the Sprint backlog. This number can be derived using the "Velocity" and the "Capacity" of the Developers in the Scrum Team. You are clear about the velocity in the above section of this article. Capacity is the "focused amount of time" available for the Developers after removing all the non-work related time such as meetings, Scrum events, public holidays, personal time off etc.' },
+      { type: "note", text: "Formula for the Focus Factor: Velocity/Capacity" },
+      { type: "p", text: 'We generally consider the "Average Velocity" of the most recent 4 to 5 Sprints in the above formula. Here is an example.' },
       {
         type: "ul",
         items: [
           "A team's average velocity is: 30 Story Points (Based on most recent 4 to 5 Sprints data)",
           "Their capacity (per person) is: 7 Days (In a 2 weeks Sprint after removing Scrum events time, and other non work related time)",
           "Number of Developers in the team: 6",
-          "Therefore, the Focus Factor is: 30 / (6 × 7) = 0.71",
+          "Therefore, the Focus Factor is: 30/(6 x 7) = 0.71",
         ],
       },
-      { type: "p", text: "This Focus Factor can now be used to forecast the amount of work for the upcoming Sprint. If only 5 members are available in the next Sprint, then the forecast is: 0.71 × 5 × 7 = Approximately 25 Story points." },
+      { type: "p", text: "This Focus Factor can now be used to forecast the amount of work for upcoming Sprint as follows:" },
+      { type: "p", text: "Let us consider there are only 5 members are available in the next Sprint, then the forecast for the next Sprint is: Focus Factor * Capacity:" },
+      { type: "note", text: "0.71 * 5 x 7 = Approximately 25 Story points" },
       { type: "h3", text: "How to forecast for the very first Sprint?" },
-      { type: "p", text: "As there will be no historical data for the first Sprint, let the team go with their gut feeling to decide how much work they can pull into the Sprint Backlog. This may lead to two scenarios:" },
+      { type: "p", text: "As there will be no historical data for the first Sprint, let the team go with their gut feeling to decide how much work they can pull into the Sprint Backlog. In this case it may lead to below two scenarios:" },
       {
         type: "ol",
         items: [
@@ -123,7 +123,8 @@ const posts: Post[] = [
           "Unable to complete all the work selected: Move the incomplete items back to the Product Backlog.",
         ],
       },
-      { type: "p", text: "In either case, it should be discussed in the Sprint Retrospective to find the root causes of the scenario and to learn what can be improved. The Developers and Product Owner can take below guidelines for the first Sprint:" },
+      { type: "p", text: "In either of the cases, it should be discussed in the Sprint Retrospective to find the root causes of the scenario and to learn what can be improved." },
+      { type: "p", text: "The Developers and Product Owner can take below guidelines for the first Sprint:" },
       {
         type: "ul",
         items: [
@@ -136,6 +137,7 @@ const posts: Post[] = [
         ],
       },
       { type: "p", text: "Even though this approach helps you to forecast the amount of work for a sprint, do not ignore the inspect and adapt approach. Scrum is all about continuous improvement with inspecting and adapting. So use Sprint Retrospective to brainstorm how to improve estimation, selecting the right amount of work into the Sprint, how to optimize the tools, practices and processes to get better." },
+      { type: "p", text: "We provide practical scenarios and real time examples in our Certified Scrum Master (CSM) and Certified Scrum Product Owner (CSPO) workshops to understand the Agile and Scrum concepts." },
     ],
   },
   {
@@ -144,12 +146,14 @@ const posts: Post[] = [
     category: "Agile",
     readTime: "7 min read",
     date: "October 12, 2023",
-    img: "/blog-wastes.png",
-    excerpt: "Whether you are new to the role or seeking to enhance your skills as a Product Owner? Here is the right guide for you. As a vital role in the Scrum framework, the Product Owner plays a crucial part in guiding the development team and ensuring the successful delivery of a valuable product.",
+    excerpt: "Whether you are new to the role or seeking to enhance your skills as a Product Owner? Here is the right guide for you.",
     content: [
-      { type: "h3", text: "Understanding the Scrum Framework" },
+      { type: "p", text: "Whether you are new to the role or seeking to enhance your skills as a Product Owner? Here is the right guide for you." },
+      { type: "p", text: "As a vital role in the Scrum framework, the Product Owner plays a crucial part in guiding the development team and ensuring the successful delivery of a valuable product. Learnovative is the best CSPO training institute in Hyderabad and offers specialised courses and programs designed to enhance the skills and knowledge of individuals aspiring to become product owners or those already working in the role." },
+      { type: "p", text: "We have the best-certified team coach for CSPO in Hyderabad. We provide comprehensive training that covers various aspects of product ownership, including Agile methodologies, Scrum framework, product management principles, stakeholder engagement, and more. We are also providing Scrum Master training in Hyderabad, A-CSPO training in Hyderabad, Agile training in Hyderabad, A-CSM training in Hyderabad, PMP training in Hyderabad, and many more." },
+      { type: "h3", text: "Understanding the Scrum Framework:" },
       { type: "p", text: "Scrum is an agile project management framework designed to deliver value to customers through iterative development and frequent feedback. As a Product Owner, it's essential to have a solid understanding of Scrum's core principles, including transparency, inspection, and adaptation. Familiarize yourself with the roles of the Product Owner, Scrum Master, and Development Team, and how they collaborate within the framework to achieve project success." },
-      { type: "h3", text: "Embracing the Product Owner Role" },
+      { type: "h3", text: "Embracing the Product Owner Role:" },
       {
         type: "ul",
         items: [
@@ -158,19 +162,19 @@ const posts: Post[] = [
           "Developing the mindset and skills necessary for success",
         ],
       },
-      { type: "h3", text: "Defining the Product Vision" },
+      { type: "h3", text: "Defining the Product Vision:" },
       { type: "p", text: "Crafting a compelling product vision is the foundation for driving development efforts. The product vision serves as a guiding light that aligns the team's work with business goals and customer needs. Learn how to articulate your product vision statement clearly, making it inspiring and understandable to stakeholders and team members. Effective communication of the vision ensures everyone is aligned and working towards the same objectives." },
-      { type: "h3", text: "Building and Managing the Product Backlog" },
+      { type: "h3", text: "Building and Managing the Product Backlog:" },
       { type: "p", text: "The Product Backlog is a dynamic and prioritized list of features, enhancements, and bugs that make up the product roadmap. As a Product Owner, your role is to create and maintain a well-organized backlog. This includes defining user stories, prioritizing them based on value and effort, and continuously refining the backlog as new information emerges. Explore techniques for backlog grooming and refinement, such as user story mapping and backlog prioritization workshops." },
-      { type: "h3", text: "Collaborating with Stakeholders" },
+      { type: "h3", text: "Collaborating with Stakeholders:" },
       { type: "p", text: "Successful collaboration with stakeholders is crucial for understanding their requirements, gathering feedback, and managing expectations. Identify key stakeholders and establish clear channels of communication to engage them throughout the project. Actively involve stakeholders in backlog refinement sessions, sprint reviews, and release planning meetings. Develop strong relationships built on trust, transparency, and effective negotiation skills to ensure their needs are met while maintaining focus on the product vision." },
-      { type: "h3", text: "Effective Release Planning" },
+      { type: "h3", text: "Effective Release Planning:" },
       { type: "p", text: "Product development involves making strategic decisions about feature prioritization, releases, and timelines. Learn techniques for release planning and roadmap creation to ensure coherent and valuable product delivery. Prioritize features based on customer needs, market demand, and business goals. Regularly review and adapt the release plan as new information becomes available or priorities change. Flexibility is key to responding to evolving market conditions and customer feedback." },
-      { type: "h3", text: "Engaging with the Development Team" },
+      { type: "h3", text: "Engaging with the Development Team:" },
       { type: "p", text: "As a Product Owner, you bridge the gap between the stakeholders and the development team. Clear and concise communication is essential to convey product requirements, prioritize user stories, and provide timely feedback. Participate actively in Sprint Planning, where you collaborate with the development team to select user stories for the upcoming sprint. Engage in Daily Scrums to address any questions or concerns from the team and provide clarifications. Finally, actively participate in Sprint Reviews to gather feedback and showcase completed work." },
-      { type: "h3", text: "Scaling Scrum and Continuous Improvement" },
+      { type: "h3", text: "Scaling Scrum and Continuous Improvement:" },
       { type: "p", text: "As the scope and complexity of projects grow, it becomes essential to scale Scrum to multiple teams and manage multiple products. Explore techniques and frameworks like Scrum of Scrums, Nexus, or LeSS (Large-Scale Scrum) to coordinate efforts across teams and synchronize product development. Learn strategies for managing multiple products simultaneously, including prioritization techniques, effective delegation, and maintaining a clear product roadmap for each product." },
-      { type: "h3", text: "Overcoming Challenges and Pitfalls" },
+      { type: "h3", text: "Overcoming Challenges and Pitfalls:" },
       {
         type: "ul",
         items: [
@@ -179,7 +183,7 @@ const posts: Post[] = [
           "Strategies for maintaining motivation and resilience in the role",
         ],
       },
-      { type: "h3", text: "Managing Product Quality and Success" },
+      { type: "h3", text: "Managing Product Quality and Success:" },
       {
         type: "ul",
         items: [
@@ -188,7 +192,7 @@ const posts: Post[] = [
           "Techniques for gathering and incorporating user feedback",
         ],
       },
-      { type: "p", text: "Being a Scrum Product Owner is a dynamic and challenging role that requires a combination of technical expertise, effective communication, and strong leadership skills. By following the principles and strategies outlined in this comprehensive guide, you'll be well-equipped to guide your team and deliver valuable products that meet customer needs and drive business success. Embrace the Scrum framework, collaborate effectively with stakeholders and the development team, and continuously learn and adapt to excel in your role as a Scrum Product Owner." },
+      { type: "p", text: "Being a Scrum Product Owner is a dynamic and challenging role that requires a combination of technical expertise, effective communication, and strong leadership skills. By following the principles and strategies outlined in this comprehensive guide, you'll be well-equipped to guide your team and deliver valuable products that meet customer needs and drive business success. Embrace the Scrum framework, collaborate effectively with stakeholders and the development team, and continuously learn and adapt to excel in your role as a Scrum Product Owner. If you are looking for the best institute to start product owner training in Hyderabad, visit Learnovative. We are providing the best scrum alliance courses by experts." },
     ],
   },
   {
@@ -197,36 +201,30 @@ const posts: Post[] = [
     category: "Career",
     readTime: "8 min read",
     date: "November 2023",
-    img: "/blog-career.png",
-    excerpt: "As a Scrum Trainer, Vijay Bandaru addresses a frequently asked question: what does it take to become an Agile Coach? While all Scrum Masters should be coaches, the scope differs significantly at the enterprise level.",
+    excerpt: 'As a Scrum Trainer, I often get this question in my workshops during coffee or lunch breaks. My participants want to know "what it takes to become an Agile Coach?"',
     content: [
-      { type: "h3", text: "Scrum Master vs. Agile Coach" },
-      { type: "p", text: "While all Scrum Masters should be coaches, the scope differs. Scrum Masters typically coach teams through facilitation, training, mentoring and coaching. Agile Coaches work \"beyond teams\" to coach leadership and focus on enterprise-level transformation across multiple frameworks, cultures, and leadership layers." },
-      { type: "h3", text: "1. Strong Agile Fundamentals" },
-      { type: "p", text: "Understanding the Agile Manifesto deeply — particularly the \"why\" behind its values and principles — is foundational. This clarity enables you to guide others effectively. You cannot coach others on something you haven't fully internalized. Revisit the manifesto regularly — not as theory, but as a lived philosophy." },
-      { type: "h3", text: "2. Scrum Master Experience" },
-      { type: "p", text: "The first step in becoming an Agile Coach is to have worked as a Scrum Master. This provides practical understanding of team dynamics, impediments, and what it actually takes to grow a high-performing team. There are no shortcuts here — put in the time." },
-      { type: "h3", text: "3. Organizational Culture Knowledge" },
-      { type: "p", text: "Understanding different culture types — Competing, Controlling, Collaborative, Creative — and how Structure, Policies, Procedures, People, and Tools function within them is crucial for facilitating Agile transformation without compromising what already works. Agile Coaches must read organizations like a doctor reads a patient — diagnosing before prescribing." },
-      { type: "h3", text: "4. Leadership Types Awareness" },
-      { type: "p", text: "Recognizing different leadership styles — Expert, Achiever, Catalyst Leaders — helps select appropriate coaching models. Study servant leadership, situational leadership, and transformational leadership — and practice all three." },
-      { type: "h3", text: "5. Knowledge Beyond Scrum" },
-      { type: "p", text: "Experience with frameworks like Kanban, SAFe, LeSS, and knowledge of Product Management and Development expands your coaching capabilities. Organizations don't always fit neatly into one framework. Your value increases when you can adapt." },
-      { type: "h3", text: "6. Technical Practices & Tools Awareness" },
-      { type: "p", text: "Familiarity with Test Driven Development, Refactoring, Continuous Integration, and Continuous Delivery provides advantage when coaching engineering teams. Always remember: \"Individuals and Interactions OVER Processes and Tools\" remains essential." },
-      { type: "h3", text: "7. Professional Coaching Skills" },
-      { type: "p", text: "Developing a coaching mindset with competencies in Active Listening, Powerful Questions, and Creating Awareness, plus knowledge of change management models (GROW, ADKAR, SCARF) separates good coaches from great ones." },
-      { type: "h3", text: "Recommended Certifications" },
-      { type: "p", text: "Knowledge and experience is primary and certifications are the byproducts. That said, the following credentials demonstrate your commitment to the craft:" },
-      {
-        type: "ul",
-        items: [
-          "ICF – ACC (International Coach Federation – Associate Certified Coach)",
-          "Scrum Alliance CTC (Certified Team Coach)",
-          "Scrum Alliance CEC (Certified Enterprise Coach)",
-          "ICP-ACC (ICAgile Certified Professional – Agile Coaching)",
-        ],
-      },
+      { type: "p", text: 'As a Scrum Trainer, I often get this question in my workshops during coffee or lunch breaks. My participants want to know "what it takes to become an Agile Coach?", in this article I am trying to attempt to answer that question.' },
+      { type: "p", text: "First thing I want to make it clear is, if you are a Scrum Master, you should be a Coach. But at what level you are extending your coaching may vary. As Scrum Masters, you may be coaching your teams most of the time. Agile Coaches work beyond teams and they also coach the leadership and management and they focus at enterprise level. Scrum Master may be proficient with Scrum and helps team with Scrum implementation through facilitation, training, mentoring and coaching depending up on the need. Agile Coaches will work beyond Scrum, they have experience with different other Agile frameworks." },
+      { type: "h3", text: "So how can you become an Agile Coach?" },
+      { type: "h3", text: "Agile Fundamentals:" },
+      { type: "p", text: 'Your Agile fundamentals should be very Strong. That means as a person, you should be "Agile" and have faith and strong understanding of Agile Manifesto Values and Principles. You should be very clear about the "why" part of these values and principles. If you are clear then only you can make others clear about these values and principles. In addition, you should be clear about Scrum Values and how they impact the teams and organizations.' },
+      { type: "h3", text: "Work as a Scrum Master:" },
+      { type: "p", text: "First step in becoming an Agile Coach is to have worked as a Scrum Master. This helps you to understand team dynamics and help experimenting your ideas within the team. I do not believe someone can become an Agile Coach without working as a Scrum Master." },
+      { type: "h3", text: "Organizational Cultures:" },
+      { type: "p", text: "You need to understand what are various types of organizational cultures (example: Competing, Controlling, Collaborative, Creative) and how Structure, Policies, Procedures, People, Tools work in those types of cultures. Also, understand how you can help those organizations to become more Agile without compromising their culture." },
+      { type: "h3", text: "Leadership Types:" },
+      { type: "p", text: "Different leaders behave and work in different ways. So unless you understand what are various leadership types (example: Expert Leaders, Achiever Leaders, and Catalyst Leaders) and accordingly you need to choose the coaching models to help those leaders to be more agile in their role." },
+      { type: "h3", text: "Know beyond Scrum:" },
+      { type: "p", text: "As an Agile Coach, you need to help organizations to transform into Agile ways of working and Scrum is one way to implement Agile. So depending up on the need there may be other frameworks and methods may be required as part of transformation (Example: Kanban). So it is important to have deeper knowledge and experience in other frameworks. Also, it will be an added advantage to gain experience and knowledge in the areas of Product Management and Product Development so that you can expand your coaching to the Product Owners and Product Managers in the organization." },
+      { type: "h3", text: "Technical Practices & Tools awareness:" },
+      { type: "p", text: 'As a Coach, you should help your organization in optimizing the tools and Technical practices. So having knowledge and experience in such practices like Test Driven Development, Refactoring, Continuous Integration, Continuous Delivery, and so on will be an added advantage. Having experience of more than one tool will also be an advantage. But, never forget the basic Agile Value "Individuals and Interactions OVER Processes and Tools".' },
+      { type: "h3", text: "Professional Coaching:" },
+      { type: "p", text: "You should have a Coaching Mindset and you should be familiar with the Professional Coaching and various coaching competencies such as Active Listening, Powerful Questions, Creating Awareness. You also need to know a bunch of change management models such as GROW, ADKAR, SCARF etc which are useful in coaching the teams and beyond." },
+      { type: "p", text: 'Finally, I believe "Knowledge and experience is primary and certifications are the byproducts". So a few certifications you can try to achieve which helps you to shape up your career as Agile Coach, here are a few that I suggest.' },
+      { type: "p", text: "ICF – ACC (International Coach Federation – Associate Certified Coach): This helps you understand the 11 professional coaching competencies and create a coaching mindset." },
+      { type: "p", text: "Scrum Alliance CTC (Certified Team Coach): This certification helps you to become an effective Team Coach." },
+      { type: "p", text: "Scrum Alliance CEC (Certified Enterprise Coach): This certification helps you become an enterprise Agile Coach." },
+      { type: "p", text: "ICP ACC (ICAgile Certified Professional – Agile Coaching): This certification helps you understand various Agile coaching models, practices and tools." },
     ],
   },
 ]
@@ -247,18 +245,18 @@ function renderBlock(block: Block, i: number) {
       return <p key={i} className="text-slate-600 leading-relaxed text-base mb-4">{block.text}</p>
     case "ul":
       return (
-        <ul key={i} className="mb-4 space-y-1.5 pl-1">
+        <ul key={i} className="mb-4 space-y-2 pl-1">
           {block.items.map((item, j) => (
             <li key={j} className="flex items-start gap-2 text-slate-600 text-base">
               <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-              {item}
+              <span style={{ whiteSpace: "pre-line" }}>{item}</span>
             </li>
           ))}
         </ul>
       )
     case "ol":
       return (
-        <ol key={i} className="mb-4 space-y-1.5 pl-1">
+        <ol key={i} className="mb-4 space-y-2 pl-1">
           {block.items.map((item, j) => (
             <li key={j} className="flex items-start gap-3 text-slate-600 text-base">
               <span className="shrink-0 w-5 h-5 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold mt-0.5">{j + 1}</span>
