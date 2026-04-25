@@ -67,9 +67,9 @@ export default function Contact() {
 
   return (
     <div className="bg-white">
-      <PageHeader badge="Get in Touch"
+      <PageHeader badge="Book Appointment"
         title={<>Contact <span className="text-blue-400">Vijay</span></>}
-        subtitle="Ready to transform your team or organization? Get in touch for training, coaching, speaking engagements, or any queries." />
+        subtitle="Ready to transform your team or organization? Book an appointment for training, coaching, speaking engagements, or any queries." />
 
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-5 gap-10">

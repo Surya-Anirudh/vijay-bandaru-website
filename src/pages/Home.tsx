@@ -611,19 +611,6 @@ function StickyMobileCTA() {
   )
 }
 
-/* ── Scroll-scrubbed parallax wrapper (wodniack-style) ── */
-function ScrollParallax({ children, speed = 0.4, className = "" }: { children: React.ReactNode; speed?: number; className?: string }) {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] })
-  const raw = useTransform(scrollYProgress, [0, 1], ["0%", `${speed * 100}%`])
-  const y = useSpring(raw, { stiffness: 60, damping: 20, mass: 0.5 })
-  return (
-    <motion.div ref={ref} style={{ y }} className={className}>
-      {children}
-    </motion.div>
-  )
-}
-
 /* ── Scrub-reveal: clips text up into view as you scroll ── */
 function ScrubReveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef(null)
@@ -1283,7 +1270,7 @@ export default function Home() {
             <p className="text-slate-500 text-sm mb-4">Still have questions?</p>
             <Link to="/contact">
               <button className="px-7 py-3 rounded-2xl border border-white/15 text-white text-sm font-bold hover:border-blue-400/40 hover:bg-white/5 transition-all">
-                Get in touch with me →
+                Book an appointment →
               </button>
             </Link>
           </motion.div>

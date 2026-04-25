@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion"
 import { Link } from "react-router-dom"
-import { ArrowRight, Mail, Phone, MapPin, CheckCircle } from "lucide-react"
-import { useRef, useEffect, useState } from "react"
+import { ArrowRight, Mail, Phone, MapPin } from "lucide-react"
+import { useRef } from "react"
 
 type JourneyItem = { year: string; period: string; company: string; logo: string; role: string; story: string; color: string }
 
@@ -33,29 +33,6 @@ function JourneyCard({ j, i }: { j: JourneyItem; i: number }) {
   )
 }
 
-/* ─── Animated counter ─── */
-function Counter({ to, suffix = "", decimal = false }: { to: number; suffix?: string; decimal?: boolean }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true })
-  const [val, setVal] = useState(0)
-  useEffect(() => {
-    if (!inView) return
-    const start = performance.now()
-    const dur = 2000
-    let raf: number
-    const tick = (now: number) => {
-      const p = Math.min((now - start) / dur, 1)
-      const eased = 1 - Math.pow(1 - p, 4)
-      setVal(Math.round(to * eased))
-      if (p < 1) raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [inView, to])
-  const display = decimal ? (val / 10).toFixed(1) : val.toLocaleString()
-  return <span ref={ref}>{display}{suffix}</span>
-}
-
 /* ─── Data ─── */
 const journey = [
   {
@@ -84,14 +61,6 @@ const journey = [
   },
 ]
 
-const certifications = [
-  { code: "CST", full: "Certified Scrum Trainer", body: "Scrum Alliance", bg: "#1e3a8a" },
-  { code: "CTC", full: "Certified Team Coach", body: "Scrum Alliance", bg: "#1e40af" },
-  { code: "A-CSM", full: "Advanced Certified Scrum Master", body: "Scrum Alliance", bg: "#1d4ed8" },
-  { code: "A-CSPO", full: "Advanced Certified Product Owner", body: "Scrum Alliance", bg: "#2563eb" },
-  { code: "ICP-ACC", full: "Agile Coaching Certification", body: "ICAgile", bg: "#0e7490" },
-  { code: "SPC", full: "SAFe Program Consultant", body: "Scaled Agile", bg: "#0f766e" },
-]
 
 const education = [
   { year: "2021", degree: "Product Strategy", inst: "IIM Kozhikode",    type: "Executive Program", logo: "/logo-iim.png" },
@@ -493,7 +462,7 @@ export default function About() {
               <button className="px-10 py-4 rounded-2xl bg-blue-600 text-white font-black text-sm flex items-center gap-2 transition-all hover:scale-105"
                 onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 50px rgba(59,130,246,0.55)")}
                 onMouseLeave={e => (e.currentTarget.style.boxShadow = "")}>
-                Get in Touch <ArrowRight size={15} />
+                Book Appointment <ArrowRight size={15} />
               </button>
             </Link>
             <Link to="/training">

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Award, Mic } from "lucide-react"
+import { Award, Mic, Users } from "lucide-react"
 import PageHeader from "@/components/PageHeader"
 
 const awards = [
@@ -51,13 +51,6 @@ const awards = [
     year: "2014",
     desc: "Awarded certificate for serving as a reviewer of Technical Papers at the PMI National Conference.",
     img: "https://vijaybandaru.com/wp-content/uploads/2023/12/PMI-Certificate-Received-for-being-a-reviewer-of-Technical-Papers-@-PMI-National-Conference-2014.png",
-  },
-  {
-    title: "Hysea Website Design Award",
-    org: "Hysea",
-    year: "",
-    desc: "Received from Hysea for designing and developing their website.",
-    img: "https://vijaybandaru.com/wp-content/uploads/2023/12/Received-from-Hysea-for-designing-and-developing-their-website.jpg",
   },
 ]
 
@@ -257,7 +250,7 @@ export default function Achievements() {
           <p className="text-blue-100 mb-8 text-lg">I am available for keynotes, workshops, panel discussions, and corporate training events across India and globally.</p>
           <a href="/contact">
             <button className="px-8 py-3.5 rounded-xl bg-white text-blue-700 font-semibold hover:shadow-xl hover:scale-105 transition-all text-sm">
-              Get in Touch
+              Book Appointment
             </button>
           </a>
         </div>
