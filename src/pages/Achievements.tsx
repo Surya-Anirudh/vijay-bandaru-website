@@ -137,6 +137,14 @@ export default function Achievements() {
             ))}
           </div>
         </div>
+
+        {/* Community engagement text */}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="max-w-7xl mx-auto mt-12 px-4 py-6 rounded-2xl border border-blue-100 bg-blue-50">
+          <p className="text-slate-600 text-sm leading-relaxed">
+            Driven by a strong commitment to community engagement, I have served as a <strong className="text-slate-800">volunteer, speaker, organizer, and co-chair</strong> at multiple regional and international conferences. I also deliver talks at organizational meetups, sharing practical insights, thought leadership, and industry perspectives.
+          </p>
+        </motion.div>
       </section>
 
       {/* Speaking Engagements */}
@@ -167,6 +175,77 @@ export default function Achievements() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Speaker & Volunteer Contributions */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+            className="flex items-center gap-3 mb-10">
+            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
+              <Users size={20} className="text-white" />
+            </div>
+            <h2 className="text-3xl font-black text-slate-900">Speaker & Volunteer Contributions</h2>
+          </motion.div>
+
+          <div className="overflow-x-auto rounded-2xl border border-slate-200">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-blue-600 text-white">
+                  <th className="px-5 py-3 text-left font-bold tracking-wide">Year</th>
+                  <th className="px-5 py-3 text-left font-bold tracking-wide">Conference / Event</th>
+                  <th className="px-5 py-3 text-left font-bold tracking-wide">Location</th>
+                  <th className="px-5 py-3 text-left font-bold tracking-wide">Role</th>
+                  <th className="px-5 py-3 text-left font-bold tracking-wide">Topic / Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { year: "2024", event: "Regional Scrum Gathering", location: "Hyderabad, India",   role: "Conference Chair",  topic: "Facilitated the conference" },
+                  { year: "2022", event: "Regional Scrum Gathering", location: "Hyderabad, India",   role: "Conference Chair",  topic: "Facilitated the conference" },
+                  { year: "2020", event: "Regional Scrum Gathering", location: "Hyderabad, India",   role: "Conference Chair",  topic: "Facilitated the conference" },
+                  { year: "2018", event: "Global Scrum Gathering International", location: "London, England",    role: "Participant",  topic: "—" },
+                  { year: "2017", event: "Business & Enterprise Agility Conference", location: "Hyderabad, India", role: "Speaker", topic: "Mastering in Scrum Master Role" },
+                  { year: "2017", event: "Global Scrum Gathering International", location: "Dublin, Ireland",     role: "Participant",  topic: "—" },
+                  { year: "2017", event: "Global Scrum Gathering International", location: "Singapore",           role: "Facilitator",  topic: "Coaches Clinic" },
+                  { year: "2017", event: "Business Agility Roadshow",            location: "Hyderabad, India",   role: "Speaker",      topic: "Agile and Scrum Anti-patterns" },
+                  { year: "2016", event: "Global Scrum Gathering International", location: "Bengaluru, India",   role: "Facilitator",  topic: "Coaches Clinic" },
+                  { year: "2016", event: "Global Scrum Gathering International", location: "Bengaluru, India",   role: "Speaker",      topic: "Creating Engineering Culture" },
+                  { year: "2016", event: "Asia Agile Forum",                     location: "Hyderabad, India",   role: "Facilitator",  topic: "Speedboat retrospective (90 participants)" },
+                  { year: "2015", event: "Agile Day Conference",                 location: "Hyderabad, India",   role: "Speaker",      topic: "Scrum Master — The Team Spirit Guardian" },
+                  { year: "2015", event: "XP Conference",                        location: "Hyderabad, India",   role: "Speaker",      topic: "Nightmare to Nightly Builds" },
+                  { year: "2015", event: "HYDSPIN Conference",                   location: "Hyderabad, India",   role: "Facilitator",  topic: "Half Day Release Planning Workshop" },
+                  { year: "2015", event: "Regional Scrum Gathering South Asia",  location: "Bengaluru, India",   role: "Facilitator",  topic: "Agile Quiz Facilitation" },
+                  { year: "2015", event: "Regional Scrum Gathering South Asia",  location: "Bengaluru, India",   role: "Speaker",      topic: "Lean Ops Implementation Case Study" },
+                  { year: "2015", event: "Agile India 2015 International",       location: "Bengaluru, India",   role: "Speaker",      topic: "Scrum Master — Experience Case Study" },
+                  { year: "2014", event: "HYDSPIN Conference",                   location: "Hyderabad, India",   role: "Speaker",      topic: "Lean Ops Implementation Case Study" },
+                  { year: "2014", event: "Lean India Summit",                    location: "Bengaluru, India",   role: "Speaker",      topic: "Lean & Kanban Implementation from Trenches" },
+                  { year: "2014", event: "Regional Scrum Gathering",             location: "Hyderabad, India",   role: "Speaker",      topic: "Large Scale Agile Transformation Case Study" },
+                ].map((row, i) => {
+                  const roleColor: Record<string, string> = {
+                    "Speaker": "bg-blue-50 text-blue-700",
+                    "Facilitator": "bg-emerald-50 text-emerald-700",
+                    "Conference Chair": "bg-purple-50 text-purple-700",
+                    "Participant": "bg-slate-50 text-slate-600",
+                  }
+                  return (
+                    <motion.tr key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }} transition={{ delay: i * 0.03 }}
+                      className={i % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
+                      <td className="px-5 py-3 font-black text-blue-600">{row.year}</td>
+                      <td className="px-5 py-3 font-semibold text-slate-800">{row.event}</td>
+                      <td className="px-5 py-3 text-slate-500">{row.location}</td>
+                      <td className="px-5 py-3">
+                        <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${roleColor[row.role] ?? "bg-slate-50 text-slate-600"}`}>{row.role}</span>
+                      </td>
+                      <td className="px-5 py-3 text-slate-500">{row.topic}</td>
+                    </motion.tr>
+                  )
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>

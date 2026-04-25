@@ -163,7 +163,7 @@ export default function About() {
                     WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"
                   }}>BANDARU</span>
                 </h1>
-                <p className="text-slate-400 font-medium text-sm max-w-xs leading-loose tracking-wide">
+                <p className="text-slate-400 font-medium text-xs leading-loose tracking-wide whitespace-nowrap">
                   Agile Coach · Scrum Trainer · Lifelong Learner · Story Teller
                 </p>
               </motion.div>
@@ -185,7 +185,7 @@ export default function About() {
             {/* Core Skills */}
             <div className="mb-14">
               <p className="text-white/30 text-[10px] font-bold tracking-[0.3em] uppercase mb-4">My Core Skills</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-3 gap-2">
                 {[
                   "Agile, Scrum, AI Training",
                   "Organizational Transformation",
@@ -195,11 +195,12 @@ export default function About() {
                   "Business Strategy",
                   "Product Management",
                   "Technology",
+                  "Mentoring",
                 ].map((skill, i) => (
-                  <motion.span key={skill}
+                  <motion.span key={i}
                     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 + i * 0.07, duration: 0.4 }}
-                    className="px-4 py-2 rounded-full text-sm font-semibold text-blue-300 cursor-default transition-all duration-300"
+                    className="px-4 py-2 rounded-full text-sm font-semibold text-center text-blue-300 cursor-default transition-all duration-300"
                     style={{ background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.25)" }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.2)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,130,246,0.5)" }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.1)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,130,246,0.25)" }}>

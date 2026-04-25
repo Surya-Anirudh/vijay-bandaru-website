@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-import { ArrowRight, CheckCircle, Clock, Globe, Monitor, Users, ChevronRight } from "lucide-react"
+import { ArrowRight, CheckCircle, Clock, Globe, Monitor, Users, ChevronRight, Calendar, Zap, BookOpen } from "lucide-react"
 import PageHeader from "@/components/PageHeader"
 
 const programs = [
@@ -9,7 +9,7 @@ const programs = [
     level: "Foundation", levelColor: "bg-blue-50 text-blue-700", accentColor: "#2563eb",
     duration: "2 days (16 hrs) or 3 days (5.5 hrs/day)", format: "Physical or Live Virtual", language: "English",
     href: "https://vijaybandaru.com/certified-scrum-master-csm-training-hyderabad/",
-    tag: "Most Popular",
+    tag: "Most Popular", badge: "/badge-csm.png",
     description: "Master the fundamentals of Scrum. Earn the globally recognized CSM certification through 100% interactive, visual-based training with zero PowerPoint.",
     outcomes: ["Core Scrum concepts & Agile mindset","Scrum roles and accountabilities","Facilitating Scrum events effectively","Managing Scrum artifacts","Building high-performing teams","Effective communication strategies","Exam prep and practice tests","Hands-on role-playing exercises"],
     audience: ["Project Managers","Developers","Product Owners","Team Leads","Business Analysts","Stakeholders","Professionals transitioning to Agile"],
@@ -20,7 +20,7 @@ const programs = [
     level: "Advanced", levelColor: "bg-indigo-50 text-indigo-700", accentColor: "#4f46e5",
     duration: "2 days intensive", format: "Physical or Live Virtual", language: "English",
     href: "https://vijaybandaru.com/advanced-certified-scrum-master-a-csm-certification-hyderabad/",
-    tag: null,
+    tag: null, badge: "/badge-acsm.png",
     description: "Deepen your Scrum mastery with advanced facilitation, coaching, and servant leadership skills. Designed for experienced Scrum Masters ready to lead transformation.",
     outcomes: ["Advanced facilitation techniques","Servant leadership development","Coaching and mentoring skills","Complex team dynamics","Scaling Scrum across teams","Organizational change management","A-CSM credential"],
     audience: ["Experienced Scrum Masters","Agile Coaches","Team Leads","Engineering Managers"],
@@ -31,7 +31,7 @@ const programs = [
     level: "Emerging", levelColor: "bg-emerald-50 text-emerald-700", accentColor: "#059669",
     duration: "1 day intensive", format: "Physical or Live Virtual", language: "English",
     href: "https://vijaybandaru.com/ai-for-scrum-masters-training-hyderabad/",
-    tag: "New",
+    tag: "New", badge: "/badge-aism.png",
     description: "Harness Artificial Intelligence to supercharge your Scrum practice. Learn how AI tools can enhance sprint planning, retrospectives, and team productivity.",
     outcomes: ["AI fundamentals for Agile","AI-powered sprint planning","Automated retrospective insights","AI-assisted backlog refinement","Using AI for impediment tracking","Practical AI tools for Scrum","Future-proofing your career"],
     audience: ["Scrum Masters","Agile Coaches","Tech Leads","Forward-thinking practitioners"],
@@ -42,7 +42,7 @@ const programs = [
     level: "Foundation", levelColor: "bg-blue-50 text-blue-700", accentColor: "#2563eb",
     duration: "2 days (16 hrs) or 3 days (5.5 hrs/day)", format: "Physical or Live Virtual", language: "English",
     href: "https://vijaybandaru.com/certified-scrum-product-owner-cspo-training-hyderabad/",
-    tag: null,
+    tag: null, badge: "/badge-cspo.png",
     description: "Maximize product value, manage backlogs effectively, and align stakeholders to deliver outstanding products. Earn your CSPO certification from Scrum Alliance.",
     outcomes: ["Product vision and roadmap creation","Backlog management & prioritization","Stakeholder alignment techniques","Customer value maximization","Writing effective user stories","Release planning & forecasting","CSPO credential"],
     audience: ["Product Managers","Business Analysts","Entrepreneurs","Project Managers"],
@@ -53,7 +53,7 @@ const programs = [
     level: "Advanced", levelColor: "bg-indigo-50 text-indigo-700", accentColor: "#4f46e5",
     duration: "2 days intensive", format: "Physical or Live Virtual", language: "English",
     href: "https://vijaybandaru.com/advanced-certified-scrum-product-owner-a-cspo-certification-hyderabad/",
-    tag: null,
+    tag: null, badge: "/badge-acspo.png",
     description: "Take your product ownership to the next level. Master advanced product strategy, customer research, and cross-functional leadership to drive organizational value.",
     outcomes: ["Advanced product strategy","Customer research & validation","Cross-functional leadership","Advanced prioritization frameworks","Product metrics & analytics","Scaling product ownership","A-CSPO credential"],
     audience: ["Senior Product Owners","Product Leaders","Business Executives"],
@@ -64,11 +64,22 @@ const programs = [
     level: "Emerging", levelColor: "bg-emerald-50 text-emerald-700", accentColor: "#059669",
     duration: "1 day intensive", format: "Physical or Live Virtual", language: "English",
     href: "https://vijaybandaru.com/ai-for-product-owners-training-hyderabad/",
-    tag: "New",
+    tag: "New", badge: "/badge-aipo.png",
     description: "Integrate AI capabilities into product ownership workflows. From AI-driven prioritization to automated user story generation — build better products faster.",
     outcomes: ["AI for product discovery","AI-driven backlog prioritization","Automated user story generation","AI competitive analysis","Data-driven product decisions","AI roadmapping tools","Future-ready skills"],
     audience: ["Product Owners","Product Managers","Entrepreneurs","Digital transformation leaders"],
     benefits: ["Competitive advantage","Faster product discovery","Better decisions","Reduced manual effort","Innovation leadership"],
+  },
+  {
+    id: "safe", title: "SAFe Agilist (SA)", subtitle: "Scaled Agile Framework Certification",
+    level: "SAFe", levelColor: "bg-purple-50 text-purple-700", accentColor: "#7c3aed",
+    duration: "2 days intensive", format: "Physical or Live Virtual", language: "English",
+    href: "https://www.learnovative.com/training-calendar/",
+    tag: null, badge: "/badge-saFeaglist.png",
+    description: "Become a certified SAFe Agilist and lead Agile transformations at enterprise scale. Learn how to apply Lean-Agile principles across large organizations using the Scaled Agile Framework.",
+    outcomes: ["SAFe principles and values","Lean-Agile mindset","PI Planning facilitation","Agile Release Trains (ARTs)","Leadership in a Lean-Agile enterprise","Continuous delivery pipeline","SA credential"],
+    audience: ["Executives & Leaders","Agile Coaches","Scrum Masters","Product Managers","Change Agents"],
+    benefits: ["SA credential","Enterprise Agile skills","PI Planning expertise","Organizational transformation","Career advancement"],
   },
 ]
 
@@ -77,10 +88,10 @@ export default function Training() {
   return (
     <div className="bg-white">
       <PageHeader badge="Training Programs"
-        title={<>Agile <span className="text-blue-400">Certifications</span></>}
-        subtitle="I deliver globally recognized Scrum Alliance certifications with zero PowerPoint — 100% interactive, practical, and engaging training that actually transforms the way you work.">
+        title={<>My Training <span className="text-blue-400">Programs</span></>}
+        subtitle="I deliver globally recognized Scrum Alliance and Scaled Agile certification trainings as well as customized non-certification based trainings. I also provide customized corporate training, coaching (Teams & Leadership), and organizational transformation consulting services that transform the way you work.">
         <div className="flex flex-wrap gap-6">
-          {[{ icon: Clock, text: "2–3 Day Workshops" },{ icon: Monitor, text: "Physical & Virtual" },{ icon: Globe, text: "English" },{ icon: Users, text: "25,000+ Trained" }].map(({ icon: Icon, text }) => (
+          {[{ icon: Clock, text: "2–3 Day Workshops" },{ icon: CheckCircle, text: "100% Success Rate" },{ icon: Monitor, text: "Physical & Virtual" },{ icon: Calendar, text: "Flexible Schedules" },{ icon: Globe, text: "English" },{ icon: Zap, text: "Zero PPT" },{ icon: Users, text: "Highly Interactive" },{ icon: BookOpen, text: "TBR Based" }].map(({ icon: Icon, text }) => (
             <div key={text} className="flex items-center gap-2 text-blue-200/80 text-sm"><Icon size={15} /> {text}</div>
           ))}
         </div>
@@ -102,7 +113,10 @@ export default function Training() {
                         <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${p.levelColor}`}>{p.level}</span>
                         {p.tag && <span className="text-xs px-2.5 py-1 rounded-full bg-blue-600 text-white font-semibold">{p.tag}</span>}
                       </div>
-                      <h2 className="text-2xl font-black text-slate-900 mb-1">{p.title}</h2>
+                      <div className="flex items-center gap-4 mb-4">
+                        <h2 className="text-2xl font-black text-slate-900">{p.title}</h2>
+                        {p.badge && <img src={p.badge} alt={p.title} className="h-14 w-14 object-contain shrink-0" />}
+                      </div>
                       <p className="text-blue-600 text-sm font-semibold mb-4">{p.subtitle}</p>
                       <p className="text-slate-500 text-sm leading-relaxed mb-6">{p.description}</p>
                       <div className="space-y-2 mb-6 text-sm">
@@ -111,8 +125,7 @@ export default function Training() {
                         <div className="flex items-center gap-2 text-slate-600"><Globe size={13} className="text-blue-500 shrink-0" />{p.language}</div>
                       </div>
                       <a href={p.href} target="_blank" rel="noopener noreferrer">
-                        <button className="w-full py-3 rounded-xl text-white font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-all hover:scale-105 hover:shadow-lg"
-                          style={{ background: p.accentColor }}>
+                        <button className="w-full py-3 rounded-xl text-white font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-all hover:scale-105 hover:shadow-lg bg-blue-600 hover:bg-blue-700">
                           Enroll Now <ArrowRight size={15} />
                         </button>
                       </a>

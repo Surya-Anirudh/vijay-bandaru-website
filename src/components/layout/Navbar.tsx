@@ -50,7 +50,7 @@ export default function Navbar() {
               <div className="font-black text-base tracking-tight text-slate-900">
                 VIJAY <span className="text-blue-500">BANDARU</span>
               </div>
-              <div className="text-[9px] font-semibold tracking-[0.18em] uppercase mt-0.5 text-slate-500">
+              <div className="text-[8px] font-semibold tracking-[0.04em] uppercase mt-0.5 text-slate-500">
                 TRAINER · COACH · SPEAKER
               </div>
             </div>
