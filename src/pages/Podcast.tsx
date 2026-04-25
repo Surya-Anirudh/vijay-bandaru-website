@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Mic, Music } from "lucide-react"
+import { Mic } from "lucide-react"
 import PageHeader from "@/components/PageHeader"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -14,12 +14,39 @@ const episodes = [
   { ep: "EP 07", title: "Elements of Scrum Framework", src: "/Podcast-Episode-7.mp4" },
 ]
 
+const barHeights = [10, 16, 22, 18, 14, 20, 12]
+
+function Waveform() {
+  return (
+    <div className="flex items-center gap-[3px] shrink-0">
+      {barHeights.map((h, i) => (
+        <div
+          key={i}
+          className="w-[3px] rounded-full bg-blue-400"
+          style={{
+            height: `${h}px`,
+            animation: `waveBar ${0.5 + i * 0.12}s ease-in-out infinite alternate`,
+            animationDelay: `${i * 0.08}s`,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
+
 export default function Podcast() {
   return (
     <div className="min-h-screen relative" style={{
       background: "linear-gradient(160deg, #f0f7ff 0%, #e8f0fe 40%, #f5f0ff 100%)",
     }}>
-      {/* Decorative background orbs */}
+      <style>{`
+        @keyframes waveBar {
+          from { transform: scaleY(0.4); opacity: 0.5; }
+          to   { transform: scaleY(1);   opacity: 1; }
+        }
+      `}</style>
+
+      {/* Background orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full opacity-30"
           style={{ background: "radial-gradient(circle, #93c5fd, transparent 70%)", filter: "blur(60px)" }} />
@@ -46,12 +73,6 @@ export default function Podcast() {
               <p className="text-slate-900 font-bold text-lg leading-none">Agile & Scrum Jingles</p>
               <p className="text-slate-500 text-sm mt-1">7 Episodes · Hosted by Vijay Bandaru</p>
             </div>
-            <div className="ml-auto flex items-center gap-1.5">
-              {[1,2,3,4,5].map(b => (
-                <div key={b} className="w-1 rounded-full bg-blue-400 opacity-70"
-                  style={{ height: `${8 + b * 4}px`, animation: `pulse ${0.6 + b * 0.15}s ease-in-out infinite alternate` }} />
-              ))}
-            </div>
           </motion.div>
 
           <Separator className="mb-8 bg-blue-100" />
@@ -69,10 +90,8 @@ export default function Podcast() {
                     <Badge className="text-[11px] font-bold px-2.5 py-1 bg-blue-600 text-white shrink-0 rounded-lg">
                       {ep.ep}
                     </Badge>
-                    <div className="flex items-center gap-2 flex-1 min-w-0">
-                      <Music size={13} className="text-blue-400 shrink-0" />
-                      <h3 className="text-slate-900 font-semibold text-sm leading-snug truncate">{ep.title}</h3>
-                    </div>
+                    <h3 className="text-slate-900 font-semibold text-sm leading-snug flex-1 min-w-0 truncate">{ep.title}</h3>
+                    <Waveform />
                   </div>
                   <audio controls className="w-full" style={{ height: "36px", borderRadius: "10px" }}>
                     <source src={ep.src} type="video/mp4" />
