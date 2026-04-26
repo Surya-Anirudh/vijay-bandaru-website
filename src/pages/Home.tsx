@@ -352,46 +352,62 @@ function Tilt3D({ children, className = "", maxTilt = 10 }: { children: React.Re
 
 /* ── Bruno Simon-inspired: comet cursor trail ── */
 function CursorTrail() {
-  const dotsRef = useRef<(HTMLDivElement | null)[]>([])
-  const posRef = useRef(Array.from({ length: 16 }, () => ({ x: -300, y: -300 })))
-  const mouseRef = useRef({ x: -300, y: -300 })
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const points = useRef<{ x: number; y: number; t: number }[]>([])
   const rafRef = useRef<number | undefined>(undefined)
-  const COUNT = 16
 
   useEffect(() => {
     if (window.matchMedia("(pointer: coarse)").matches) return
-    const onMove = (e: MouseEvent) => { mouseRef.current = { x: e.clientX, y: e.clientY } }
-    const loop = () => {
-      posRef.current[0] = { ...mouseRef.current }
-      for (let i = 1; i < COUNT; i++) {
-        posRef.current[i] = {
-          x: posRef.current[i].x + (posRef.current[i - 1].x - posRef.current[i].x) * 0.28,
-          y: posRef.current[i].y + (posRef.current[i - 1].y - posRef.current[i].y) * 0.28,
+    const canvas = canvasRef.current!
+    const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
+    resize()
+    window.addEventListener("resize", resize)
+
+    const onMove = (e: MouseEvent) => {
+      points.current.push({ x: e.clientX, y: e.clientY, t: Date.now() })
+      if (points.current.length > 60) points.current.shift()
+    }
+
+    const draw = () => {
+      const ctx = canvas.getContext("2d")!
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      const now = Date.now()
+      const lifespan = 500
+      const alive = points.current.filter(p => now - p.t < lifespan)
+      points.current = alive
+
+      if (alive.length > 1) {
+        for (let i = 1; i < alive.length; i++) {
+          const age = now - alive[i].t
+          const alpha = (1 - age / lifespan) * 0.55
+          const width = (1 - age / lifespan) * 2.5
+
+          ctx.beginPath()
+          ctx.moveTo(alive[i - 1].x, alive[i - 1].y)
+          ctx.lineTo(alive[i].x, alive[i].y)
+          ctx.strokeStyle = `rgba(96,165,250,${alpha})`
+          ctx.lineWidth = width
+          ctx.lineCap = "round"
+          ctx.lineJoin = "round"
+          ctx.shadowColor = "rgba(59,130,246,0.4)"
+          ctx.shadowBlur = 6
+          ctx.stroke()
         }
       }
-      dotsRef.current.forEach((dot, i) => {
-        if (!dot) return
-        const t = (COUNT - i) / COUNT
-        const s = 1.5 + t * 5.5
-        dot.style.left = `${posRef.current[i].x}px`
-        dot.style.top = `${posRef.current[i].y}px`
-        dot.style.width = `${s}px`; dot.style.height = `${s}px`
-        dot.style.opacity = `${t * 0.5}`
-      })
-      rafRef.current = requestAnimationFrame(loop)
+      rafRef.current = requestAnimationFrame(draw)
     }
-    rafRef.current = requestAnimationFrame(loop)
+    rafRef.current = requestAnimationFrame(draw)
     window.addEventListener("mousemove", onMove)
-    return () => { window.removeEventListener("mousemove", onMove); if (rafRef.current) cancelAnimationFrame(rafRef.current) }
+    return () => {
+      window.removeEventListener("mousemove", onMove)
+      window.removeEventListener("resize", resize)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
   }, [])
 
   return (
-    <>
-      {Array.from({ length: COUNT }, (_, i) => (
-        <div key={i} ref={el => { dotsRef.current[i] = el }} className="fixed rounded-full pointer-events-none"
-          style={{ background: "rgba(59,130,246,0.65)", transform: "translate(-50%,-50%)", zIndex: 9993, willChange: "left,top,width,height,opacity" }} />
-      ))}
-    </>
+    <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none"
+      style={{ zIndex: 9993, mixBlendMode: "screen" }} />
   )
 }
 
