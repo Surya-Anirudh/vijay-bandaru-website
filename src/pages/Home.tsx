@@ -826,13 +826,13 @@ function PortfolioCarousel() {
         </button>
 
         {/* Scroll hint */}
-        <motion.div style={{ opacity: 1, position: "absolute", bottom: 110, left: "50%", transform: "translateX(-50%)", zIndex: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
-          <span style={{ fontFamily: "monospace", color: "#ffffff", fontSize: 13, letterSpacing: "0.45em", textTransform: "uppercase", fontWeight: 800 }}>Scroll</span>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
-            {[0, 1, 2].map(i => (
+        <motion.div style={{ opacity: 1, position: "absolute", bottom: 16, left: "50%", transform: "translateX(-50%)", zIndex: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+          <span style={{ fontFamily: "monospace", color: "rgba(255,255,255,0.5)", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", fontWeight: 700 }}>Scroll</span>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+            {[0, 1].map(i => (
               <motion.div key={i}
-                style={{ width: 14, height: 14, borderRight: "3px solid #ffffff", borderBottom: "3px solid #ffffff", rotate: "45deg" }}
-                animate={{ opacity: [0.25, 1, 0.25], y: [0, 7, 0] }}
+                style={{ width: 8, height: 8, borderRight: "2px solid rgba(255,255,255,0.5)", borderBottom: "2px solid rgba(255,255,255,0.5)", rotate: "45deg" }}
+                animate={{ opacity: [0.2, 0.8, 0.2], y: [0, 4, 0] }}
                 transition={{ duration: 1.3, delay: i * 0.2, repeat: Infinity, ease: "easeInOut" }} />
             ))}
           </div>
