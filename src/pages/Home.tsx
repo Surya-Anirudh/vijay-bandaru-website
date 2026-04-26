@@ -822,11 +822,11 @@ function PortfolioCarousel() {
           onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(59,130,246,0.25)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(59,130,246,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff" }}
           onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.07)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.15)"; (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.6)" }}
         >
-          SKIP ››
+          Skip to Next Section ››
         </button>
 
         {/* Scroll hint */}
-        <motion.div style={{ opacity: 1, position: "absolute", bottom: 72, left: "50%", transform: "translateX(-50%)", zIndex: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+        <motion.div style={{ opacity: 1, position: "absolute", bottom: 110, left: "50%", transform: "translateX(-50%)", zIndex: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
           <span style={{ fontFamily: "monospace", color: "#ffffff", fontSize: 13, letterSpacing: "0.45em", textTransform: "uppercase", fontWeight: 800 }}>Scroll</span>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
             {[0, 1, 2].map(i => (
