@@ -68,81 +68,6 @@ function GrainOverlay() {
 }
 
 /* ── Custom cursor (dot + lagging ring) ── */
-function CustomCursor() {
-  const dotRef = useRef<HTMLDivElement>(null)
-  const ringRef = useRef<HTMLDivElement>(null)
-  const posRef = useRef({ x: -200, y: -200 })
-  const ringPosRef = useRef({ x: -200, y: -200 })
-  const rafRef = useRef<number | undefined>(undefined)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) return
-    setVisible(true)
-
-    const onMove = (e: MouseEvent) => {
-      posRef.current = { x: e.clientX, y: e.clientY }
-      if (dotRef.current) {
-        dotRef.current.style.left = `${e.clientX - 3}px`
-        dotRef.current.style.top = `${e.clientY - 3}px`
-      }
-    }
-    const expand = () => {
-      if (ringRef.current) { ringRef.current.style.width = "52px"; ringRef.current.style.height = "52px"; ringRef.current.style.borderColor = "rgba(59,130,246,0.75)" }
-      if (dotRef.current) dotRef.current.style.transform = "scale(2.5)"
-    }
-    const shrink = () => {
-      if (ringRef.current) { ringRef.current.style.width = "32px"; ringRef.current.style.height = "32px"; ringRef.current.style.borderColor = "rgba(59,130,246,0.45)" }
-      if (dotRef.current) dotRef.current.style.transform = "scale(1)"
-    }
-
-    const loop = () => {
-      const { x: rx, y: ry } = ringPosRef.current
-      const { x: tx, y: ty } = posRef.current
-      const nx = rx + (tx - rx) * 0.1
-      const ny = ry + (ty - ry) * 0.1
-      ringPosRef.current = { x: nx, y: ny }
-      if (ringRef.current) {
-        const hw = parseFloat(ringRef.current.style.width || "32") / 2
-        ringRef.current.style.left = `${nx - hw}px`
-        ringRef.current.style.top = `${ny - hw}px`
-      }
-      rafRef.current = requestAnimationFrame(loop)
-    }
-    rafRef.current = requestAnimationFrame(loop)
-
-    window.addEventListener("mousemove", onMove)
-    document.querySelectorAll("a, button").forEach(el => {
-      el.addEventListener("mouseenter", expand)
-      el.addEventListener("mouseleave", shrink)
-    })
-    return () => {
-      window.removeEventListener("mousemove", onMove)
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
-    }
-  }, [])
-
-  if (!visible) return null
-  return (
-    <>
-      {/* Inner dot */}
-      <div ref={dotRef} className="fixed pointer-events-none"
-        style={{ width: 5, height: 5, borderRadius: "50%", background: "#fff", zIndex: 9997, willChange: "left, top", transition: "transform 0.15s ease", boxShadow: "0 0 6px rgba(96,165,250,0.8)" }} />
-      {/* Outer ring — square with rounded corners, rotated 45° */}
-      <div ref={ringRef} className="fixed pointer-events-none"
-        style={{
-          width: 28, height: 28,
-          border: "1.5px solid rgba(96,165,250,0.7)",
-          borderRadius: 4,
-          rotate: "45deg",
-          zIndex: 9996,
-          willChange: "left, top",
-          transition: "width 0.3s ease, height 0.3s ease, border-color 0.3s ease",
-          backdropFilter: "blur(1px)",
-        }} />
-    </>
-  )
-}
 
 /* ── Text scramble on hover ── */
 function ScrambleText({ text, className = "", style = {}, tag: Tag = "span" }: { text: string; className?: string; style?: React.CSSProperties; tag?: string }) {
@@ -358,67 +283,6 @@ function Tilt3D({ children, className = "", maxTilt = 10 }: { children: React.Re
       style={{ transformStyle: "preserve-3d", willChange: "transform" }}>
       {children}
     </div>
-  )
-}
-
-/* ── Bruno Simon-inspired: comet cursor trail ── */
-function CursorTrail() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const points = useRef<{ x: number; y: number; t: number }[]>([])
-  const rafRef = useRef<number | undefined>(undefined)
-
-  useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) return
-    const canvas = canvasRef.current!
-    const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
-    resize()
-    window.addEventListener("resize", resize)
-
-    const onMove = (e: MouseEvent) => {
-      points.current.push({ x: e.clientX, y: e.clientY, t: Date.now() })
-      if (points.current.length > 60) points.current.shift()
-    }
-
-    const draw = () => {
-      const ctx = canvas.getContext("2d")!
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      const now = Date.now()
-      const lifespan = 500
-      const alive = points.current.filter(p => now - p.t < lifespan)
-      points.current = alive
-
-      if (alive.length > 1) {
-        for (let i = 1; i < alive.length; i++) {
-          const age = now - alive[i].t
-          const alpha = (1 - age / lifespan) * 0.55
-          const width = (1 - age / lifespan) * 2.5
-
-          ctx.beginPath()
-          ctx.moveTo(alive[i - 1].x, alive[i - 1].y)
-          ctx.lineTo(alive[i].x, alive[i].y)
-          ctx.strokeStyle = `rgba(96,165,250,${alpha})`
-          ctx.lineWidth = width
-          ctx.lineCap = "round"
-          ctx.lineJoin = "round"
-          ctx.shadowColor = "rgba(59,130,246,0.4)"
-          ctx.shadowBlur = 6
-          ctx.stroke()
-        }
-      }
-      rafRef.current = requestAnimationFrame(draw)
-    }
-    rafRef.current = requestAnimationFrame(draw)
-    window.addEventListener("mousemove", onMove)
-    return () => {
-      window.removeEventListener("mousemove", onMove)
-      window.removeEventListener("resize", resize)
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
-    }
-  }, [])
-
-  return (
-    <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 9993, mixBlendMode: "screen" }} />
   )
 }
 
@@ -879,7 +743,6 @@ export default function Home() {
 
   return (
     <div>
-      <CustomCursor />
       <GrainOverlay />
       <StickyMobileCTA />
 
