@@ -110,7 +110,7 @@ export default function About() {
               className="absolute inset-0 rounded-3xl overflow-hidden"
               initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: [0.215, 0.61, 0.355, 1] }}>
-              <img src="/vijay-profile.png" alt="Vijay Bandaru"
+              <img src="/about%20me%20photo.jpeg" alt="Vijay Bandaru"
                 className="w-full h-full object-cover object-top" />
               {/* Photo overlays */}
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(3,13,30,0.9) 0%, rgba(3,13,30,0.3) 40%, transparent 70%)" }} />
