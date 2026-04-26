@@ -805,6 +805,26 @@ function PortfolioCarousel() {
           </div>
         </div>
 
+        {/* Skip button */}
+        <button
+          onClick={() => document.getElementById("after-carousel")?.scrollIntoView({ behavior: "smooth" })}
+          style={{
+            position: "absolute", top: 20, right: 24, zIndex: 30,
+            display: "flex", alignItems: "center", gap: 6,
+            padding: "7px 16px", borderRadius: 99,
+            background: "rgba(255,255,255,0.07)",
+            border: "1px solid rgba(255,255,255,0.15)",
+            color: "rgba(255,255,255,0.6)",
+            fontSize: 12, fontWeight: 700, letterSpacing: "0.08em",
+            cursor: "pointer", backdropFilter: "blur(8px)",
+            transition: "background 0.2s, color 0.2s, border-color 0.2s",
+          }}
+          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(59,130,246,0.25)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(59,130,246,0.5)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff" }}
+          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.07)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.15)"; (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.6)" }}
+        >
+          SKIP ››
+        </button>
+
         {/* Scroll hint */}
         <motion.div style={{ opacity: hintOpacity, position: "absolute", bottom: 90, left: "50%", transform: "translateX(-50%)", zIndex: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
           <span style={{ fontFamily: "monospace", color: "#ffffff", fontSize: 13, letterSpacing: "0.45em", textTransform: "uppercase", fontWeight: 800 }}>Scroll</span>
@@ -1194,7 +1214,7 @@ export default function Home() {
       <PortfolioCarousel />
 
       {/* ═══════════════════ THE VIJAY DIFFERENCE ═══════════════════ */}
-      <section className="py-16 px-4 relative overflow-hidden" style={{ background: "#020810" }}>
+      <section id="after-carousel" className="py-16 px-4 relative overflow-hidden" style={{ background: "#020810" }}>
         <LineDivider className="absolute top-0 left-0 right-0" />
         <ParticleCanvas />
 
