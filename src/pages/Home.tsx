@@ -869,7 +869,6 @@ export default function Home() {
   return (
     <div>
       <CustomCursor />
-      <CursorTrail />
       <GrainOverlay />
       <StickyMobileCTA />
 
