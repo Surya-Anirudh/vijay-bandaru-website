@@ -125,10 +125,21 @@ function CustomCursor() {
   if (!visible) return null
   return (
     <>
-      <div ref={dotRef} className="fixed rounded-full bg-blue-400 pointer-events-none"
-        style={{ width: 6, height: 6, zIndex: 9997, willChange: "left, top", transition: "transform 0.2s ease" }} />
-      <div ref={ringRef} className="fixed rounded-full pointer-events-none"
-        style={{ width: 32, height: 32, border: "1px solid rgba(59,130,246,0.45)", zIndex: 9996, willChange: "left, top", transition: "width 0.35s ease, height 0.35s ease, border-color 0.35s ease" }} />
+      {/* Inner dot */}
+      <div ref={dotRef} className="fixed pointer-events-none"
+        style={{ width: 5, height: 5, borderRadius: "50%", background: "#fff", zIndex: 9997, willChange: "left, top", transition: "transform 0.15s ease", boxShadow: "0 0 6px rgba(96,165,250,0.8)" }} />
+      {/* Outer ring — square with rounded corners, rotated 45° */}
+      <div ref={ringRef} className="fixed pointer-events-none"
+        style={{
+          width: 28, height: 28,
+          border: "1.5px solid rgba(96,165,250,0.7)",
+          borderRadius: 4,
+          rotate: "45deg",
+          zIndex: 9996,
+          willChange: "left, top",
+          transition: "width 0.3s ease, height 0.3s ease, border-color 0.3s ease",
+          backdropFilter: "blur(1px)",
+        }} />
     </>
   )
 }
@@ -1014,15 +1025,17 @@ export default function Home() {
       <section className="py-12 px-4 bg-white border-b border-slate-100">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <p className="text-center text-slate-400 text-[10px] font-bold tracking-[0.35em] uppercase mb-10">Authorized Trainer For</p>
-          <div className="flex flex-wrap items-center justify-center gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto w-full">
             {[
-              { logo: "/logo-scrumalliance.svg", sub: "Certified Scrum Trainer", h: "h-16" },
-              { logo: "/logo-safe.png",           sub: "SAFe Practice Consultant", h: "h-20" },
-              { logo: "/logo-learnovative.png",  sub: "Founder & CEO", h: "h-10" },
-            ].map(({ logo, sub, h }) => (
-              <div key={sub} className="flex flex-col items-center gap-3 group cursor-default px-6 py-5 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all">
-                <img src={logo} alt={sub} className={`${h} object-contain`} />
-                <span className="text-[10px] text-slate-400 group-hover:text-blue-500 transition-colors font-semibold tracking-widest uppercase text-center max-w-[180px]">{sub}</span>
+              { logo: "/logo-scrumalliance.svg", sub: "Certified Scrum Trainer" },
+              { logo: "/logo-safe.png",           sub: "SAFe Practice Consultant" },
+              { logo: "/logo-learnovative.png",  sub: "Founder & CEO" },
+            ].map(({ logo, sub }) => (
+              <div key={sub} className="flex flex-col items-center justify-between gap-4 group cursor-default px-6 py-8 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-md transition-all h-40">
+                <div className="flex-1 flex items-center justify-center w-full">
+                  <img src={logo} alt={sub} className="max-h-14 w-full object-contain" />
+                </div>
+                <span className="text-[10px] text-slate-400 group-hover:text-blue-500 transition-colors font-semibold tracking-widest uppercase text-center">{sub}</span>
               </div>
             ))}
           </div>
