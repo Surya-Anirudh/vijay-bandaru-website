@@ -7,7 +7,7 @@ const photos = [
   { src: "/gallery-zuzi.jpg", alt: "Facilitated Coaches Clinic at Global Scrum Gathering with Zuzi (CST)", caption: "Coaches Clinic at Global Scrum Gathering with Zuzi (CST) — Bengaluru, June 2016" },
   { src: "/gallery-pete.png", alt: "Co-trained with Pete Deemer for CST certification", caption: "Co-trained with Pete Deemer in CSM class — received recommendation, Bengaluru June 2016" },
   { src: "/gallery-manny.jpg", alt: "With Manny, CEO of Scrum Alliance", caption: "With Manny, CEO of Scrum Alliance at Global Scrum Gathering — Bengaluru, June 2016" },
-  { src: "/gallery-lizzy.jpg", alt: "Co-trained with Lizzy Morris CST", caption: "Co-trained in CSM class with Lizzy Morris (CST) — Hyderabad and Kolkata, 2017" },
+  { src: "/guest-yandamuri.jpg", alt: "With Yandamuri Veerendranath", caption: "With famous writer, director, motivational Yandamuri Veerendranath" },
   { src: "/gallery-diana.png", alt: "With Diana Larsen at Agile India 2015", caption: "With Diana Larsen (co-author of Agile Retrospectives) at Agile India 2015" },
   { src: "/gallery-rsgsa.png", alt: "Speaker at Regional Scrum Gathering South Asia 2015", caption: "Speaker at Regional Scrum Gathering South Asia 2015 — presented Lean Ops case study" },
   { src: "/gallery-rsgi.jpg", alt: "Presented at Regional Scrum Gathering India 2014", caption: "Presented Agile Transformation case study at Regional Scrum Gathering India 2014 — Hyderabad" },
