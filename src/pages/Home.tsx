@@ -809,7 +809,7 @@ function PortfolioCarousel() {
         <button
           onClick={() => document.getElementById("after-carousel")?.scrollIntoView({ behavior: "smooth" })}
           style={{
-            position: "absolute", bottom: 24, right: 24, zIndex: 30,
+            position: "absolute", bottom: 72, right: 32, zIndex: 30,
             display: "flex", alignItems: "center", gap: 6,
             padding: "7px 16px", borderRadius: 99,
             background: "rgba(255,255,255,0.07)",
@@ -826,7 +826,7 @@ function PortfolioCarousel() {
         </button>
 
         {/* Scroll hint */}
-        <motion.div style={{ opacity: hintOpacity, position: "absolute", bottom: 90, left: "50%", transform: "translateX(-50%)", zIndex: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+        <motion.div style={{ opacity: 1, position: "absolute", bottom: 72, left: "50%", transform: "translateX(-50%)", zIndex: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
           <span style={{ fontFamily: "monospace", color: "#ffffff", fontSize: 13, letterSpacing: "0.45em", textTransform: "uppercase", fontWeight: 800 }}>Scroll</span>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
             {[0, 1, 2].map(i => (
