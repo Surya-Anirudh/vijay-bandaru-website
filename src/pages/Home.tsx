@@ -1294,8 +1294,8 @@ export default function Home() {
               { icon: Globe, val: "8 Countries", label: "Global Reach" },
               { icon: CheckCircle, val: "NPS 90+", label: "Satisfaction" },
               { icon: Star, val: "4.9/5.0", label: "Average Feedback" },
-              { icon: Users, val: "9,000+", label: "Google Reviews" },
-              { icon: BookOpen, val: "25,000+", label: "People Trained" },
+              { icon: Star, val: "9,000+", label: "Google Reviews" },
+              { icon: Users, val: "25,000+", label: "People Trained" },
             ].map(({ icon: Icon, val, label }) => (
               <div key={label}
                 className="rounded-2xl p-5 text-center transition-all duration-300 cursor-default"
