@@ -248,7 +248,7 @@ export default function Achievements() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 px-4 bg-blue-900">
+      <section className="py-12 px-4 bg-blue-950">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-black text-white mb-3">Invite Me to Speak</h2>
           <p className="text-blue-100 mb-8 text-lg">I am available for keynotes, workshops, panel discussions, and corporate training events across India and globally.</p>

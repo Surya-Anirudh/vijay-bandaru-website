@@ -1312,7 +1312,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════ CTA ═══════════════════ */}
-      <section className="py-20 px-4 bg-blue-900 relative overflow-hidden">
+      <section className="py-20 px-4 bg-blue-950 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: "linear-gradient(rgba(255,255,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.06) 1px,transparent 1px)",
           backgroundSize: "64px 64px",
