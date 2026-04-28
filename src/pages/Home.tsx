@@ -765,7 +765,7 @@ export default function Home() {
         {/* ── FULL WIDTH PHOTO — fills entire canvas area ── */}
         <div className="flex-1 relative overflow-hidden" style={{ zIndex: 5, marginTop: "64px" }}>
           <motion.img
-            src="/vijay-hero.png"
+            src="/homepage-photo.png"
             onError={e => { (e.currentTarget as HTMLImageElement).src = "/vijay-profile.png" }}
             alt="Vijay Bandaru"
             initial={{ opacity: 0, scale: 1.04 }}
