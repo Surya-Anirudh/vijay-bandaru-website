@@ -329,13 +329,15 @@ export default function About() {
               { letter: "I", word: "Innovative",   body: "Future-ready" },
               { letter: "A", word: "Adaptive",     body: "Learner centric" },
               { letter: "L", word: "Long-lasting", body: "Deeply retained" },
-            ].map((d, i) => (
+            ].map((d, i) => {
+              const isHighlighted = d.letter === "C"
+              return (
               <motion.div key={d.letter} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="flex flex-col items-center text-center p-6 cursor-default transition-all duration-300"
-                style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 16 }}
+                style={isHighlighted ? { background: "rgba(59,130,246,0.25)", backdropFilter: "blur(12px)", border: "1px solid rgba(59,130,246,0.6)", borderRadius: 16 } : { background: "rgba(255,255,255,0.08)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 16 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "rgba(59,130,246,0.2)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,130,246,0.5)" }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)" }}>
+                onMouseLeave={e => { if (!isHighlighted) { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)" } }}>
                 <div className="font-black text-white leading-none mb-3" style={{ fontSize: "clamp(3rem, 5vw, 4rem)", color: "#60a5fa" }}>{d.letter}</div>
                 <div className="font-bold text-white text-sm mb-2">{d.word}</div>
                 {d.body && <p className="text-white/50 text-xs leading-relaxed">{d.body}</p>}
