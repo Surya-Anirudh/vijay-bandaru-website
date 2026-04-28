@@ -342,7 +342,8 @@ export default function About() {
                 <div className="font-bold text-white text-sm mb-2">{d.word}</div>
                 {d.body && <p className="text-white/50 text-xs leading-relaxed">{d.body}</p>}
               </motion.div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>

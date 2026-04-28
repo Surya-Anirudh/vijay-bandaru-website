@@ -92,11 +92,10 @@ export default function Achievements() {
   return (
     <div className="bg-white">
       <PageHeader badge="Recognition"
-        title={<>Awards & <span className="text-blue-400">Achievements</span></>}
-        subtitle="I've been recognized by leading industry bodies and invited to speak at premier Agile and Project Management conferences across India and globally." />
+        title={<>Awards & <span className="text-blue-400">Achievements</span></>} />
 
       {/* Community engagement text */}
-      <section className="py-8 px-4">
+      <section className="py-6 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="px-4 py-6 rounded-2xl border border-blue-100 bg-blue-50">
