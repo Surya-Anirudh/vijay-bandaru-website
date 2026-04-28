@@ -772,7 +772,7 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center center" }}
+            style={{ objectPosition: "center 15%" }}
           />
           {/* Subtle dark gradient at bottom so name text stays readable */}
           <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
