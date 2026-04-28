@@ -95,6 +95,18 @@ export default function Achievements() {
         title={<>Awards & <span className="text-blue-400">Achievements</span></>}
         subtitle="I've been recognized by leading industry bodies and invited to speak at premier Agile and Project Management conferences across India and globally." />
 
+      {/* Community engagement text */}
+      <section className="py-8 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="px-4 py-6 rounded-2xl border border-blue-100 bg-blue-50">
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Driven by a strong commitment to community engagement, I have served as a <strong className="text-slate-800">volunteer, speaker, organizer, and co-chair</strong> at multiple regional and international conferences. I also deliver talks at organizational meetups, sharing practical insights, thought leadership, and industry perspectives.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Awards Grid */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
@@ -130,14 +142,6 @@ export default function Achievements() {
             ))}
           </div>
         </div>
-
-        {/* Community engagement text */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="max-w-7xl mx-auto mt-12 px-4 py-6 rounded-2xl border border-blue-100 bg-blue-50">
-          <p className="text-slate-600 text-sm leading-relaxed">
-            Driven by a strong commitment to community engagement, I have served as a <strong className="text-slate-800">volunteer, speaker, organizer, and co-chair</strong> at multiple regional and international conferences. I also deliver talks at organizational meetups, sharing practical insights, thought leadership, and industry perspectives.
-          </p>
-        </motion.div>
       </section>
 
       {/* Speaking Engagements */}
@@ -244,7 +248,7 @@ export default function Achievements() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 px-4 bg-blue-600">
+      <section className="py-12 px-4 bg-blue-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-black text-white mb-3">Invite Me to Speak</h2>
           <p className="text-blue-100 mb-8 text-lg">I am available for keynotes, workshops, panel discussions, and corporate training events across India and globally.</p>
