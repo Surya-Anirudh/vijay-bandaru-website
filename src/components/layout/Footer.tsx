@@ -61,7 +61,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-800 text-slate-300">
+    <footer className="bg-white text-slate-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
@@ -69,7 +69,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-2">
               <img src="/logo.png" alt="VB Logo" className="w-10 h-10 object-contain" />
               <div>
-                <div className="text-white font-bold text-base">VIJAY <span className="text-blue-500">BANDARU</span></div>
+                <div className="font-bold text-base"><span className="text-black">VIJAY</span> <span className="text-blue-500">BANDARU</span></div>
                 <div className="text-[8px] font-semibold tracking-[0.04em] uppercase mt-0.5 text-slate-500">TRAINER · COACH · SPEAKER</div>
               </div>
             </div>

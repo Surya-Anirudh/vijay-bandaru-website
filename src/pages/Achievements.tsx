@@ -110,9 +110,9 @@ export default function Achievements() {
               <motion.div key={a.title + a.year} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07 }}>
                 <div className="h-full bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-blue-200 transition-all duration-300 group">
-                  <div className="relative overflow-hidden bg-slate-100 aspect-[4/3]">
+                  <div className="relative overflow-hidden bg-slate-100 aspect-square">
                     <img src={a.img} alt={a.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }} />
                     {a.year && (
                       <div className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-600 text-white">
@@ -155,9 +155,9 @@ export default function Achievements() {
               <motion.div key={s.title} initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.09 }}>
                 <div className="h-full bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-blue-200 transition-all duration-300 group">
-                  <div className="relative overflow-hidden bg-slate-100 aspect-video">
+                  <div className="relative overflow-hidden bg-slate-100 aspect-square">
                     <img src={s.img} alt={s.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => { (e.target as HTMLImageElement).style.display = "none" }} />
                   </div>
                   <div className="p-5">
