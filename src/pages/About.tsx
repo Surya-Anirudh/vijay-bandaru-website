@@ -257,15 +257,14 @@ export default function About() {
                   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text"
                 }}>top Scrum Trainer.</span>
               </h2>
-              <div className="grid md:grid-cols-2 gap-6 text-slate-400 leading-relaxed text-base">
-                <div className="space-y-4">
-                  <p>I started my career as a programmer at ValueLabs in 1998. Over 14 years, I grew through technology and leadership roles — watching teams struggle not because of a lack of talent, but because of <strong className="text-slate-200">how they worked together</strong>.</p>
-                  <p>That insight drove me toward Agile. I became an Enterprise Agile Coach, led transformations at IVY Comptech and Pega Systems, and in 2018 I founded <strong className="text-slate-200">Learnovative</strong> — to dedicate my entire focus to training people, not managing processes.</p>
-                </div>
-                <div className="space-y-4">
-                  <p>My approach has always been the same: <strong className="text-slate-200">zero slides, 100% real</strong>. I use physical objects, whiteboards, and authentic war stories from my 25 years in the field. No theory for theory's sake.</p>
-                  <p>The results speak: an NPS consistently above 90, a 4.9★ Google rating across 9,000+ verified reviews, and 25,000+ professionals trained across 500+ organisations — from Hyderabad to Singapore to Dubai.</p>
-                </div>
+              <div className="space-y-6 text-slate-400 leading-relaxed text-base">
+                <p>I started my career as a programmer with a passion for software development in 1998 with a software services company. I grew through technology, management and leadership roles — watching teams struggle not because of lack of talent, but because of they do not know how they work together effectively.</p>
+
+                <p>That insight drove me towards Agile. I focused on deepdiving into Agile, Scrum, professional coaching areas and achieved relevant certifications and experience and led transformation at IVY Comptech using LeSS (LArge Scale Scrum) and Pega Systems (SAFe). I founded <strong className="text-slate-200">Learnovative</strong> — to dedicate my entire focus to train, mentor, and coach individuals, teams and organizations in delivering value to their customers, and not just managing processes or tools.</p>
+
+                <p>My approach has always been very clear: <strong className="text-slate-200">Balance the theory and practical hands-on</strong>, covering real-time case studies to deepen the understanding, create a collaborative and creative learning environment, help participants to apply the concepts immediately in their work place, focus on learner centric teaching methods with absolutely zero PowerPoint.</p>
+
+                <p className="text-blue-300 font-semibold">The results speak: NPS consistently above 90, 4.9★ Google rating across 9,000+ verified reviews, and 25,000+ professionals trained across 100+ organisations within India and abroad including: Dubai, Qatar, Singapore, Malaysia, HongKong, USA, Australia, Philippines, and UK.</p>
               </div>
             </motion.div>
           </div>
