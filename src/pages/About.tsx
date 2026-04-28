@@ -322,13 +322,13 @@ export default function About() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
             {[
-              { letter: "S", word: "Simple",       body: "" },
-              { letter: "P", word: "Practical",    body: "" },
-              { letter: "E", word: "Effective",    body: "" },
-              { letter: "C", word: "Collaborative",body: "" },
-              { letter: "I", word: "Innovative",   body: "" },
-              { letter: "A", word: "Adaptive",     body: "" },
-              { letter: "L", word: "Long-lasting", body: "" },
+              { letter: "S", word: "Simple",       body: "Easy to Learn" },
+              { letter: "P", word: "Practical",    body: "Real-world focused" },
+              { letter: "E", word: "Effective",    body: "High impact" },
+              { letter: "C", word: "Collaborative",body: "Co-created learning" },
+              { letter: "I", word: "Innovative",   body: "Future-ready" },
+              { letter: "A", word: "Adaptive",     body: "Learner centric" },
+              { letter: "L", word: "Long-lasting", body: "Deeply retained" },
             ].map((d, i) => (
               <motion.div key={d.letter} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
