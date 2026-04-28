@@ -340,7 +340,7 @@ export default function About() {
                 onMouseLeave={e => { if (!isHighlighted) { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.15)" } }}>
                 <div className="font-black text-white leading-none mb-3" style={{ fontSize: "clamp(3rem, 5vw, 4rem)", color: "#60a5fa" }}>{d.letter}</div>
                 <div className="font-bold text-white text-sm mb-2">{d.word}</div>
-                {d.body && <p className="text-white/50 text-xs leading-relaxed">{d.body}</p>}
+                {d.body && <p className="text-xs leading-relaxed" style={{ color: "#60a5fa" }}>{d.body}</p>}
               </motion.div>
               )
             })}
