@@ -93,7 +93,7 @@ export default function Achievements() {
     <div className="bg-white">
       <PageHeader badge="Recognition"
         title={<>Awards & <span className="text-blue-400">Achievements</span></>}
-        subtitle="I've been recognized by leading industry bodies and invited to speak at premier Agile and Project Management conferences across India and globally." />
+        subtitle="Driven by a strong commitment to community engagement, I have served as a volunteer, speaker, organizer, and co-chair at multiple regional and international conferences. I also deliver talks at organizational meetups, sharing practical insights, thought leadership, and industry perspectives." />
 
       {/* Awards Grid */}
       <section className="py-12 px-4">
