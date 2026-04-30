@@ -638,7 +638,8 @@ function PortfolioCarousel() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] })
   const N = portfolioItems.length
   const [active, setActive] = useState(0)
-  const hintOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0])
+ // const hintOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0])
+
 
   useMotionValueEvent(scrollYProgress, "change", v => {
     setActive(Math.min(N - 1, Math.max(0, Math.floor(v * N))))
