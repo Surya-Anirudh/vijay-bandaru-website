@@ -23,6 +23,8 @@ function PageTransition({ children }: { children: React.ReactNode }) {
 }
 
 export default function Layout() {
+  const location = useLocation()
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -42,6 +44,10 @@ export default function Layout() {
       lenis.destroy()
     }
   }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
