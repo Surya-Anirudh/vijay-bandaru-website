@@ -772,7 +772,7 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
             className="w-full h-full object-cover"
-            style={{ objectPosition: "center top" }}
+            style={{ objectPosition: "center 35%" }}
           />
         </div>
 
