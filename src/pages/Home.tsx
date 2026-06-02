@@ -771,8 +771,8 @@ export default function Home() {
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-            className="max-w-4xl w-11/12 h-auto object-contain"
-            style={{ maxHeight: "75vh" }}
+            className="max-w-4xl w-11/12 h-auto object-cover"
+            style={{ maxHeight: "75vh", objectPosition: "center 25%" }}
           />
         </div>
 
