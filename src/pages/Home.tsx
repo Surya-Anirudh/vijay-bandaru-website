@@ -1,6 +1,6 @@
 import { motion, useInView, useScroll, useTransform, useSpring, useMotionValueEvent, type MotionValue } from "framer-motion"
 import { Link } from "react-router-dom"
-import { ArrowRight, Star, Users, Globe, BookOpen, Quote, CheckCircle, Lightbulb, Heart, Rocket, Linkedin, Youtube, Twitter } from "lucide-react"
+import { ArrowRight, Star, Users, Globe, BookOpen, Quote, CheckCircle, Lightbulb, Heart, Rocket } from "lucide-react"
 import { useRef, useEffect, useState, useCallback, useMemo } from "react"
 
 /* ── wodniack-style: floating binary background ── */
@@ -763,92 +763,17 @@ export default function Home() {
         {/* Binary columns rising */}
         <BinaryBackground />
 
-        {/* ── ASYMMETRIC HERO LAYOUT: Credentials | Photo | CTAs + Socials ── */}
-        <div className="flex-1 relative overflow-hidden flex items-center justify-center px-4 lg:px-8" style={{ zIndex: 5, marginTop: "64px" }}>
-
-          {/* LEFT: Credential Badges */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:flex flex-col gap-3 absolute left-0 top-1/2 -translate-y-1/2 w-40">
-            {["Certified Scrum Trainer", "ICAgile Coach", "PMI-ACP", "Enterprise Coach", "A-CSM", "A-CSPO"].map((cred, i) => (
-              <motion.div
-                key={cred}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 + i * 0.08 }}
-                className="px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap"
-                style={{
-                  background: "rgba(59, 130, 246, 0.1)",
-                  border: "1px solid rgba(59, 130, 246, 0.3)",
-                  color: "rgba(147, 197, 253, 0.9)",
-                  backdropFilter: "blur(8px)"
-                }}>
-                ✓ {cred}
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* CENTER: Portrait Photo */}
+        {/* ── CONSTRAINED HERO PHOTO — centered image ── */}
+        <div className="flex-1 relative overflow-hidden flex items-center justify-center" style={{ zIndex: 5, marginTop: "64px" }}>
           <motion.img
             src="/herophoto_about.png"
             alt="Vijay Bandaru"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-            className="w-72 h-auto object-contain relative z-10"
+            className="w-72 h-auto object-contain"
             style={{ maxHeight: "70vh" }}
           />
-
-          {/* RIGHT: CTAs + Social Links */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:flex flex-col gap-4 absolute right-0 top-1/2 -translate-y-1/2 w-44">
-
-            {/* Primary CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-2">
-              <Link to="/training">
-                <button className="w-full px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-all hover:shadow-lg"
-                  style={{ backdropFilter: "blur(8px)" }}>
-                  Book Training →
-                </button>
-              </Link>
-              <a href="https://www.youtube.com/@vijaybandaru" target="_blank" rel="noopener noreferrer">
-                <button className="w-full px-4 py-2.5 rounded-lg text-sm font-semibold text-white border border-blue-400/30 hover:bg-blue-600/20 transition-all"
-                  style={{ backdropFilter: "blur(8px)" }}>
-                  Watch Videos ↗
-                </button>
-              </a>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex gap-2 justify-center pt-2">
-              <a href="https://www.linkedin.com/in/vijaybandaru" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-lg hover:bg-blue-600/20 transition-all" title="LinkedIn">
-                <Linkedin size={18} className="text-blue-400" />
-              </a>
-              <a href="https://www.youtube.com/@vijaybandaru" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-lg hover:bg-blue-600/20 transition-all" title="YouTube">
-                <Youtube size={18} className="text-red-400" />
-              </a>
-              <a href="https://twitter.com/vijaybandaru" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-lg hover:bg-blue-600/20 transition-all" title="Twitter">
-                <Twitter size={18} className="text-blue-400" />
-              </a>
-            </motion.div>
-          </motion.div>
-
         </div>
 
         {/* ── BOTTOM — info strip + HUGE NAME + CTAs + marquee ── */}
