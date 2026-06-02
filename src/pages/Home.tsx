@@ -766,7 +766,7 @@ export default function Home() {
         {/* ── CONSTRAINED HERO PHOTO — centered image ── */}
         <div className="flex-1 relative overflow-hidden flex items-center justify-center" style={{ zIndex: 5, marginTop: "64px" }}>
           <motion.img
-            src="/aboutmainphoto.png"
+            src="/vijaymainpage.png"
             alt="Vijay Bandaru"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
