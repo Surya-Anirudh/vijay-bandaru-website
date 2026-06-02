@@ -1,6 +1,6 @@
 import { motion, useInView, useScroll, useTransform, useSpring, useMotionValueEvent, type MotionValue } from "framer-motion"
 import { Link } from "react-router-dom"
-import { ArrowRight, Star, Users, Globe, BookOpen, Quote, CheckCircle, Lightbulb, Heart, Rocket, Linkedin, Play, Share2 } from "lucide-react"
+import { ArrowRight, Star, Users, Globe, BookOpen, Quote, CheckCircle, Lightbulb, Heart, Rocket, ExternalLink } from "lucide-react"
 import { useRef, useEffect, useState, useCallback, useMemo } from "react"
 
 /* ── wodniack-style: floating binary background ── */
@@ -833,18 +833,18 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex gap-2 justify-center pt-2">
+              className="flex gap-3 justify-center pt-4">
               <a href="https://www.linkedin.com/in/vijaybandaru" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-lg hover:bg-blue-600/20 transition-all" title="LinkedIn">
-                <Linkedin size={18} className="text-blue-400" />
+                className="text-xs px-3 py-1.5 rounded-full text-blue-300 hover:text-blue-200 hover:bg-blue-600/20 transition-all">
+                LinkedIn
               </a>
               <a href="https://www.youtube.com/@vijaybandaru" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-lg hover:bg-blue-600/20 transition-all" title="YouTube">
-                <Play size={18} className="text-red-400" />
+                className="text-xs px-3 py-1.5 rounded-full text-red-300 hover:text-red-200 hover:bg-red-600/20 transition-all">
+                YouTube
               </a>
               <a href="https://twitter.com/vijaybandaru" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-lg hover:bg-blue-600/20 transition-all" title="Twitter/X">
-                <Share2 size={18} className="text-blue-400" />
+                className="text-xs px-3 py-1.5 rounded-full text-blue-300 hover:text-blue-200 hover:bg-blue-600/20 transition-all">
+                Twitter
               </a>
             </motion.div>
           </motion.div>
