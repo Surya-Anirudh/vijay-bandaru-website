@@ -897,6 +897,24 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* ═══════════════════ RECOGNITION ═══════════════════ */}
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-slate-50">
+        <div className="max-w-3xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center">
+            <p className="text-center text-slate-400 text-[10px] font-bold tracking-[0.35em] uppercase mb-6">Recognition</p>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
+              Recognized as a <span className="text-blue-600">Top Scrum Trainer</span>
+            </h2>
+            <p className="text-slate-600 mb-8 text-lg leading-relaxed">
+              Featured in Grok's curated list of the world's top 10 Scrum Master mentors, trainers, and influencers. Recognized for pioneering work in Agile transformation and practical Scrum training across India and globally.
+            </p>
+            <div className="inline-block bg-white px-6 py-3 rounded-xl border-2 border-blue-200 mb-6">
+              <p className="text-sm font-semibold text-blue-700">✓ Grok Top 10 Scrum Trainers List</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ═══════════════════ PHILOSOPHY ═══════════════════ */}
       <section className="relative py-28 px-4 overflow-hidden">
         {/* ── Background video ── */}
