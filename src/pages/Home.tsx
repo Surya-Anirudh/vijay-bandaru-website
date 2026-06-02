@@ -1,6 +1,6 @@
 import { motion, useInView, useScroll, useTransform, useSpring, useMotionValueEvent, type MotionValue } from "framer-motion"
 import { Link } from "react-router-dom"
-import { ArrowRight, Star, Users, Globe, BookOpen, Quote, CheckCircle, Lightbulb, Heart, Rocket, Linkedin, Youtube, Twitter } from "lucide-react"
+import { ArrowRight, Star, Users, Globe, BookOpen, Quote, CheckCircle, Lightbulb, Heart, Rocket, Linkedin, Play, Share2 } from "lucide-react"
 import { useRef, useEffect, useState, useCallback, useMemo } from "react"
 
 /* ── wodniack-style: floating binary background ── */
@@ -840,11 +840,11 @@ export default function Home() {
               </a>
               <a href="https://www.youtube.com/@vijaybandaru" target="_blank" rel="noopener noreferrer"
                 className="p-2.5 rounded-lg hover:bg-blue-600/20 transition-all" title="YouTube">
-                <Youtube size={18} className="text-red-400" />
+                <Play size={18} className="text-red-400" />
               </a>
               <a href="https://twitter.com/vijaybandaru" target="_blank" rel="noopener noreferrer"
-                className="p-2.5 rounded-lg hover:bg-blue-600/20 transition-all" title="Twitter">
-                <Twitter size={18} className="text-blue-400" />
+                className="p-2.5 rounded-lg hover:bg-blue-600/20 transition-all" title="Twitter/X">
+                <Share2 size={18} className="text-blue-400" />
               </a>
             </motion.div>
           </motion.div>
