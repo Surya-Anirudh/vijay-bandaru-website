@@ -763,17 +763,48 @@ export default function Home() {
         {/* Binary columns rising */}
         <BinaryBackground />
 
-        {/* ── CONSTRAINED HERO PHOTO — smaller centered image ── */}
+        {/* ── HERO PHOTO WITH SIDE BADGES ── */}
         <div className="flex-1 relative overflow-hidden flex items-center justify-center" style={{ zIndex: 5, marginTop: "64px" }}>
+          {/* Left badge */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="absolute left-4 lg:left-12 top-1/4 w-24 h-24 rounded-2xl flex items-center justify-center"
+            style={{ background: "rgba(37, 99, 235, 0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(59, 130, 246, 0.3)" }}>
+            <img src="/badge-csm.png" alt="CSM" className="w-16 h-16 object-contain" />
+          </motion.div>
+
+          {/* Center photo */}
           <motion.img
             src="/herophoto_about.png"
             alt="Vijay Bandaru"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-            className="w-72 h-auto object-contain"
+            className="w-[500px] h-auto object-contain"
             style={{ maxHeight: "70vh" }}
           />
+
+          {/* Right badge */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="absolute right-4 lg:right-12 top-1/3 w-24 h-24 rounded-2xl flex items-center justify-center"
+            style={{ background: "rgba(79, 70, 229, 0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(99, 102, 241, 0.3)" }}>
+            <img src="/badge-acsm.png" alt="A-CSM" className="w-16 h-16 object-contain" />
+          </motion.div>
+
+          {/* Bottom right badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="absolute right-8 lg:right-16 bottom-1/4 w-24 h-24 rounded-2xl flex items-center justify-center"
+            style={{ background: "rgba(16, 185, 129, 0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(16, 185, 129, 0.3)" }}>
+            <img src="/badge-cspo.png" alt="CSPO" className="w-16 h-16 object-contain" />
+          </motion.div>
         </div>
 
         {/* ── BOTTOM — info strip + HUGE NAME + CTAs + marquee ── */}
