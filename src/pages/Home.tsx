@@ -898,19 +898,42 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════ RECOGNITION ═══════════════════ */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-50 to-slate-50">
-        <div className="max-w-3xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center">
-            <p className="text-center text-slate-400 text-[10px] font-bold tracking-[0.35em] uppercase mb-6">Recognition</p>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
-              Recognized as a <span className="text-blue-600">Top Scrum Trainer</span>
-            </h2>
-            <p className="text-slate-600 mb-8 text-lg leading-relaxed">
-              Featured in Grok's curated list of the world's top 10 Scrum Master mentors, trainers, and influencers. Recognized for pioneering work in Agile transformation and practical Scrum training across India and globally.
-            </p>
-            <div className="inline-block bg-white px-6 py-3 rounded-xl border-2 border-blue-200 mb-6">
-              <p className="text-sm font-semibold text-blue-700">✓ Grok Top 10 Scrum Trainers List</p>
-            </div>
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 via-white to-slate-50">
+        <div className="max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <p className="text-center text-slate-400 text-[10px] font-bold tracking-[0.35em] uppercase mb-8">Recognition</p>
+
+            <a href="https://www.linkedin.com/posts/delivery-nexus_as-per-grok-heres-a-compiled-list-of-activity-7461573708411744256--niS/?utm_source=share&utm_medium=member_ios"
+               target="_blank" rel="noopener noreferrer"
+               className="block group">
+              <div className="bg-white rounded-3xl p-8 md:p-12 border-2 border-slate-100 hover:border-blue-300 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer">
+
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <span className="text-2xl">⭐</span>
+                  <span className="text-xs font-bold text-blue-600 tracking-wider uppercase">Featured Recognition</span>
+                  <span className="text-2xl">⭐</span>
+                </div>
+
+                <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 group-hover:text-blue-600 transition-colors text-center">
+                  Recognized as a <span className="text-blue-600">Top Scrum Trainer</span>
+                </h2>
+
+                <p className="text-slate-600 mb-6 text-lg leading-relaxed text-center">
+                  Featured in Grok's curated list of the world's top 10 Scrum Master mentors, trainers, and influencers. Recognized for pioneering work in Agile transformation and practical Scrum training across India and globally.
+                </p>
+
+                <div className="flex justify-center mb-6">
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-slate-50 px-6 py-3 rounded-full border-2 border-blue-300 hover:border-blue-500 group-hover:bg-blue-50 transition-all">
+                    <span className="text-xl">✓</span>
+                    <p className="text-sm font-bold text-blue-700">Grok Top 10 Scrum Trainers List</p>
+                  </div>
+                </div>
+
+                <p className="text-center text-blue-600 text-sm font-semibold group-hover:text-blue-700">
+                  View on LinkedIn →
+                </p>
+              </div>
+            </a>
           </motion.div>
         </div>
       </section>
