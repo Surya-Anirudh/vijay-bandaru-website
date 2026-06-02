@@ -763,26 +763,17 @@ export default function Home() {
         {/* Binary columns rising */}
         <BinaryBackground />
 
-        {/* ── FULL WIDTH PHOTO — fills entire canvas area ── */}
-        <div className="flex-1 relative overflow-hidden" style={{ zIndex: 5, marginTop: "64px" }}>
+        {/* ── CONSTRAINED HERO PHOTO — smaller centered image ── */}
+        <div className="flex-1 relative overflow-hidden flex items-center justify-center" style={{ zIndex: 5, marginTop: "64px" }}>
           <motion.img
-            src="/homepage-photo.png"
-            onError={e => { (e.currentTarget as HTMLImageElement).src = "/vijay-profile.png" }}
+            src="/herophoto_about.png"
             alt="Vijay Bandaru"
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center 15%" }}
+            className="w-72 h-auto object-contain"
+            style={{ maxHeight: "70vh" }}
           />
-          {/* Subtle dark gradient at bottom so name text stays readable */}
-          <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-            style={{ background: "linear-gradient(to bottom, transparent, rgba(3,13,30,0.85))" }} />
-          {/* Side vignettes */}
-          <div className="absolute inset-y-0 left-0 w-16 pointer-events-none"
-            style={{ background: "linear-gradient(to right, rgba(3,13,30,0.4), transparent)" }} />
-          <div className="absolute inset-y-0 right-0 w-16 pointer-events-none"
-            style={{ background: "linear-gradient(to left, rgba(3,13,30,0.4), transparent)" }} />
         </div>
 
         {/* ── BOTTOM — info strip + HUGE NAME + CTAs + marquee ── */}
