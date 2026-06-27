@@ -169,7 +169,7 @@ export default function Achievements() {
         <div className="max-w-7xl mx-auto">
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items center justify-center">
               <Users size={20} className="text-white" />
             </div>
             <h2 className="text-3xl font-black text-slate-900">Speaker & Volunteer Contributions</h2>
