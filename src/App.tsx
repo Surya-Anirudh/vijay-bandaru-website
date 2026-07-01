@@ -9,6 +9,7 @@ import Blog from "@/pages/Blog"
 import BlogPost from "@/pages/BlogPost"
 import Podcast from "@/pages/Podcast"
 import Contact from "@/pages/Contact"
+import Book from "@/pages/Book"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="podcast" element={<Podcast />} />
+          <Route path="book" element={<Book />} />
           <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>

@@ -188,6 +188,7 @@ export default function Achievements() {
               </thead>
               <tbody>
                 {[
+                  { year: "2026", event: "Regional Scrum Gathering", location: "Hyderabad, India",   role: "Conference Chair",  topic: "Facilitated the conference" },
                   { year: "2024", event: "Regional Scrum Gathering", location: "Hyderabad, India",   role: "Conference Chair",  topic: "Facilitated the conference" },
                   { year: "2022", event: "Regional Scrum Gathering", location: "Hyderabad, India",   role: "Conference Chair",  topic: "Facilitated the conference" },
                   { year: "2020", event: "Regional Scrum Gathering", location: "Hyderabad, India",   role: "Conference Chair",  topic: "Facilitated the conference" },

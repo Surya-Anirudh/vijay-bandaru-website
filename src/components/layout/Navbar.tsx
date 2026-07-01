@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, BookOpen } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
 import { cn } from "@/lib/utils"
 
@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Podcast", href: "/podcast" },
+  { label: "Stay Relevant & Valued", href: "/book", icon: BookOpen },
   { label: "Contact", href: "/contact" },
 ]
 
@@ -51,17 +52,21 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-0.5">
-            {navLinks.map((link) => (
-              <Link key={link.href} to={link.href}
-                className={cn(
-                  "px-3.5 py-2 text-sm rounded-lg font-medium transition-all duration-300",
-                  isActive(link.href)
-                    ? "text-blue-600 bg-blue-50"
-                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
-                )}>
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const Icon = (link as { icon?: typeof BookOpen }).icon
+              return (
+                <Link key={link.href} to={link.href}
+                  className={cn(
+                    "flex items-center gap-1.5 px-3.5 py-2 text-sm rounded-lg font-medium transition-all duration-300",
+                    isActive(link.href)
+                      ? "text-blue-600 bg-blue-50"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                  )}>
+                  {Icon && <Icon size={13} />}
+                  {link.label}
+                </Link>
+              )
+            })}
           </nav>
 
 
@@ -82,16 +87,20 @@ export default function Navbar() {
             className="lg:hidden overflow-hidden border-t border-white/10 shadow-2xl"
             style={{ background: "#030d1e" }}>
             <div className="px-4 py-3 space-y-1">
-              {navLinks.map((link) => (
-                <Link key={link.href} to={link.href}
-                  className={cn(
-                    "flex items-center px-3 py-2.5 rounded-xl text-sm font-medium transition-all",
-                    isActive(link.href) ? "text-white bg-white/15" : "text-white/65 hover:text-white hover:bg-white/10"
-                  )}>
-                  {link.label}
-                  {isActive(link.href) && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-blue-400" />}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const Icon = (link as { icon?: typeof BookOpen }).icon
+                return (
+                  <Link key={link.href} to={link.href}
+                    className={cn(
+                      "flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium transition-all",
+                      isActive(link.href) ? "text-white bg-white/15" : "text-white/65 hover:text-white hover:bg-white/10"
+                    )}>
+                    {Icon && <Icon size={14} />}
+                    {link.label}
+                    {isActive(link.href) && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-blue-400" />}
+                  </Link>
+                )
+              })}
               <div className="pt-2 pb-1">
                 <Link to="/contact">
                   <button className="w-full py-3 rounded-xl bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-colors">

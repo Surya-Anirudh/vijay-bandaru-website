@@ -1,6 +1,6 @@
 import { motion, useInView, useScroll, useTransform, useSpring, useMotionValueEvent, type MotionValue } from "framer-motion"
 import { Link } from "react-router-dom"
-import { ArrowRight, Star, Users, Globe, BookOpen, Quote, CheckCircle, Lightbulb, Heart, Rocket } from "lucide-react"
+import { ArrowRight, Star, Users, Globe, Quote, CheckCircle, Lightbulb, Heart, Rocket, BookOpen } from "lucide-react"
 import { useRef, useEffect, useState, useCallback, useMemo } from "react"
 
 /* ── wodniack-style: floating binary background ── */
