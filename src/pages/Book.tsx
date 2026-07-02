@@ -101,25 +101,39 @@ export default function Book() {
                 </p>
               </div>
 
-              {/* BUY NOW */}
-              <a href="https://forms.gle/RgapcG6jStQbbkxaA" target="_blank" rel="noopener noreferrer">
-                <button
-                  className="group w-full py-4 rounded-2xl font-black tracking-wide flex items-center justify-center gap-3 transition-all"
-                  style={{ background: "linear-gradient(135deg, #4f46e5 0%, #2563eb 100%)", color: "#fff", border: "1px solid rgba(165,180,252,0.2)", boxShadow: "0 8px 32px rgba(79,70,229,0.35)", fontSize: "1.05rem" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 12px 48px rgba(79,70,229,0.55)"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)" }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 8px 32px rgba(79,70,229,0.35)"; (e.currentTarget as HTMLButtonElement).style.transform = "" }}>
-                  <BookOpen size={18} />
-                  Buy Now
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-              </a>
+              {/* CTA Buttons */}
+              <div className="flex flex-col gap-3">
+                {/* BUY NOW - Smaller */}
+                <a href="https://forms.gle/RgapcG6jStQbbkxaA" target="_blank" rel="noopener noreferrer">
+                  <button
+                    className="group w-full py-3 rounded-xl font-bold tracking-wide flex items-center justify-center gap-2 transition-all"
+                    style={{ background: "linear-gradient(135deg, #4f46e5 0%, #2563eb 100%)", color: "#fff", border: "1px solid rgba(165,180,252,0.2)", boxShadow: "0 8px 32px rgba(79,70,229,0.35)", fontSize: "0.95rem" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 12px 48px rgba(79,70,229,0.55)"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)" }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 8px 32px rgba(79,70,229,0.35)"; (e.currentTarget as HTMLButtonElement).style.transform = "" }}>
+                    <BookOpen size={16} />
+                    Buy Now
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </a>
+
+                {/* PREVIEW CHAPTER */}
+                <a href="#free-chapter-preview">
+                  <button
+                    className="group w-full py-3 rounded-xl font-bold tracking-wide flex items-center justify-center gap-2 transition-all"
+                    style={{ background: "rgba(99,102,241,0.1)", color: "rgba(165,180,252,0.9)", border: "1.5px solid rgba(99,102,241,0.3)", fontSize: "0.95rem" }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(99,102,241,0.15)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(99,102,241,0.5)" }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(99,102,241,0.1)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(99,102,241,0.3)" }}>
+                    Preview Free Chapter
+                  </button>
+                </a>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* ── FREE CHAPTER PREVIEW ── */}
-      <section className="relative px-4 pb-24">
+      <section id="free-chapter-preview" className="relative px-4 pb-24">
         <div className="max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             {/* Why sharing — above everything */}
