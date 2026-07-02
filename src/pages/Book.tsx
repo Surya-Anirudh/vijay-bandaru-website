@@ -203,7 +203,7 @@ export default function Book() {
                 </p>
 
                 {/* Illustration 2 */}
-                <div style={{ borderRadius: 12, overflow: "hidden", marginBottom: 16, background: "#fff", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <div style={{ borderRadius: 12, overflow: "hidden", marginBottom: 16, background: "#fff", display: "flex", justifyContent: "center", alignItems: "center", marginLeft: "-20px" }}>
                   <img src="/fish-no-wall.png" alt="Big fish with small fishes freely swimming — no glass wall" style={{ maxWidth: "100%", height: "auto", display: "block" }} />
                 </div>
 
