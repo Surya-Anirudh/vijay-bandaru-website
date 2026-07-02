@@ -194,8 +194,8 @@ export default function Book() {
                 <div style={{ fontWeight: 700, color: "rgba(165,180,252,0.8)", fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 14 }}>Story — The Fish That Stopped Trying</div>
 
                 {/* Illustration 1 */}
-                <div style={{ borderRadius: 12, overflow: "hidden", marginBottom: 16, background: "#fff" }}>
-                  <img src="/fish-glass-wall.png" alt="Big fish separated from small fishes by a glass wall" style={{ width: "100%", display: "block" }} />
+                <div style={{ borderRadius: 12, overflow: "hidden", marginBottom: 16, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", minHeight: 240 }}>
+                  <img src="/fish-glass-wall.png" alt="Big fish separated from small fishes by a glass wall" style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }} />
                 </div>
 
                 <p style={{ color: "rgba(203,213,225,0.7)", fontSize: "0.9rem", lineHeight: 1.8, marginBottom: 16 }}>
@@ -203,8 +203,8 @@ export default function Book() {
                 </p>
 
                 {/* Illustration 2 */}
-                <div style={{ borderRadius: 12, overflow: "hidden", marginBottom: 16, background: "#fff" }}>
-                  <img src="/fish-no-wall.png" alt="Big fish with small fishes freely swimming — no glass wall" style={{ width: "100%", display: "block" }} />
+                <div style={{ borderRadius: 12, overflow: "hidden", marginBottom: 16, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", minHeight: 240 }}>
+                  <img src="/fish-no-wall.png" alt="Big fish with small fishes freely swimming — no glass wall" style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }} />
                 </div>
 
                 <p style={{ color: "rgba(203,213,225,0.7)", fontSize: "0.9rem", lineHeight: 1.8, margin: 0 }}>
