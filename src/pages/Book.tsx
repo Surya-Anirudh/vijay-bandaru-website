@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { ArrowRight, BookOpen } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 
 /* ── Static Book Photo ── */
 function BookHeroImage() {
@@ -310,6 +311,50 @@ export default function Book() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Reader feedback */}
+            <div className="mt-6">
+              <div style={{ marginBottom: 18 }}>
+                <div style={{ fontFamily: "monospace", fontSize: 10, color: "rgba(165,180,252,0.7)", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: 10 }}>
+                  Reader Reviews
+                </div>
+                <h3 style={{ color: "#ffffff", fontWeight: 900, fontSize: "clamp(1.35rem, 2.4vw, 1.8rem)", lineHeight: 1.2, textShadow: "0 4px 24px rgba(96,165,250,0.18)" }}>
+                  Feedback from Readers
+                </h3>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                {
+                  quote: `I had the opportunity to participate in the 'Scrum' quiz contest organised by the RSGH 2026 team, and I was pleasantly surprised to receive the excellent book "Stay Relevant & Valued," signed by Vijay Bandaru, Author, as the prize for achieving 2nd rank out of 94 participants.
+
+Upon glancing through the book, I found the topics presented with remarkable clarity, citing examples from every walk of life. The "Reader Reflection" at the end of each chapter is particularly encouraging us to implement immediately. As a sample, a small snapshot under the chapter "Reflection fuels Reinvention" showcases clear wisdom that resonates well.`,
+                  name: "Ramadevi Lakshmanan",
+                },
+                {
+                  quote: `Stay Relevant & Valued is a practical and inspiring guide for anyone who wants to grow in today's fast-changing world. Vijay Bandaru combines real-life experiences with actionable insights that help readers develop the right mindset and future-ready skills. The book is easy to read, relatable, and filled with lessons that can be applied immediately. Whether you're a student, professional, or entrepreneur, this book offers valuable strategies to stay relevant and create lasting impact. A highly recommended read for lifelong learners.`,
+                  name: "Krishna",
+                },
+                {
+                  quote: "Yesterday started reading your book....17 pages done....getting feeling.....I got right thing for my professional journey.",
+                  name: "Asmita",
+                },
+                {
+                  quote: "Hi Vijay, I have started reading your book 2 days back, it is very nicely authored which keeps me engaged to read one chapter after another just like webseries. All quotes used are very thoughtful, keep it up. Once done will share the copy with team too.",
+                  name: "Utpal Dighe",
+                },
+              ].map(({ quote, name }) => (
+                <Card
+                  key={name}
+                  className="border-white/10 bg-white/5 shadow-[0_20px_40px_rgba(15,23,42,0.28)] backdrop-blur-sm"
+                >
+                  <CardContent className="p-8 sm:p-9">
+                    <p style={{ color: "rgba(203,213,225,0.78)", fontSize: "0.85rem", lineHeight: 1.8, whiteSpace: "pre-line" }}>"{quote}"</p>
+                    <div className="mt-4 text-base font-bold text-slate-100">— {name}</div>
+                  </CardContent>
+                </Card>
+              ))}
+              </div>
             </div>
 
             {/* Final CTA */}
