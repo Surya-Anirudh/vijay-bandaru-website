@@ -87,7 +87,7 @@ export default function Book() {
 
               {/* Stats row */}
               <div className="flex gap-6">
-                {[{ val: "94", label: "Principles" }, { val: "₹699", label: "Price" }, { val: "28+", label: "Years Wisdom" }].map(({ val, label }) => (
+                {[{ val: "94", label: "Principles" }, { val: "₹699", label: "Including Shipping Charges" }, { val: "28+", label: "Years Wisdom" }].map(({ val, label }) => (
                   <div key={label} className="text-center">
                     <div style={{ fontWeight: 900, color: "#fff", fontSize: "1.5rem" }}>{val}</div>
                     <div style={{ color: "rgba(148,163,184,0.6)", fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>{label}</div>
