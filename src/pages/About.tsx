@@ -133,7 +133,7 @@ export default function About() {
                   }}>BANDARU</span>
                 </h1>
                 <p className="text-slate-400 font-medium text-xs leading-loose tracking-wide whitespace-nowrap">
-                  Agile Coach · Scrum Trainer · Lifelong Learner · Story Teller
+                  Agile Coach · Scrum Trainer · Lifelong Learner · Story Teller · Author of &quot;Stay Relevant &amp; Valued&quot;
                 </p>
               </motion.div>
             </motion.div>

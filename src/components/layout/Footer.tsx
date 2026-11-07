@@ -70,7 +70,7 @@ export default function Footer() {
               <img src="/logo.png" alt="VB Logo" className="w-10 h-10 object-contain" />
               <div>
                 <div className="font-bold text-base"><span className="text-black">VIJAY</span> <span className="text-blue-500">BANDARU</span></div>
-                <div className="text-[8px] font-semibold tracking-[0.04em] uppercase mt-0.5 text-slate-500">TRAINER · COACH · SPEAKER</div>
+                <div className="text-[8px] font-semibold tracking-[0.04em] uppercase mt-0.5 text-slate-500">TRAINER · COACH · SPEAKER · AUTHOR</div>
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-6 max-w-sm mt-4">

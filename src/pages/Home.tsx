@@ -827,7 +827,7 @@ export default function Home() {
               transition={{ duration: 0.75, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
               className="flex items-center justify-center px-4 sm:px-8 pb-3">
               <span className="font-mono font-semibold tracking-[0.22em] uppercase text-[10px] sm:text-xs" style={{ color: "rgba(147,197,253,0.7)" }}>
-                TRAINER · COACH · SPEAKER
+                TRAINER · COACH · SPEAKER · AUTHOR
               </span>
             </motion.div>
           </div>
